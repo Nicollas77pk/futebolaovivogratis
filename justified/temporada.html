@@ -126,6 +126,12 @@
       if (!seasons[ep.season]) {
         seasons[ep.season] = [];
       }
+
+      // Se não tiver imagem, define uma padrão
+      if (!ep.logo) {
+        ep.logo = "https://via.placeholder.com/120x180?text=Sem+Capa";
+      }
+
       seasons[ep.season].push(ep);
     });
 
@@ -137,6 +143,10 @@
       seasonSelect.appendChild(option);
     });
 
+    // Seleciona a primeira temporada e carrega
+    seasonSelect.selectedIndex = 0;
+    updateEpisodes();
+
     // Atualiza os episódios quando a temporada muda
     seasonSelect.addEventListener('change', updateEpisodes);
 
@@ -144,7 +154,6 @@
       const selectedSeason = seasonSelect.value;
       const episodesList = seasons[selectedSeason];
 
-      // Limpa opções anteriores
       episodeSelect.innerHTML = '';
       thumbsContainer.innerHTML = '';
 
@@ -167,10 +176,6 @@
       });
     }
 
-    // Executa o carregamento inicial
-    updateEpisodes();
-
-    // Toca o episódio selecionado
     function playSelected() {
       const season = seasonSelect.value;
       const episodeIndex = episodeSelect.value;
