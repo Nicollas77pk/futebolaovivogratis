@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>HLS Player</title>
+  <title>HLS Player (Hash Support)</title>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <style>
     body {
@@ -26,26 +26,20 @@
   <video id="video" controls autoplay></video>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const videoUrl = params.get('url');
+    const hashLink = decodeURIComponent(window.location.hash.substring(1));
     const video = document.getElementById('video');
 
-    if (!videoUrl) {
-      alert("Nenhum link .m3u8 foi fornecido.");
+    if (!hashLink || !hashLink.includes('.m3u8')) {
+      alert("Link inválido ou ausente.");
     } else if (Hls.isSupported()) {
-      const hls = new Hls({
-        debug: false,
-        xhrSetup: function(xhr) {
-          xhr.withCredentials = true; // importante para alguns servidores
-        }
-      });
-      hls.loadSource(videoUrl);
+      const hls = new Hls();
+      hls.loadSource(hashLink);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         video.play();
       });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = videoUrl;
+      video.src = hashLink;
       video.addEventListener('loadedmetadata', () => {
         video.play();
       });
