@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Launcher HLS Player</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    input {
+      padding: 10px;
+      width: 90%;
+      max-width: 500px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background: limegreen;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Launcher HLS Player</h2>
+  <input id="linkInput" type="text" placeholder="Cole aqui o link .m3u8">
+  <button onclick="abrirPlayer()">Abrir no Player</button>
+
+  <script>
+    function abrirPlayer() {
+      const link = document.getElementById('linkInput').value;
+      if (!link.includes('.m3u8')) {
+        alert("Insira um link válido (.m3u8)");
+        return;
+      }
+      window.open(`player.html?url=${encodeURIComponent(link)}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
