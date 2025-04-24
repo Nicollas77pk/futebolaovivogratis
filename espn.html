@@ -92,6 +92,7 @@
 
   <!-- Container do Player -->
   <div class="player-container">
+
     <!-- Banner -->
     <div class="icon-link">
       <a href="https://8xbet93.com/" target="_blank">
@@ -130,8 +131,6 @@
   <!-- Scripts -->
   <script src="https://cdn.plyr.io/3.6.12/plyr.polyfilled.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script src="links.js"></script> <!-- LINK IMPORTADO AQUI -->
-
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const videoContainer = document.getElementById('video-container');
@@ -142,14 +141,13 @@
       let hls;
       let player;
 
+      const links = {
+        "espn": "https://onplaytv.net/espn/video.m3u8",
+        "sportv": "https://onplaytv.net/sportv/video.m3u8",
+        "sbt": "https://onplaytv.net/sbtsp/video.m3u8"
+      };
+
       function changePlayerUrl(id) {
-        const url = window.links?.[id];
-
-        if (!url) {
-          alert("Transmissão não encontrada!");
-          return;
-        }
-
         iframeContainer.classList.remove('active');
         iframePlayer.src = '';
         videoContainer.classList.add('active');
@@ -160,11 +158,11 @@
         }
 
         video.pause();
-        videoSource.src = url;
+        videoSource.src = links[id];
 
         if (Hls.isSupported()) {
           hls = new Hls();
-          hls.loadSource(url);
+          hls.loadSource(links[id]);
           hls.attachMedia(video);
         } else {
           video.load();
@@ -178,7 +176,6 @@
         iframePlayer.src = url;
       }
 
-      // Padrão ao iniciar: ESPN
       changePlayerUrl('espn');
       player = new Plyr(video);
 
