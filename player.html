@@ -2,19 +2,31 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Player Genérico</title>
+  <title>HLS Player</title>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <style>
-    body { margin: 0; background-color: #000; display: flex; justify-content: center; align-items: center; height: 100vh; }
-    video { width: 100%; max-width: 900px; height: auto; outline: none; }
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    video {
+      width: 100%;
+      max-width: 900px;
+      border: none;
+      background: #000;
+    }
   </style>
 </head>
 <body>
+
   <video id="meuPlayer" controls autoplay></video>
 
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const streamUrl = urlParams.get('url') || 'http://lexus.hubns.top:80/Leonardo77/983469871/1257207.m3u8'; // link padrão
+    const streamUrl = 'http://lexus.hubns.top/Leonardo77/983469871/1257207.m3u8';
     const video = document.getElementById('meuPlayer');
 
     if (Hls.isSupported()) {
@@ -30,8 +42,9 @@
         video.play();
       });
     } else {
-      alert('Seu navegador não é compatível com HLS.');
+      alert("Seu navegador não suporta vídeos HLS.");
     }
   </script>
+
 </body>
 </html>
