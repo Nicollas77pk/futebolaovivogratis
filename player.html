@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>HLS Player (Hash Support)</title>
+  <title>HLS Player (MP4 / M3U8)</title>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <style>
     body {
@@ -29,22 +29,34 @@
     const hashLink = decodeURIComponent(window.location.hash.substring(1));
     const video = document.getElementById('video');
 
-    if (!hashLink || !hashLink.includes('.m3u8')) {
-      alert("Link inválido ou ausente.");
-    } else if (Hls.isSupported()) {
-      const hls = new Hls();
-      hls.loadSource(hashLink);
-      hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        video.play();
-      });
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    if (!hashLink) {
+      alert("Nenhum link foi fornecido.");
+    } else if (hashLink.includes('.m3u8')) {
+      // Se for .m3u8, usar HLS.js
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(hashLink);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          video.play();
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Para navegadores Apple (nativo)
+        video.src = hashLink;
+        video.addEventListener('loadedmetadata', () => {
+          video.play();
+        });
+      } else {
+        alert("Seu navegador não suporta vídeos HLS.");
+      }
+    } else if (hashLink.includes('.mp4')) {
+      // Se for .mp4, usar o player HTML5 padrão
       video.src = hashLink;
       video.addEventListener('loadedmetadata', () => {
         video.play();
       });
     } else {
-      alert("Seu navegador não suporta vídeos HLS.");
+      alert("Link inválido. Só .mp4 ou .m3u8 são aceitos.");
     }
   </script>
 
