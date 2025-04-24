@@ -50,5 +50,47 @@
   <script src="https://cdn.plyr.io/3.6.12/plyr.polyfilled.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script src="assets/scripts/player.js"></script>
+  <script>
+    // Função que muda a URL do player
+    function changePlayerUrl(id) {
+      const videoSource = document.getElementById('video-source');
+      const videoContainer = document.getElementById('video-container');
+      const iframeContainer = document.getElementById('iframe-container');
+      const iframePlayer = document.getElementById('iframe-player');
+
+      iframeContainer.classList.remove('active');
+      iframePlayer.src = '';
+      videoContainer.classList.add('active');
+
+      const links = {
+        sportv1: "https://onplaytv.net/espn/video.m3u8",
+        espn: "https://onplaytv.net/espn/video.m3u8",
+        sbt: "https://onplaytv.net/espn/video.m3u8"
+      };
+
+      const url = links[id];
+      if (url) {
+        videoSource.src = url;
+        videoSource.type = 'application/x-mpegURL';
+
+        if (Hls.isSupported()) {
+          let hls = new Hls();
+          hls.loadSource(url);
+          hls.attachMedia(video);
+        } else {
+          video.load();
+        }
+      } else {
+        alert("Link não encontrado!");
+      }
+    }
+
+    // Verifica o parâmetro 'id' na URL e carrega o link correto
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id") || 'espn'; // Padrão para 'espn' caso não haja parâmetro
+      changePlayerUrl(id);
+    });
+  </script>
 </body>
 </html>
