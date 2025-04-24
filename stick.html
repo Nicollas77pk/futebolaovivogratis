@@ -120,7 +120,7 @@
       errorMessage.innerText = '';
     }
 
-    // Função para reproduzir o episódio
+    // Função para verificar e reproduzir o episódio
     function playEpisode() {
       const season = document.getElementById('seasonSelect').value;
       const episode = document.getElementById('episodeSelect').value;
@@ -133,9 +133,11 @@
           if (!response.ok) {
             throw new Error('Vídeo não encontrado');
           }
+          // Atualiza o link do vídeo se for válido
           videoSource.src = videoUrl;
           videoElement.load();
           videoElement.play();
+          errorMessage.innerText = ''; // Limpa qualquer erro anterior
         })
         .catch(error => {
           errorMessage.innerText = `Erro ao carregar o vídeo: ${error.message}`;
