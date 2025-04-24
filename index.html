@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futebol ao vivo grátis</title>
+  <link rel="stylesheet" href="assets/styles/style.css" />
+</head>
+<body>
+
+  <!-- Container do Player -->
+  <div class="player-container">
+
+    <!-- Banner -->
+    <div class="icon-link">
+      <a href="https://8xbet93.com/" target="_blank">
+        <img src="assets/images/banner.gif" alt="Ícone">
+      </a>
+    </div>
+
+    <!-- Player de Vídeo -->
+    <div class="video-container active" id="video-container">
+      <video id="player" controls>
+        <source id="video-source" src="" type="application/x-mpegURL">
+        Seu navegador não suporta a tag de vídeo.
+      </video>
+    </div>
+
+    <!-- Player via Iframe -->
+    <div class="iframe-container" id="iframe-container">
+      <iframe id="iframe-player" src="" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Botões de Transmissão -->
+  <div class="options_iframe">
+    <a href="javascript:void(0)" onclick="changePlayerUrl('sportv1')">Transmissão 1</a>
+    <a href="javascript:void(0)" onclick="changePlayerUrl('espn')">Transmissão 2</a>
+    <a href="javascript:void(0)" onclick="changePlayerUrl('sbt')">Transmissão 3</a>
+  </div>
+
+  <!-- Imagem Clicável DEPOIS dos botões -->
+  <div style="text-align: center; margin: 20px 0;">
+    <a href="https://8xbet93.com/" target="_blank">
+      <img src="assets/images/logo.png" alt="Imagem clicável" style="width: 380px; height: auto;">
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.plyr.io/3.6.12/plyr.polyfilled.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="assets/scripts/player.js"></script>
+</body>
+</html>
