@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Futebol ao vivo grátis</title>
   <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css" />
-
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -14,121 +13,155 @@
       background: #111;
       color: #fff;
     }
-  .layout-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    margin: 20px auto;
-    padding: 10px;
-    max-width: 1200px;
-  }
 
-  .banner-image {
-    flex: 1 1 250px;
-    max-width: 250px;
-    text-align: center;
-  }
-
-  .banner-image img {
-    width: 100%;
-    height: auto;
-    max-width: 230px;
-    border-radius: 10px;
-  }
-
-  .player-section {
-    flex: 1 1 700px;
-    max-width: 750px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .player-container {
-    width: 100%;
-    border: 5px solid green;
-    padding: 10px;
-    border-radius: 10px;
-    background: #000;
-    text-align: center;
-  }
-
-  .options_iframe {
-    text-align: center;
-    width: 100%;
-  }
-
-  .options_iframe a {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: green;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-
-  .options_iframe a:hover {
-    background-color: darkgreen;
-  }
-
-  @media (max-width: 768px) {
     .layout-container {
-      flex-direction: column;
-      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      margin: 20px auto;
+      padding: 10px;
+      max-width: 1400px;
     }
 
-    .banner-image,
-    .player-section {
+    .banner-image {
+      flex: 1 1 200px;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .banner-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .player-container {
+      position: relative;
+      flex: 1 1 600px;
+      max-width: 750px;
+      border: 5px solid green;
+      padding: 10px;
+      border-radius: 10px;
+      background: #000;
+      text-align: center;
+    }
+
+    .icon-link img {
       max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .video-container, .iframe-container {
+      display: none;
+      width: 100%;
+    }
+
+    .video-container.active, .iframe-container.active {
+      display: block;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
     }
 
     .iframe-container iframe {
-      height: 300px;
+      width: 100%;
+      height: 500px;
+      border: none;
     }
-  }
-</style>
 
-<!-- HTML dentro do body -->
-<div class="layout-container">
-  <div class="banner-image">
-    <a href="https://8xbet93.com/" target="_blank">
-      <img src="https://i.ibb.co/k2rd3nf1/400-X400-BRZL.gif" alt="Imagem clicável">
-    </a>
-  </div>
+    .options_iframe {
+      text-align: center;
+      margin-top: 20px;
+      flex-basis: 100%;
+    }
 
-  <div class="player-section">
+    .options_iframe a {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: green;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .options_iframe a:hover {
+      background-color: darkgreen;
+    }
+
+    @media (max-width: 1024px) {
+      .layout-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .player-container, .banner-image {
+        max-width: 100%;
+      }
+
+      .iframe-container iframe {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Layout com imagem esquerda, player no meio e imagem direita -->
+  <div class="layout-container">
+
+    <!-- Imagem Esquerda -->
+    <div class="banner-image">
+      <a href="https://8xbet93.com/" target="_blank">
+        <img src="https://i.ibb.co/k2rd3nf1/400-X400-BRZL.gif" alt="Esquerda">
+      </a>
+    </div>
+
+    <!-- Player Central -->
     <div class="player-container">
+      <!-- Banner topo -->
       <div class="icon-link">
         <a href="https://8xbet93.com/" target="_blank">
-          <img src="https://i.ibb.co/ynXFP6WX/728-X90-BRZL.gif" alt="Ícone">
+          <img src="https://i.ibb.co/ynXFP6WX/728-X90-BRZL.gif" alt="Topo">
         </a>
       </div>
+
+      <!-- Player de Vídeo -->
       <div class="video-container active" id="video-container">
         <video id="player" controls>
-          <source id="video-source" src="https://onplaytv.net/espn3/video.m3u8" type="application/x-mpegURL">
+          <source id="video-source" src="https://onplaytv.net/espn2/video.m3u8" type="application/x-mpegURL">
           Seu navegador não suporta a tag de vídeo.
         </video>
       </div>
+
+      <!-- Player via Iframe -->
       <div class="iframe-container" id="iframe-container">
         <iframe id="iframe-player" src="" allowfullscreen></iframe>
       </div>
     </div>
 
+    <!-- Imagem Direita -->
+    <div class="banner-image">
+      <a href="https://8xbet93.com/" target="_blank">
+        <img src="https://i.ibb.co/k2rd3nf1/400-X400-BRZL.gif" alt="Direita">
+      </a>
+    </div>
+
+    <!-- Botões de Transmissão -->
     <div class="options_iframe">
-      <a href="javascript:void(0)" onclick="changePlayerUrl('https://onplaytv.net/espn3/video.m3u8', 'application/x-mpegURL')">Transmissão 1</a>
-      <a href="javascript:void(0)" onclick="changePlayerUrl('https://new.ejaculacaoretardada.site/espn3/index.m3u8', 'application/x-mpegURL')">Transmissão 2</a>
-      <a href="javascript:void(0)" onclick="useIframe('https://sinalpublico.vercel.app/play/dtv.html?id=espn3')">Transmissão 3</a>
-      <a href="javascript:void(0)" onclick="useIframe('https://embedcanaistv.com/espn3/')">Transmissão 4</a>
-      <a href="javascript:void(0)" onclick="useIframe('https://embedmax.site/tvl/espn3.php')">Transmissão 5</a>
+      <a href="javascript:void(0)" onclick="changePlayerUrl('https://onplaytv.net/espn2/video.m3u8', 'application/x-mpegURL')">Transmissão 1</a>
+      <a href="javascript:void(0)" onclick="changePlayerUrl('https://new.ejaculacaoretardada.site/espn2/index.m3u8', 'application/x-mpegURL')">Transmissão 2</a>
+      <a href="javascript:void(0)" onclick="useIframe('https://sinalpublico.vercel.app/play/dtv.html?id=espn2')">Transmissão 3</a>
+      <a href="javascript:void(0)" onclick="useIframe('https://embedcanaistv.com/espn2/')">Transmissão 4</a>
+      <a href="javascript:void(0)" onclick="useIframe('https://embedmax.site/tvl/espn2.php')">Transmissão 5</a>
     </div>
   </div>
-</div>
-
 
   <!-- Scripts -->
   <script src="https://cdn.plyr.io/3.6.12/plyr.polyfilled.js"></script>
@@ -173,7 +206,7 @@
         iframePlayer.src = url;
       }
 
-      changePlayerUrl('https://onplaytv.net/espn3/video.m3u8', 'application/x-mpegURL');
+      changePlayerUrl('https://onplaytv.net/espn2/video.m3u8', 'application/x-mpegURL');
       player = new Plyr(video);
 
       window.changePlayerUrl = changePlayerUrl;
