@@ -35,19 +35,28 @@
 <body>
 
   <h2>Launcher HLS Player</h2>
-  <input id="linkInput" type="text" placeholder="Cole aqui o link .m3u8">
+  <input id="linkInput" type="text" placeholder="Cole aqui o link do vídeo (.mp4 ou .m3u8)">
   <button onclick="abrirPlayer()">Abrir no Player</button>
 
   <script>
     function abrirPlayer() {
       const link = document.getElementById('linkInput').value;
-      if (!link || !link.includes('.m3u8')) {
-        alert("Insira um link válido (.m3u8)");
+      if (!link) {
+        alert("Insira um link válido");
         return;
       }
-      const win = window.open(`player.html#${encodeURIComponent(link)}`, '_blank');
-      if (!win) {
-        alert("Seu navegador bloqueou a nova aba. Permita pop-ups.");
+      
+      // Verifica se é .mp4 ou .m3u8
+      const isM3U8 = link.includes('.m3u8');
+      const isMP4 = link.includes('.mp4');
+      
+      if (isM3U8 || isMP4) {
+        const win = window.open(`player.html#${encodeURIComponent(link)}`, '_blank');
+        if (!win) {
+          alert("Seu navegador bloqueou a nova aba. Permita pop-ups.");
+        }
+      } else {
+        alert("Link inválido. Apenas links .mp4 ou .m3u8 são aceitos.");
       }
     }
   </script>
