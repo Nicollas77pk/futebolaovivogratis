@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Justified Player</title>
+  <style>
+    .thumb { cursor: pointer; display: inline-block; margin: 10px; }
+    .thumb img { width: 150px; height: auto; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+<div id="episode-list"></div>
+
+<video id="player" width="100%" height="auto" controls></video>
+
+<script src="links.js"></script>
+<script>
+  const listContainer = document.getElementById('episode-list');
+  const player = document.getElementById('player');
+
+  episodes.forEach(ep => {
+    const thumb = document.createElement('div');
+    thumb.className = 'thumb';
+    thumb.innerHTML = `<img src="${ep.logo}" alt="${ep.title}"><p>${ep.title}</p>`;
+    thumb.onclick = () => {
+      player.src = ep.url;
+      player.play();
+    };
+    listContainer.appendChild(thumb);
+  });
+</script>
+
+</body>
+</html>
