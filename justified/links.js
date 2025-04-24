@@ -2,36 +2,42 @@ const episodes = [
   {
     season: 1,
     episode: 1,
-    title: "Justified S01E01",
-    url: "http://lexus.hubns.top:80/series/Leonardo77/983469871/3727722.mp4",
-    logo: "http://timg.bdta.pro/images/5b52e3be94b647488fef77b99973a8c1.jpg"
+    title: "Bem-vindo a Harlan",
+    url: "https://example.com/justified/s01e01.mp4",
+    logo: "https://upload.wikimedia.org/wikipedia/pt/7/70/Justified_Temporada_1_Poster.jpg"
   },
   {
     season: 1,
     episode: 2,
-    title: "Justified S01E02",
-    url: "http://lexus.hubns.top:80/series/Leonardo77/983469871/3727723.mp4",
-    logo: "http://timg.bdta.pro/images/06592de5fd33db38910361c0905fe743.jpg"
+    title: "Rio Bravo",
+    url: "https://example.com/justified/s01e02.mp4",
+    logo: ""
   },
   {
     season: 1,
     episode: 3,
-    title: "Justified S01E03",
-    url: "http://lexus.hubns.top:80/series/Leonardo77/983469871/3727724.mp4",
-    logo: "http://timg.bdta.pro/images/39857dee06407e156c40ae6f944dd338.jpg"
+    title: "Fixer",
+    url: "https://example.com/justified/s01e03.mp4"
   },
   {
-    season: 1,
-    episode: 4,
-    title: "Justified S01E04",
-    url: "http://lexus.hubns.top:80/series/Leonardo77/983469871/3727725.mp4",
-    logo: "http://timg.bdta.pro/images/41491cb9eb6fe9e01bc6d8ad8d5c5807.jpg"
+    season: 2,
+    episode: 1,
+    title: "O Martelo da Justiça",
+    url: "https://example.com/justified/s02e01.mp4",
+    logo: "https://upload.wikimedia.org/wikipedia/pt/5/56/Justified_season_2.jpg"
   },
   {
-    season: 1,
-    episode: 12,
-    title: "Playlist [L] S01E12",
-    url: "http://lexus.hubns.top:80/series/Leonardo77/983469871/3727721.mp4",
-    logo: "" // Adicione uma imagem se quiser
+    season: 2,
+    episode: 2,
+    title: "Blood or Money",
+    url: "https://example.com/justified/s02e02.mp4"
+    // Sem logo
+  },
+  {
+    season: 2,
+    episode: 3,
+    title: "Ouro e Sangue",
+    url: "https://example.com/justified/s02e03.mp4"
   }
+  // Adicione mais episódios conforme necessário
 ];
