@@ -45,7 +45,7 @@
         alert("Insira um link válido (.m3u8)");
         return;
       }
-      const win = window.open(`player.html?url=${encodeURIComponent(link)}`, '_blank');
+      const win = window.open(`player.html#${encodeURIComponent(link)}`, '_blank');
       if (!win) {
         alert("Seu navegador bloqueou a nova aba. Permita pop-ups.");
       }
