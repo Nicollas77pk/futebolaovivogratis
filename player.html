@@ -7,38 +7,45 @@
   <style>
     body {
       margin: 0;
-      background: #000;
+      background-color: #000;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100vh;
     }
     video {
       width: 100%;
-      max-width: 900px;
-      border: none;
+      max-width: 960px;
+      height: auto;
       background: #000;
     }
   </style>
 </head>
 <body>
 
-  <video id="meuPlayer" controls autoplay></video>
+  <video id="video" controls autoplay></video>
 
   <script>
-    const streamUrl = 'http://lexus.hubns.top/Leonardo77/983469871/1257207.m3u8';
-    const video = document.getElementById('meuPlayer');
+    function getUrlParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
 
-    if (Hls.isSupported()) {
+    const videoUrl = getUrlParam('url');
+    const video = document.getElementById('video');
+
+    if (!videoUrl) {
+      alert("Nenhum link .m3u8 foi fornecido.");
+    } else if (Hls.isSupported()) {
       const hls = new Hls();
-      hls.loadSource(streamUrl);
+      hls.loadSource(videoUrl);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
         video.play();
       });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = streamUrl;
-      video.addEventListener('loadedmetadata', function () {
+      video.src = videoUrl;
+      video.addEventListener('loadedmetadata', () => {
         video.play();
       });
     } else {
