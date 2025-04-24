@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Player de Série</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .player-container {
+      width: 100%;
+      max-width: 960px;
+      background-color: #000;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      padding: 10px;
+    }
+
+    video {
+      width: 100%;
+      max-width: 960px;
+      height: auto;
+      background: #000;
+      border-radius: 8px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      gap: 20px;
+    }
+
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: limegreen;
+    }
+
+    select {
+      width: 150px;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Player de Série</h1>
+
+  <!-- Player Container -->
+  <div class="player-container">
+    <video id="video" controls autoplay>
+      <source id="videoSource" src="http://lexus.hubns.top:80/series/Leonardo77/983469871/3727758.mp4" type="video/mp4">
+      Seu navegador não suporta este formato de vídeo.
+    </video>
+
+    <div class="controls">
+      <!-- Seleção de Temporada -->
+      <select id="seasonSelect" onchange="loadEpisode()">
+        <option value="1">Temporada 1</option>
+        <option value="2">Temporada 2</option>
+        <option value="3">Temporada 3</option>
+      </select>
+
+      <!-- Seleção de Episódio -->
+      <select id="episodeSelect" onchange="loadEpisode()">
+        <option value="1">Episódio 1</option>
+        <option value="2">Episódio 2</option>
+        <option value="3">Episódio 3</option>
+      </select>
+
+      <!-- Botão de Play -->
+      <button onclick="playEpisode()">Assistir</button>
+    </div>
+    
+    <p id="errorMessage" class="error"></p>
+  </div>
+
+  <script>
+    const videoElement = document.getElementById('video');
+    const videoSource = document.getElementById('videoSource');
+    const errorMessage = document.getElementById('errorMessage');
+
+    // Função para carregar o episódio selecionado
+    function loadEpisode() {
+      const season = document.getElementById('seasonSelect').value;
+      const episode = document.getElementById('episodeSelect').value;
+
+      const videoUrl = `http://lexus.hubns.top:80/series/Leonardo77/983469871/${season}${episode}.mp4`;
+
+      // Atualiza o link do vídeo
+      videoSource.src = videoUrl;
+      videoElement.load();
+      videoElement.play();
+      errorMessage.innerText = '';
+    }
+
+    // Função para reproduzir o episódio
+    function playEpisode() {
+      const season = document.getElementById('seasonSelect').value;
+      const episode = document.getElementById('episodeSelect').value;
+
+      const videoUrl = `http://lexus.hubns.top:80/series/Leonardo77/983469871/${season}${episode}.mp4`;
+
+      // Verifica se o vídeo existe antes de reproduzir
+      fetch(videoUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Vídeo não encontrado');
+          }
+          videoSource.src = videoUrl;
+          videoElement.load();
+          videoElement.play();
+        })
+        .catch(error => {
+          errorMessage.innerText = `Erro ao carregar o vídeo: ${error.message}`;
+        });
+    }
+  </script>
+
+</body>
+</html>
