@@ -26,18 +26,19 @@
   <video id="video" controls autoplay></video>
 
   <script>
-    function getUrlParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param);
-    }
-
-    const videoUrl = getUrlParam('url');
+    const params = new URLSearchParams(window.location.search);
+    const videoUrl = params.get('url');
     const video = document.getElementById('video');
 
     if (!videoUrl) {
       alert("Nenhum link .m3u8 foi fornecido.");
     } else if (Hls.isSupported()) {
-      const hls = new Hls();
+      const hls = new Hls({
+        debug: false,
+        xhrSetup: function(xhr) {
+          xhr.withCredentials = true; // importante para alguns servidores
+        }
+      });
       hls.loadSource(videoUrl);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
