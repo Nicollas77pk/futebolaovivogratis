@@ -1,34 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Justified Player</title>
+  <meta charset="UTF-8">
+  <title>Player Justified</title>
   <style>
-    .thumb { cursor: pointer; display: inline-block; margin: 10px; }
-    .thumb img { width: 150px; height: auto; border-radius: 8px; }
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .player-container {
+      width: 100%;
+      max-width: 960px;
+      background-color: #000;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      padding: 10px;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      background: #000;
+      border-radius: 8px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+      gap: 15px;
+    }
+
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: limegreen;
+    }
+
+    .thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 15px;
+    }
+
+    .thumb {
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .thumb img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid transparent;
+    }
+
+    .thumb:hover img {
+      border-color: limegreen;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
 
-<div id="episode-list"></div>
+  <h1>Player Justified</h1>
 
-<video id="player" width="100%" height="auto" controls></video>
+  <div class="player-container">
+    <video id="video" controls autoplay>
+      <source id="videoSource" src="" type="video/mp4">
+      Seu navegador não suporta este formato de vídeo.
+    </video>
 
-<script src="links.js"></script>
-<script>
-  const listContainer = document.getElementById('episode-list');
-  const player = document.getElementById('player');
+    <div class="controls">
+      <select id="seasonSelect"></select>
+      <select id="episodeSelect"></select>
+      <button onclick="playSelected()">Assistir</button>
+    </div>
 
-  episodes.forEach(ep => {
-    const thumb = document.createElement('div');
-    thumb.className = 'thumb';
-    thumb.innerHTML = `<img src="${ep.logo}" alt="${ep.title}"><p>${ep.title}</p>`;
-    thumb.onclick = () => {
-      player.src = ep.url;
-      player.play();
-    };
-    listContainer.appendChild(thumb);
-  });
-</script>
+    <p id="errorMessage" class="error"></p>
+  </div>
+
+  <div class="thumbs" id="episodeThumbs"></div>
+
+  <script src="links.js"></script>
+  <script>
+    const video = document.getElementById('video');
+    const videoSource = document.getElementById('videoSource');
+    const seasonSelect = document.getElementById('seasonSelect');
+    const episodeSelect = document.getElementById('episodeSelect');
+    const thumbsContainer = document.getElementById('episodeThumbs');
+    const errorMessage = document.getElementById('errorMessage');
+
+    const seasons = {};
+
+    // Organiza episódios por temporada
+    episodes.forEach(ep => {
+      if (!seasons[ep.season]) {
+        seasons[ep.season] = [];
+      }
+      seasons[ep.season].push(ep);
+    });
+
+    // Preenche a seleção de temporadas
+    Object.keys(seasons).forEach(season => {
+      const option = document.createElement('option');
+      option.value = season;
+      option.text = `Temporada ${season}`;
+      seasonSelect.appendChild(option);
+    });
+
+    // Atualiza os episódios quando a temporada muda
+    seasonSelect.addEventListener('change', updateEpisodes);
+
+    function updateEpisodes() {
+      const selectedSeason = seasonSelect.value;
+      const episodesList = seasons[selectedSeason];
+
+      // Limpa opções anteriores
+      episodeSelect.innerHTML = '';
+      thumbsContainer.innerHTML = '';
+
+      episodesList.forEach((ep, index) => {
+        const opt = document.createElement('option');
+        opt.value = index;
+        opt.text = `Episódio ${ep.episode}`;
+        episodeSelect.appendChild(opt);
+
+        const thumb = document.createElement('div');
+        thumb.className = 'thumb';
+        thumb.innerHTML = `<img src="${ep.logo}" alt="${ep.title}"><p>${ep.title}</p>`;
+        thumb.onclick = () => {
+          videoSource.src = ep.url;
+          video.load();
+          video.play();
+          errorMessage.innerText = '';
+        };
+        thumbsContainer.appendChild(thumb);
+      });
+    }
+
+    // Executa o carregamento inicial
+    updateEpisodes();
+
+    // Toca o episódio selecionado
+    function playSelected() {
+      const season = seasonSelect.value;
+      const episodeIndex = episodeSelect.value;
+      const ep = seasons[season][episodeIndex];
+
+      fetch(ep.url)
+        .then(res => {
+          if (!res.ok) throw new Error('Vídeo não encontrado');
+          videoSource.src = ep.url;
+          video.load();
+          video.play();
+          errorMessage.innerText = '';
+        })
+        .catch(err => {
+          errorMessage.innerText = `Erro ao carregar o vídeo: ${err.message}`;
+        });
+    }
+  </script>
 
 </body>
 </html>
