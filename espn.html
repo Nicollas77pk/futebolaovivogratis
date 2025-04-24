@@ -1,193 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futebol ao vivo grátis</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css" />
+    <style>
+        .player-container {
+            position: relative; /* necessário para posicionar a logo */
+            width: 100%;
+            max-width: 750px;
+            margin: 0 auto;
+            border: 5px solid green;
+            padding: 10px;
+            border-radius: 10px;
+            background: #000;
+            text-align: center;
+        }
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Futebol ao vivo grátis</title>
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css" />
-  
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-    .player-container {
-      position: relative;
-      width: 1000px;
-      max-width: 750px;
-      margin: 0 auto;
-      border: 5px solid green;
-      padding: 10px;
-      border-radius: 10px;
-      background: #000;
-      text-align: center;
-    }
+        .icon-link img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
 
-    .icon-link img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
+        .video-container, .iframe-container {
+            display: none;
+            width: 100%;
+        }
 
-    .video-container, .iframe-container {
-      display: none;
-      width: 100%;
-    }
+        .video-container.active, .iframe-container.active {
+            display: block;
+        }
 
-    .video-container.active, .iframe-container.active {
-      display: block;
-    }
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
 
-    .video-container video {
-      width: 100%;
-      height: auto;
-    }
+        .iframe-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
 
-    .iframe-container iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-    }
+        .options_iframe {
+            text-align: center;
+            margin-top: 8px;
+        }
 
-    .options_iframe {
-      text-align: center;
-      margin-top: 8px;
-    }
+        .options_iframe a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-    .options_iframe a {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 5px;
-      background-color: green;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
+        .options_iframe a:hover {
+            background-color: darkgreen;
+        }
 
-    .options_iframe a:hover {
-      background-color: darkgreen;
-    }
+        .logo-overlay {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            z-index: 999;
+            opacity: 0.85;
+        }
 
-    .logo-overlay {
-      position: absolute;
-      top: 15px;
-      left: 20px;
-      z-index: 999;
-      opacity: 0.85;
-    }
+        .logo-overlay img {
+            width: 100%;
+            height: 100%;
+        }
 
-    .logo-overlay img {
-      width: 100%;
-      height: 100%;
-    }
+        @media (max-width: 768px) {
+            .iframe-container iframe {
+                height: 300px;
+            }
 
-    @media (max-width: 768px) {
-      .iframe-container iframe {
-        height: 300px;
-      }
-
-      .logo-overlay img {
-        width: 50px;
-      }
-    }
-  </style>
+            .logo-overlay img {
+                width: 50px;
+            }
+        }
+      
+    </style>
 </head>
 <body>
 
-  <!-- Container do Player -->
-  <div class="player-container">
+    <!-- Container do Player -->
+    <div class="player-container">
+      
+        <!-- Banner -->
+        <div class="icon-link">
+            <a href="https://8xbet93.com">
+                <img src="https://i.ibb.co/ynXFP6WX/728-X90-BRZL.gif" alt="Ícone">
+            </a>
+        </div>
+        <!-- Player de Vídeo -->
+        <div class="video-container active" id="video-container">
+            <video id="player" controls>
+                <source id="video-source" src="https://onplaytv.net/espn/video.m3u8" type="application/x-mpegURL">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+        </div>
 
-    <!-- Banner -->
-    <div class="icon-link">
-      <a href="https://8xbet93.com/" target="_blank">
-        <img src="https://i.ibb.co/ynXFP6WX/728-X90-BRZL.gif" alt="Ícone">
-      </a>
+        <!-- Player via Iframe -->
+        <div class="iframe-container" id="iframe-container">
+            <iframe id="iframe-player" src="" allowfullscreen></iframe>
+        </div>
+
     </div>
 
-    <!-- Player de Vídeo -->
-    <div class="video-container active" id="video-container">
-      <video id="player" controls>
-        <source id="video-source" src="https://onplaytv.net/espn/video.m3u8" type="application/x-mpegURL">
-        Seu navegador não suporta a tag de vídeo.
-      </video>
+    <!-- Botões de Transmissão FORA da borda verde -->
+    <div class="options_iframe">
+        <a href="javascript:void(0)" onclick="changePlayerUrl('https://onplaytv.net/espn/video.m3u8', 'application/x-mpegURL')">Transmissão 1</a>
+        <a href="javascript:void(0)" onclick="useIframe('https://sinalpublico.vercel.app/play/dtv.html?id=espn1')">Transmissão 2</a>
+        <a href="javascript:void(0)" onclick="useIframe('https://embedcanaistv.com/espn/')">Transmissão 3</a>
+      <a href="javascript:void(0)" onclick="useIframe('https://embedmax.site/tvl/espn1.php')">Transmissão 4</a>
     </div>
 
-    <!-- Player via Iframe -->
-    <div class="iframe-container" id="iframe-container">
-      <iframe id="iframe-player" src="" allowfullscreen></iframe>
-    </div>
-  </div>
+    <!-- Scripts -->
+    <script src="https://cdn.plyr.io/3.6.12/plyr.polyfilled.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const videoContainer = document.getElementById('video-container');
+            const iframeContainer = document.getElementById('iframe-container');
+            const video = document.getElementById('player');
+            const videoSource = document.getElementById('video-source');
+            const iframePlayer = document.getElementById('iframe-player');
+            let hls;
+            let player;
 
-  <!-- Botões de Transmissão -->
-  <div class="options_iframe">
-    <a href="javascript:void(0)" onclick="changePlayerUrl('https://onplaytv.net/espn/video.m3u8', 'application/x-mpegURL')">Transmissão 1</a>
-      <a href="javascript:void(0)" onclick="changePlayerUrl('https://onplaytv.net/sbtsp/video.m3u8', 'application/x-mpegURL')">Transmissão 2</a>
-            <a href="javascript:void(0)" onclick="changePlayerUrl('https://new.ejaculacaoretardada.site/espn/index.m3u8', 'application/x-mpegURL')">Transmissão 3</a>
-        <a href="javascript:void(0)" onclick="changePlayerUrl('https://new.ejaculacaoretardada.site/sbt/index.m3u8', 'application/x-mpegURL')">Transmissão 4</a>
-        <a href="javascript:void(0)" onclick="useIframe('https://sinalpublico.vercel.app/play/dtv.html?id=espn1')">Transmissão 5</a>
-            <a href="javascript:void(0)" onclick="useIframe('https://sinalpublico.vercel.app/play/dtv.html?id=sbt')">Transmissão 6</a>
-        <a href="javascript:void(0)" onclick="useIframe('https://embedcanaistv.com/espn/')">Transmissão 7</a>
-        <a href="javascript:void(0)" onclick="useIframe('https://embedmax.site/tvl/espn1.php')">Transmissão 8</a>
+            function changePlayerUrl(url, type) {
+                iframeContainer.classList.remove('active');
+                iframePlayer.src = '';
 
-  </div>
+                videoContainer.classList.add('active');
 
-  <!-- Imagem Clicável DEPOIS dos botões -->
-  <div style="text-align: center; margin: 20px 0;">
-    <a href="https://8xbet93.com/" target="_blank">
-      <img src="https://i.ibb.co/k2rd3nf1/400-X400-BRZL.gif" alt="Imagem clicável" style="width: 380px; height: auto;">
-    </a>
-  </div>
+                if (hls) {
+                    hls.destroy();
+                    hls = null;
+                }
 
-  <!-- Scripts -->
-  <script src="https://cdn.plyr.io/3.6.12/plyr.polyfilled.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const videoContainer = document.getElementById('video-container');
-      const iframeContainer = document.getElementById('iframe-container');
-      const video = document.getElementById('player');
-      const videoSource = document.getElementById('video-source');
-      const iframePlayer = document.getElementById('iframe-player');
-      let hls;
-      let player;
+                video.pause();
+                videoSource.src = url;
+                videoSource.type = type;
 
-      function changePlayerUrl(url, type) {
-        iframeContainer.classList.remove('active');
-        iframePlayer.src = '';
-        videoContainer.classList.add('active');
+                if (type === 'application/x-mpegURL' && Hls.isSupported()) {
+                    hls = new Hls();
+                    hls.loadSource(url);
+                    hls.attachMedia(video);
+                } else {
+                    video.load();
+                }
+            }
 
-        if (hls) {
-          hls.destroy();
-          hls = null;
-        }
+            function useIframe(url) {
+                videoContainer.classList.remove('active');
+                video.pause();
 
-        video.pause();
-        videoSource.src = url;
-        videoSource.type = type;
+                iframeContainer.classList.add('active');
+                iframePlayer.src = url;
+            }
 
-        if (type === 'application/x-mpegURL' && Hls.isSupported()) {
-          hls = new Hls();
-          hls.loadSource(url);
-          hls.attachMedia(video);
-        } else {
-          video.load();
-        }
-      }
+            // Iniciar com uma transmissão padrão
+            changePlayerUrl('https://onplaytv.net/espn/video.m3u8', 'application/x-mpegURL');
+            player = new Plyr(video);
 
-      function useIframe(url) {
-        videoContainer.classList.remove('active');
-        video.pause();
-        iframeContainer.classList.add('active');
-        iframePlayer.src = url;
-      }
-
-      changePlayerUrl('https://onplaytv.net/espn/video.m3u8', 'application/x-mpegURL');
-      player = new Plyr(video);
-
-      window.changePlayerUrl = changePlayerUrl;
-      window.useIframe = useIframe;
-    });
-  </script>
+            // Expor funções globalmente
+            window.changePlayerUrl = changePlayerUrl;
+            window.useIframe = useIframe;
+        });
+    </script>
 </body>
 </html>
