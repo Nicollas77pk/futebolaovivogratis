@@ -103,7 +103,7 @@
     <!-- Player de Vídeo -->
     <div class="video-container active" id="video-container">
       <video id="player" controls>
-        <source id="video-source" src="" type="application/x-mpegURL">
+        <source id="video-source" src="https://onplaytv.net/espn/video.m3u8" type="application/x-mpegURL">
         Seu navegador não suporta a tag de vídeo.
       </video>
     </div>
@@ -116,9 +116,15 @@
 
   <!-- Botões de Transmissão -->
   <div class="options_iframe">
-    <a href="javascript:void(0)" onclick="changePlayerUrl('espn')">Transmissão ESPN</a>
-    <a href="javascript:void(0)" onclick="changePlayerUrl('sportv')">Transmissão Sportv</a>
-    <a href="javascript:void(0)" onclick="changePlayerUrl('sbt')">Transmissão SBT</a>
+    <a href="javascript:void(0)" onclick="changePlayerUrl('https://onplaytv.net/espn/video.m3u8', 'application/x-mpegURL')">Transmissão 1</a>
+      <a href="javascript:void(0)" onclick="changePlayerUrl('https://onplaytv.net/sbtsp/video.m3u8', 'application/x-mpegURL')">Transmissão 2</a>
+            <a href="javascript:void(0)" onclick="changePlayerUrl('https://new.ejaculacaoretardada.site/espn/index.m3u8', 'application/x-mpegURL')">Transmissão 3</a>
+        <a href="javascript:void(0)" onclick="changePlayerUrl('https://new.ejaculacaoretardada.site/sbt/index.m3u8', 'application/x-mpegURL')">Transmissão 4</a>
+        <a href="javascript:void(0)" onclick="useIframe('https://sinalpublico.vercel.app/play/dtv.html?id=espn1')">Transmissão 5</a>
+            <a href="javascript:void(0)" onclick="useIframe('https://sinalpublico.vercel.app/play/dtv.html?id=sbt')">Transmissão 6</a>
+        <a href="javascript:void(0)" onclick="useIframe('https://embedcanaistv.com/espn/')">Transmissão 7</a>
+        <a href="javascript:void(0)" onclick="useIframe('https://embedmax.site/tvl/espn1.php')">Transmissão 8</a>
+
   </div>
 
   <!-- Imagem Clicável DEPOIS dos botões -->
@@ -141,13 +147,7 @@
       let hls;
       let player;
 
-      const links = {
-        "espn": "https://onplaytv.net/espn/video.m3u8",
-        "sportv": "https://onplaytv.net/sportv/video.m3u8",
-        "sbt": "https://onplaytv.net/sbtsp/video.m3u8"
-      };
-
-      function changePlayerUrl(id) {
+      function changePlayerUrl(url, type) {
         iframeContainer.classList.remove('active');
         iframePlayer.src = '';
         videoContainer.classList.add('active');
@@ -158,11 +158,12 @@
         }
 
         video.pause();
-        videoSource.src = links[id];
+        videoSource.src = url;
+        videoSource.type = type;
 
-        if (Hls.isSupported()) {
+        if (type === 'application/x-mpegURL' && Hls.isSupported()) {
           hls = new Hls();
-          hls.loadSource(links[id]);
+          hls.loadSource(url);
           hls.attachMedia(video);
         } else {
           video.load();
@@ -176,7 +177,7 @@
         iframePlayer.src = url;
       }
 
-      changePlayerUrl('espn');
+      changePlayerUrl('https://onplaytv.net/espn/video.m3u8', 'application/x-mpegURL');
       player = new Plyr(video);
 
       window.changePlayerUrl = changePlayerUrl;
