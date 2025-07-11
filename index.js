@@ -29,76 +29,32 @@ module.exports = async (req, res) => {
             .replace(/<title>[^<]*<\/title>/, '<title>Meu Site</title>')  // Coloque aqui o título desejado
             .replace(/<link[^>]*rel=["']icon["'][^>]*>/gi, '');  // Remove o ícone
 
-          // Injeção segura do modal
+          // Injeção segura da faixa
           let finalHtml;
           if (data.includes('</body>')) {
             finalHtml = data.replace('</body>', `
 
-<!-- Modal de Aplicativo -->
-<div id="app-modal" class="modal">
-  <div class="modal-content">
-    <h2>Baixe nosso aplicativo</h2>
-    <p>Baixe o nosso aplicativo para uma experiência melhor!</p>
-    <a href="https://linkdoaplicativo.com" target="_blank" class="download-btn">Baixar</a>
-  </div>
+<!-- Faixa na parte inferior -->
+<div id="bottom-bar" class="bottom-bar">
+  <p>CLIQUE DUAS VEZES NA TELA PARA AMPLAR A TELA</p>
 </div>
 
 <style>
-  /* Estilos do Modal */
-  .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* Estilos da Faixa na parte inferior */
+  .bottom-bar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
     z-index: 9999;
   }
-  .modal-content {
-    background: #fff;
-    padding: 30px;
-    text-align: center;
-    border-radius: 10px;
-    max-width: 400px;
-    width: 100%;
-  }
-  .modal-content h2, .modal-content p {
-    color: #333;  /* Garantindo que o texto tenha cor escura */
-  }
-  .download-btn {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #4CAF50;
-    color: #fff;
-    font-size: 16px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  .download-btn:hover {
-    background-color: #45a049;
-  }
 </style>
-
-<script>
-  // Fechar modal quando clicar fora da caixa
-  window.onclick = function(event) {
-    var modal = document.getElementById('app-modal');
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-
-  // Mostrar o modal após 3 segundos
-  window.onload = function() {
-    setTimeout(function() {
-      document.getElementById('app-modal').style.display = 'flex';
-    }, 3000);  // Modifique o tempo conforme necessário
-  }
-</script>
 
 </body>`);
           } else {
@@ -106,71 +62,27 @@ module.exports = async (req, res) => {
             finalHtml = `
 ${data}
 
-<!-- Modal de Aplicativo -->
-<div id="app-modal" class="modal">
-  <div class="modal-content">
-    <h2>Baixe nosso aplicativo</h2>
-    <p>Baixe o nosso aplicativo para uma experiência melhor!</p>
-    <a href="https://linkdoaplicativo.com" target="_blank" class="download-btn">Baixar</a>
-  </div>
+<!-- Faixa na parte inferior -->
+<div id="bottom-bar" class="bottom-bar">
+  <p>CLIQUE DUAS VEZES NA TELA PARA AMPLAR A TELA</p>
 </div>
 
 <style>
-  /* Estilos do Modal */
-  .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* Estilos da Faixa na parte inferior */
+  .bottom-bar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
     z-index: 9999;
   }
-  .modal-content {
-    background: #fff;
-    padding: 30px;
-    text-align: center;
-    border-radius: 10px;
-    max-width: 400px;
-    width: 100%;
-  }
-  .modal-content h2, .modal-content p {
-    color: #333;  /* Garantindo que o texto tenha cor escura */
-  }
-  .download-btn {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #4CAF50;
-    color: #fff;
-    font-size: 16px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  .download-btn:hover {
-    background-color: #45a049;
-  }
 </style>
-
-<script>
-  // Fechar modal quando clicar fora da caixa
-  window.onclick = function(event) {
-    var modal = document.getElementById('app-modal');
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-
-  // Mostrar o modal após 3 segundos
-  window.onload = function() {
-    setTimeout(function() {
-      document.getElementById('app-modal').style.display = 'flex';
-    }, 3000);  // Modifique o tempo conforme necessário
-  }
-</script>
 
 </body>`;
           }
