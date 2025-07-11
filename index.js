@@ -3,12 +3,12 @@ const https = require('https');
 module.exports = async (req, res) => {
   try {
     const path = req.url === '/' ? '' : req.url;
-    const targetUrl = 'https://apk.futemais.net/app2/' + path;
+    const targetUrl = 'https://embedflix.top/tv/' + path;
 
     https.get(targetUrl, {
       headers: {
         'User-Agent': req.headers['user-agent'] || 'Mozilla/5.0',
-        'Referer': 'https://apk.futemais.net/app2/',
+        'Referer': 'https://embedflix.top/tv/',
       }
     }, (resp) => {
       let data = '';
@@ -18,14 +18,15 @@ module.exports = async (req, res) => {
         try {
           // Reescreve links para manter no domínio Vercel
           data = data
-            .replace(/https:\/\/apk\.futemais\.net\/app2\//g, '/') // Substituindo o domínio para o relativo
-            .replace(/href=['"]\/([^'"]+)['"]/g, 'href="/$1"') // Links internos
-            .replace(/action=['"]\/([^'"]+)['"]/g, 'action="/$1"') // Links de action
-            .replace(/<base[^>]*>/gi, ''); // Remove qualquer tag <base>
+            .replace(/https:\/\/embedflix.top\.top\/tv\//g, '/')
+            .replace(/href='\/([^']+)'/g, "href='/$1'")
+            .replace(/href="\/([^"]+)"/g, 'href="/$1"')
+            .replace(/action="\/([^"]+)"/g, 'action="/$1"')
+            .replace(/<base[^>]*>/gi, '');
 
           // Remover ou alterar o título e o ícone
           data = data
-            .replace(/<title>[^<]*<\/title>/, '<title>Meu Site</title>')  // Título personalizado
+            .replace(/<title>[^<]*<\/title>/, '<title>Meu Site</title>')  // Coloque aqui o título desejado
             .replace(/<link[^>]*rel=["']icon["'][^>]*>/gi, '');  // Remove o ícone
 
           // Injeção segura de banner no final do body com verificação
