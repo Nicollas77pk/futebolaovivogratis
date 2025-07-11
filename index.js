@@ -29,19 +29,23 @@ module.exports = async (req, res) => {
             .replace(/<title>[^<]*<\/title>/, '<title>Meu Site</title>')  // Coloque aqui o título desejado
             .replace(/<link[^>]*rel=["']icon["'][^>]*>/gi, '');  // Remove o ícone
 
-          // Injeção segura da faixa
+          // Injeção segura da faixa com botões
           let finalHtml;
           if (data.includes('</body>')) {
             finalHtml = data.replace('</body>', `
 
-<!-- Faixa na parte inferior -->
-<div id="bottom-bar" class="bottom-bar">
-  <p>CLIQUE DUAS VEZES NA TELA PARA TELA CHEIA</p>
+<!-- Faixa com Botões -->
+<div id="vpn-bar" class="vpn-bar">
+  <p>Tem que baixar VPN para o player não ser bloqueado, principalmente no BRASIL</p>
+  <div class="vpn-buttons">
+    <a href="https://link-para-vpn-desktop.com" target="_blank" class="vpn-btn">Baixar VPN para Desktop</a>
+    <a href="https://link-para-vpn-android.com" target="_blank" class="vpn-btn">Baixar VPN para Android</a>
+  </div>
 </div>
 
 <style>
-  /* Estilos da Faixa na parte inferior */
-  .bottom-bar {
+  /* Estilos da Faixa com Botões */
+  .vpn-bar {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -49,10 +53,30 @@ module.exports = async (req, res) => {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 15px 0;
+    padding: 20px 0;
     font-size: 18px;
     font-family: Arial, sans-serif;
     z-index: 9999;
+  }
+  .vpn-bar p {
+    margin: 0 0 10px 0;
+  }
+  .vpn-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .vpn-btn {
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .vpn-btn:hover {
+    background-color: #45a049;
   }
 </style>
 
@@ -62,14 +86,18 @@ module.exports = async (req, res) => {
             finalHtml = `
 ${data}
 
-<!-- Faixa na parte inferior -->
-<div id="bottom-bar" class="bottom-bar">
-  <p>CLIQUE DUAS VEZES NA TELA PARA TELA CHEIA</p>
+<!-- Faixa com Botões -->
+<div id="vpn-bar" class="vpn-bar">
+  <p>Tem que baixar VPN para o player não ser bloqueado, principalmente no BRASIL</p>
+  <div class="vpn-buttons">
+    <a href="https://link-para-vpn-desktop.com" target="_blank" class="vpn-btn">Baixar VPN para Desktop</a>
+    <a href="https://link-para-vpn-android.com" target="_blank" class="vpn-btn">Baixar VPN para Android</a>
+  </div>
 </div>
 
 <style>
-  /* Estilos da Faixa na parte inferior */
-  .bottom-bar {
+  /* Estilos da Faixa com Botões */
+  .vpn-bar {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -77,10 +105,30 @@ ${data}
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 15px 0;
+    padding: 20px 0;
     font-size: 18px;
     font-family: Arial, sans-serif;
     z-index: 9999;
+  }
+  .vpn-bar p {
+    margin: 0 0 10px 0;
+  }
+  .vpn-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .vpn-btn {
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .vpn-btn:hover {
+    background-color: #45a049;
   }
 </style>
 
