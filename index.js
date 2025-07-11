@@ -36,7 +36,7 @@ module.exports = async (req, res) => {
 
 <!-- Faixa na parte inferior -->
 <div id="bottom-bar" class="bottom-bar">
-  <p>CLIQUE DUAS VEZES NA TELA PARA AMPLAR A TELA</p>
+  <p>CLIQUE DUAS VEZES NA TELA PARA ENCHER A TELA</p>
 </div>
 
 <style>
