@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
       resp.on('data', chunk => data += chunk);
       resp.on('end', () => {
         try {
-          // Reescreve links para manter no domínio Vercel
+          // Reescreve links para manter no domínio Vercel, mas NÃO altera URLs externas (como imagens)
           data = data
             .replace(/https:\/\/sinalpublico\.vercel\.app\//g, '/')  // Links internos
             .replace(/href='\/([^']+)'/g, "href='/$1'")   // Links internos
