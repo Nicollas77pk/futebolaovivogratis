@@ -1,0 +1,17 @@
+module.exports = (req, res) => {
+  const redirectMap = {
+    '/redirect/1': 'https://links3.futemais.net/',
+    '/redirect/2': 'https://outrolink.com/',
+    // Adicione outros redirecionamentos aqui
+  };
+
+  const redirectTo = redirectMap[req.url];
+
+  if (redirectTo) {
+    res.writeHead(302, { Location: redirectTo });
+    res.end();
+  } else {
+    res.statusCode = 404;
+    res.end('Página não encontrada');
+  }
+};
