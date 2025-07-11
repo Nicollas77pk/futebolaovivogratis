@@ -75,9 +75,12 @@ ${data}
 </style>`;
           }
 
-          // Envia o conteúdo modificado de volta para o cliente
-          res.setHeader('Access-Control-Allow-Origin', '*');
+          // Cabeçalhos CORS: permite que qualquer origem acesse o conteúdo
+          res.setHeader('Access-Control-Allow-Origin', '*');  // Permite qualquer origem
+          res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');  // Métodos permitidos
+          res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');  // Cabeçalhos permitidos
           res.setHeader('Content-Type', resp.headers['content-type'] || 'text/html');
+          
           res.statusCode = 200;
           res.end(finalHtml);
         } catch (err) {
