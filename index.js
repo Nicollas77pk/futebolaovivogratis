@@ -65,6 +65,9 @@ module.exports = async (req, res) => {
     max-width: 400px;
     width: 100%;
   }
+  .modal-content h2, .modal-content p {
+    color: #333;  /* Garantindo que o texto tenha cor escura */
+  }
   .download-btn {
     display: inline-block;
     padding: 15px 30px;
@@ -133,6 +136,9 @@ ${data}
     border-radius: 10px;
     max-width: 400px;
     width: 100%;
+  }
+  .modal-content h2, .modal-content p {
+    color: #333;  /* Garantindo que o texto tenha cor escura */
   }
   .download-btn {
     display: inline-block;
