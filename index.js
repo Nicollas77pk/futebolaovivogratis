@@ -29,9 +29,10 @@ module.exports = async (req, res) => {
             .replace(/<title>[^<]*<\/title>/, '<title>Meu Site</title>')  // Coloque aqui o título desejado
             .replace(/<link[^>]*rel=["']icon["'][^>]*>/gi, '');  // Remove o ícone
 
-          // Injeção segura de banner no final do body com verificação
+          // Verifica se a tag </body> existe
           let finalHtml;
           if (data.includes('</body>')) {
+            // Adiciona o banner antes do fechamento da tag </body>
             finalHtml = data.replace('</body>', `
 <div id="custom-footer">
   <a href="https://8xbet86.com/" target="_blank">
@@ -52,7 +53,7 @@ module.exports = async (req, res) => {
 </style>
 </body>`);
           } else {
-            // Se não tiver </body>, adiciona manualmente
+            // Caso a tag </body> não exista, adiciona manualmente no final do conteúdo
             finalHtml = `
 ${data}
 <div id="custom-footer">
@@ -74,6 +75,7 @@ ${data}
 </style>`;
           }
 
+          // Envia o conteúdo modificado de volta para o cliente
           res.setHeader('Access-Control-Allow-Origin', '*');
           res.setHeader('Content-Type', resp.headers['content-type'] || 'text/html');
           res.statusCode = 200;
