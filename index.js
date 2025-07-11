@@ -13,9 +13,23 @@ module.exports = async (req, res) => {
     }, (resp) => {
       let data = '';
 
+      // Verifica se o status da resposta é OK (200)
+      if (resp.statusCode !== 200) {
+        console.error(`Erro ao carregar o conteúdo. Status: ${resp.statusCode}`);
+        res.statusCode = 500;
+        return res.end("Erro ao carregar o conteúdo do site.");
+      }
+
       resp.on('data', chunk => data += chunk);
       resp.on('end', () => {
         try {
+          // Verifica se o conteúdo é HTML (pode ser necessário ajustar se o site retornar algo inesperado)
+          if (!data.includes('<html')) {
+            console.error("Conteúdo não é HTML válido.");
+            res.statusCode = 500;
+            return res.end("Conteúdo não encontrado ou inválido.");
+          }
+
           // Reescreve links para manter no domínio Vercel
           data = data
             .replace(/https:\/\/reidoscanais\.pro\//g, '/')
@@ -79,8 +93,8 @@ ${data}
           res.setHeader('Access-Control-Allow-Origin', '*');  // Permite qualquer origem
           res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');  // Métodos permitidos
           res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');  // Cabeçalhos permitidos
-          res.setHeader('Content-Type', resp.headers['content-type'] || 'text/html');
-          
+          res.setHeader('Content-Type', 'text/html');  // Garantir que a resposta seja HTML
+
           res.statusCode = 200;
           res.end(finalHtml);
         } catch (err) {
