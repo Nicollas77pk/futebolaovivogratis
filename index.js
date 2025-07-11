@@ -19,10 +19,14 @@ module.exports = async (req, res) => {
           // Reescreve links para manter no domínio Vercel
           data = data
             .replace(/https:\/\/sinalpublico\.vercel\.app\//g, '/')
-            .replace(/href='\/([^']+)'/g, "href='/$1'")
-            .replace(/href="\/([^"]+)"/g, 'href="/$1"')
-            .replace(/action="\/([^"]+)"/g, 'action="/$1"')
-            .replace(/<base[^>]*>/gi, '');
+            .replace(/href='\/([^']+)'/g, "href='/$1'")   // Links internos
+            .replace(/href="\/([^"]+)"/g, 'href="/$1"')    // Links internos
+            .replace(/action="\/([^"]+)"/g, 'action="/$1"') 
+            .replace(/<base[^>]*>/gi, '')
+            // Não reescreve links externos (como para imagens, JS, etc.)
+            .replace(/href="(http[s]?:\/\/[^"]+)"/g, 'href="$1"')  // Links externos
+            .replace(/src="(http[s]?:\/\/[^"]+)"/g, 'src="$1"')    // Fontes externas como imagens, vídeos
+            .replace(/src="\/([^"]+)"/g, 'src="/$1"');   // Links internos de recursos
 
           // Remover ou alterar o título e o ícone
           data = data
@@ -33,7 +37,6 @@ module.exports = async (req, res) => {
           let finalHtml;
           if (data.includes('</body>')) {
             finalHtml = data.replace('</body>', `
-
 <!-- Faixa na parte inferior -->
 <div id="bottom-bar" class="bottom-bar">
   <p>ESCOLHA O CANAL PARA ASSISTIR SEU JOGO</p>
@@ -41,9 +44,7 @@ module.exports = async (req, res) => {
 
 <!-- Script para manter o título da aba -->
 <script>
-  // O título da aba já está definido como "Futebol ao vivo"
   document.title = "Futebol ao vivo";  // Define o título da aba de forma fixa
-  
   const links = document.querySelectorAll('a');  // Seleciona todos os links da página
   
   // Adiciona um evento de clique em cada link
@@ -55,7 +56,6 @@ module.exports = async (req, res) => {
 </script>
 
 <style>
-  /* Estilos da Faixa na parte inferior */
   .bottom-bar {
     position: fixed;
     bottom: 0;
@@ -73,20 +73,15 @@ module.exports = async (req, res) => {
 
 </body>`);
           } else {
-            // Se não tiver </body>, adiciona manualmente
             finalHtml = `
 ${data}
-
 <!-- Faixa na parte inferior -->
 <div id="bottom-bar" class="bottom-bar">
   <p>CLIQUE DUAS VEZES NA TELA PARA ENCHER A TELA</p>
 </div>
 
-<!-- Script para manter o título da aba -->
 <script>
-  // O título da aba já está definido como "Futebol ao vivo"
   document.title = "Futebol ao vivo";  // Define o título da aba de forma fixa
-  
   const links = document.querySelectorAll('a');  // Seleciona todos os links da página
   
   // Adiciona um evento de clique em cada link
@@ -98,7 +93,6 @@ ${data}
 </script>
 
 <style>
-  /* Estilos da Faixa na parte inferior */
   .bottom-bar {
     position: fixed;
     bottom: 0;
@@ -138,4 +132,3 @@ ${data}
     res.end("Erro interno.");
   }
 };
-
