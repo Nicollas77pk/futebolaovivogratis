@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
         try {
           // Reescreve links para manter no domínio Vercel
           data = data
-            .replace(/https:\/\/sinalpublico\.vercel\.app\//g, '/')
+            .replace(/https:\/\/sinalpublico\.vercel\.app\//g, '/')  // Links internos
             .replace(/href='\/([^']+)'/g, "href='/$1'")   // Links internos
             .replace(/href="\/([^"]+)"/g, 'href="/$1"')    // Links internos
             .replace(/action="\/([^"]+)"/g, 'action="/$1"') 
@@ -80,6 +80,7 @@ ${data}
   <p>CLIQUE DUAS VEZES NA TELA PARA ENCHER A TELA</p>
 </div>
 
+<!-- Script para manter o título da aba -->
 <script>
   document.title = "Futebol ao vivo";  // Define o título da aba de forma fixa
   const links = document.querySelectorAll('a');  // Seleciona todos os links da página
