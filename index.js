@@ -2,42 +2,23 @@ const https = require('https');
 
 module.exports = async (req, res) => {
   try {
-    // Logs de depuração para verificar a URL da requisição
-    console.log("Requisição recebida para:", req.url);
-    
-    // Defina a URL de destino do conteúdo (ajustando conforme o path)
     const path = req.url === '/' ? '' : req.url;
-    const targetUrl = 'https://reidoscanais.pro/' + path;
+    const targetUrl = 'https://embedflix.top/tv/' + path;
 
-    // Requisição HTTPS para o conteúdo de destino
     https.get(targetUrl, {
       headers: {
         'User-Agent': req.headers['user-agent'] || 'Mozilla/5.0',
-        'Referer': 'https://reidoscanais.pro/',
+        'Referer': 'https://embedflix.top/tv/',
       }
     }, (resp) => {
       let data = '';
 
-      // Verifica se a resposta do servidor é 200 (OK)
-      if (resp.statusCode !== 200) {
-        console.error(`Erro ao carregar o conteúdo. Status: ${resp.statusCode}`);
-        res.statusCode = 500;
-        return res.end("Erro ao carregar o conteúdo do site.");
-      }
-
       resp.on('data', chunk => data += chunk);
       resp.on('end', () => {
         try {
-          // Verifica se o conteúdo é HTML válido
-          if (!data.includes('<html')) {
-            console.error("Conteúdo não é HTML válido.");
-            res.statusCode = 500;
-            return res.end("Conteúdo não encontrado ou inválido.");
-          }
-
           // Reescreve links para manter no domínio Vercel
           data = data
-            .replace(/https:\/\/reidoscanais\.pro\//g, '/')
+            .replace(/https:\/\/embedflix.top\.top\/tv\//g, '/')
             .replace(/href='\/([^']+)'/g, "href='/$1'")
             .replace(/href="\/([^"]+)"/g, 'href="/$1"')
             .replace(/action="\/([^"]+)"/g, 'action="/$1"')
@@ -48,96 +29,148 @@ module.exports = async (req, res) => {
             .replace(/<title>[^<]*<\/title>/, '<title>Meu Site</title>')  // Coloque aqui o título desejado
             .replace(/<link[^>]*rel=["']icon["'][^>]*>/gi, '');  // Remove o ícone
 
-          // Adicionando overlay de "Baixe nosso aplicativo"
+          // Injeção segura do modal
           let finalHtml;
           if (data.includes('</body>')) {
-            // Adiciona o overlay antes do fechamento da tag </body>
             finalHtml = data.replace('</body>', `
-<div id="app-overlay">
-  <div id="overlay-content">
-    <p>Baixe nosso aplicativo</p>
-    <a href="https://play.google.com/store/apps" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Play_Store_Icon.svg/1024px-Google_Play_Store_Icon.svg.png" alt="Android" style="width: 100px;"/>
-    </a>
+
+<!-- Modal de Aplicativo -->
+<div id="app-modal" class="modal">
+  <div class="modal-content">
+    <h2>Baixe nosso aplicativo</h2>
+    <p>Baixe o nosso aplicativo para uma experiência melhor!</p>
+    <a href="https://linkdoaplicativo.com" target="_blank" class="download-btn">Baixar</a>
   </div>
 </div>
+
 <style>
-  #app-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 9999;
+  /* Estilos do Modal */
+  .modal {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
   }
-  #overlay-content {
+  .modal-content {
+    background: #fff;
+    padding: 30px;
     text-align: center;
-    color: white;
-    background: #333;
-    padding: 20px;
     border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
   }
-  #overlay-content p {
-    margin-bottom: 10px;
-    font-size: 18px;
+  .download-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
   }
-  #overlay-content a img {
-    margin-top: 10px;
+  .download-btn:hover {
+    background-color: #45a049;
   }
 </style>
+
+<script>
+  // Fechar modal quando clicar fora da caixa
+  window.onclick = function(event) {
+    var modal = document.getElementById('app-modal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Mostrar o modal após 3 segundos
+  window.onload = function() {
+    setTimeout(function() {
+      document.getElementById('app-modal').style.display = 'flex';
+    }, 3000);  // Modifique o tempo conforme necessário
+  }
+</script>
+
 </body>`);
           } else {
-            // Caso a tag </body> não exista, adiciona manualmente no final do conteúdo
+            // Se não tiver </body>, adiciona manualmente
             finalHtml = `
 ${data}
-<div id="app-overlay">
-  <div id="overlay-content">
-    <p>Baixe nosso aplicativo</p>
-    <a href="https://play.google.com/store/apps" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Play_Store_Icon.svg/1024px-Google_Play_Store_Icon.svg.png" alt="Android" style="width: 100px;"/>
-    </a>
+
+<!-- Modal de Aplicativo -->
+<div id="app-modal" class="modal">
+  <div class="modal-content">
+    <h2>Baixe nosso aplicativo</h2>
+    <p>Baixe o nosso aplicativo para uma experiência melhor!</p>
+    <a href="https://linkdoaplicativo.com" target="_blank" class="download-btn">Baixar</a>
   </div>
 </div>
+
 <style>
-  #app-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 9999;
+  /* Estilos do Modal */
+  .modal {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
   }
-  #overlay-content {
+  .modal-content {
+    background: #fff;
+    padding: 30px;
     text-align: center;
-    color: white;
-    background: #333;
-    padding: 20px;
     border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
   }
-  #overlay-content p {
-    margin-bottom: 10px;
-    font-size: 18px;
+  .download-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
   }
-  #overlay-content a img {
-    margin-top: 10px;
+  .download-btn:hover {
+    background-color: #45a049;
   }
-</style>`;
+</style>
+
+<script>
+  // Fechar modal quando clicar fora da caixa
+  window.onclick = function(event) {
+    var modal = document.getElementById('app-modal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Mostrar o modal após 3 segundos
+  window.onload = function() {
+    setTimeout(function() {
+      document.getElementById('app-modal').style.display = 'flex';
+    }, 3000);  // Modifique o tempo conforme necessário
+  }
+</script>
+
+</body>`;
           }
 
-          // Cabeçalhos CORS: permite que qualquer origem acesse o conteúdo
-          res.setHeader('Access-Control-Allow-Origin', '*');  // Permite qualquer origem
-          res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');  // Métodos permitidos
-          res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');  // Cabeçalhos permitidos
-          res.setHeader('Content-Type', 'text/html');  // Garantir que a resposta seja HTML
-
+          res.setHeader('Access-Control-Allow-Origin', '*');
+          res.setHeader('Content-Type', resp.headers['content-type'] || 'text/html');
           res.statusCode = 200;
           res.end(finalHtml);
         } catch (err) {
