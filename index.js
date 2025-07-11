@@ -3,12 +3,12 @@ const https = require('https');
 module.exports = async (req, res) => {
   try {
     const path = req.url === '/' ? '' : req.url;
-    const targetUrl = 'https://embedflix.top/tv/' + path;
+    const targetUrl = 'https://la14hd.com/' + path;
 
     https.get(targetUrl, {
       headers: {
         'User-Agent': req.headers['user-agent'] || 'Mozilla/5.0',
-        'Referer': 'https://embedflix.top/tv/',
+        'Referer': 'https://la14hd.com/',
       }
     }, (resp) => {
       let data = '';
@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
         try {
           // Reescreve links para manter no domínio Vercel
           data = data
-            .replace(/https:\/\/embedflix.top\.top\/tv\//g, '/')
+            .replace(/https:\/\/la14hd\.com\///g, '/')
             .replace(/href='\/([^']+)'/g, "href='/$1'")
             .replace(/href="\/([^"]+)"/g, 'href="/$1"')
             .replace(/action="\/([^"]+)"/g, 'action="/$1"')
