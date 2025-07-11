@@ -2,9 +2,14 @@ const https = require('https');
 
 module.exports = async (req, res) => {
   try {
+    // Logs de depuração para verificar a URL da requisição
+    console.log("Requisição recebida para:", req.url);
+    
+    // Defina a URL de destino do conteúdo (ajustando conforme o path)
     const path = req.url === '/' ? '' : req.url;
     const targetUrl = 'https://reidoscanais.pro/' + path;
 
+    // Requisição HTTPS para o conteúdo de destino
     https.get(targetUrl, {
       headers: {
         'User-Agent': req.headers['user-agent'] || 'Mozilla/5.0',
@@ -13,7 +18,7 @@ module.exports = async (req, res) => {
     }, (resp) => {
       let data = '';
 
-      // Verifica se o status da resposta é OK (200)
+      // Verifica se a resposta do servidor é 200 (OK)
       if (resp.statusCode !== 200) {
         console.error(`Erro ao carregar o conteúdo. Status: ${resp.statusCode}`);
         res.statusCode = 500;
@@ -23,7 +28,7 @@ module.exports = async (req, res) => {
       resp.on('data', chunk => data += chunk);
       resp.on('end', () => {
         try {
-          // Verifica se o conteúdo é HTML (pode ser necessário ajustar se o site retornar algo inesperado)
+          // Verifica se o conteúdo é HTML válido
           if (!data.includes('<html')) {
             console.error("Conteúdo não é HTML válido.");
             res.statusCode = 500;
