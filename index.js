@@ -39,6 +39,19 @@ module.exports = async (req, res) => {
   <p>ESCOLHA O CANAL PARA ASSISTIR SEU JOGO</p>
 </div>
 
+<!-- Script para alterar título da aba -->
+<script>
+  const domainName = window.location.hostname;  // Obtém o nome do domínio
+  const links = document.querySelectorAll('a');  // Seleciona todos os links da página
+  
+  // Adiciona um evento de clique em cada link
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      document.title = domainName;  // Altera o título da aba para o nome do domínio
+    });
+  });
+</script>
+
 <style>
   /* Estilos da Faixa na parte inferior */
   .bottom-bar {
@@ -66,6 +79,19 @@ ${data}
 <div id="bottom-bar" class="bottom-bar">
   <p>CLIQUE DUAS VEZES NA TELA PARA ENCHER A TELA</p>
 </div>
+
+<!-- Script para alterar título da aba -->
+<script>
+  const domainName = window.location.hostname;  // Obtém o nome do domínio
+  const links = document.querySelectorAll('a');  // Seleciona todos os links da página
+  
+  // Adiciona um evento de clique em cada link
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      document.title = domainName;  // Altera o título da aba para o nome do domínio
+    });
+  });
+</script>
 
 <style>
   /* Estilos da Faixa na parte inferior */
