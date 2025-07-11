@@ -3,12 +3,12 @@ const https = require('https');
 module.exports = async (req, res) => {
   try {
     const path = req.url === '/' ? '' : req.url;
-    const targetUrl = 'https://playertv.net/' + path;
+    const targetUrl = 'https://nossoplayeronlinehd.blog/' + path;
 
     https.get(targetUrl, {
       headers: {
         'User-Agent': req.headers['user-agent'] || 'Mozilla/5.0',
-        'Referer': 'https://playertv.net/',
+        'Referer': 'https://nossoplayeronlinehd.blog/',
       }
     }, (resp) => {
       let data = '';
@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
         try {
           // Reescreve links para manter no domínio Vercel
           data = data
-            .replace(/https:\/\/playertv\.net\//g, '/')
+            .replace(/https:\/\/nossoplayeronlinehd\.blog\/tv\//g, '/')
             .replace(/href='\/([^']+)'/g, "href='/$1'")
             .replace(/href="\/([^"]+)"/g, 'href="/$1"')
             .replace(/action="\/([^"]+)"/g, 'action="/$1"')
@@ -138,4 +138,3 @@ ${data}
     res.end("Erro interno.");
   }
 };
-
