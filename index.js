@@ -3,12 +3,12 @@ const https = require('https');
 module.exports = async (req, res) => {
   try {
     const path = req.url === '/' ? '' : req.url;
-    const targetUrl = 'https://futebolgratis.org/' + path;
+    const targetUrl = 'https://reidoscanais.pro/' + path;
 
     https.get(targetUrl, {
       headers: {
         'User-Agent': req.headers['user-agent'] || 'Mozilla/5.0',
-        'Referer': 'https://futebolgratis.org/',
+        'Referer': 'https://reidoscanais.pro/',
       }
     }, (resp) => {
       let data = '';
@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
         try {
           // Reescreve links para manter no domínio Vercel
           data = data
-            .replace(/https:\/\/futebolgratis\.org\//g, '/')
+            .replace(/https:\/\/reidoscanais\.pro\//g, '/')
             .replace(/href='\/([^']+)'/g, "href='/$1'")
             .replace(/href="\/([^"]+)"/g, 'href="/$1"')
             .replace(/action="\/([^"]+)"/g, 'action="/$1"')
