@@ -26,7 +26,7 @@ module.exports = async (req, res) => {
 
           // Remover ou alterar o título e o ícone
           data = data
-            .replace(/<title>[^<]*<\/title>/, '<title>Meu Site</title>')  // Coloque aqui o título desejado
+            .replace(/<title>[^<]*<\/title>/, '<title>Futebol ao vivo</title>')  // Define o título como "Futebol ao vivo"
             .replace(/<link[^>]*rel=["']icon["'][^>]*>/gi, '');  // Remove o ícone
 
           // Injeção segura da faixa
@@ -39,15 +39,17 @@ module.exports = async (req, res) => {
   <p>ESCOLHA O CANAL PARA ASSISTIR SEU JOGO</p>
 </div>
 
-<!-- Script para alterar título da aba -->
+<!-- Script para manter o título da aba -->
 <script>
-  const domainName = window.location.hostname;  // Obtém o nome do domínio
+  // O título da aba já está definido como "Futebol ao vivo"
+  document.title = "Futebol ao vivo";  // Define o título da aba de forma fixa
+  
   const links = document.querySelectorAll('a');  // Seleciona todos os links da página
   
   // Adiciona um evento de clique em cada link
   links.forEach(link => {
     link.addEventListener('click', function() {
-      document.title = domainName;  // Altera o título da aba para o nome do domínio
+      document.title = "Futebol ao vivo";  // Garante que o título da aba permaneça como "Futebol ao vivo"
     });
   });
 </script>
@@ -80,15 +82,17 @@ ${data}
   <p>CLIQUE DUAS VEZES NA TELA PARA ENCHER A TELA</p>
 </div>
 
-<!-- Script para alterar título da aba -->
+<!-- Script para manter o título da aba -->
 <script>
-  const domainName = window.location.hostname;  // Obtém o nome do domínio
+  // O título da aba já está definido como "Futebol ao vivo"
+  document.title = "Futebol ao vivo";  // Define o título da aba de forma fixa
+  
   const links = document.querySelectorAll('a');  // Seleciona todos os links da página
   
   // Adiciona um evento de clique em cada link
   links.forEach(link => {
     link.addEventListener('click', function() {
-      document.title = domainName;  // Altera o título da aba para o nome do domínio
+      document.title = "Futebol ao vivo";  // Garante que o título da aba permaneça como "Futebol ao vivo"
     });
   });
 </script>
