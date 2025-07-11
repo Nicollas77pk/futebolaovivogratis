@@ -2,56 +2,35 @@ const https = require('https');
 
 module.exports = async (req, res) => {
   try {
-    // Logs de depuração para verificar a URL da requisição
-    console.log("Requisição recebida para:", req.url);
-    
-    // Defina a URL de destino do conteúdo (ajustando conforme o path)
     const path = req.url === '/' ? '' : req.url;
-    const targetUrl = 'https://reidoscanais.pro/' + path;
+    const targetUrl = 'https://apk.futemais.net/app2/' + path;
 
-    // Requisição HTTPS para o conteúdo de destino
     https.get(targetUrl, {
       headers: {
         'User-Agent': req.headers['user-agent'] || 'Mozilla/5.0',
-        'Referer': 'https://reidoscanais.pro/',
+        'Referer': 'https://apk.futemais.net/app2/',
       }
     }, (resp) => {
       let data = '';
 
-      // Verifica se a resposta do servidor é 200 (OK)
-      if (resp.statusCode !== 200) {
-        console.error(`Erro ao carregar o conteúdo. Status: ${resp.statusCode}`);
-        res.statusCode = 500;
-        return res.end("Erro ao carregar o conteúdo do site.");
-      }
-
       resp.on('data', chunk => data += chunk);
       resp.on('end', () => {
         try {
-          // Verifica se o conteúdo é HTML válido
-          if (!data.includes('<html')) {
-            console.error("Conteúdo não é HTML válido.");
-            res.statusCode = 500;
-            return res.end("Conteúdo não encontrado ou inválido.");
-          }
-
           // Reescreve links para manter no domínio Vercel
           data = data
-            .replace(/https:\/\/reidoscanais\.pro\//g, '/')
-            .replace(/href='\/([^']+)'/g, "href='/$1'")
-            .replace(/href="\/([^"]+)"/g, 'href="/$1"')
-            .replace(/action="\/([^"]+)"/g, 'action="/$1"')
-            .replace(/<base[^>]*>/gi, '');
+            .replace(/https:\/\/apk\.futemais\.net\/app2\//g, '/') // Substituindo o domínio para o relativo
+            .replace(/href=['"]\/([^'"]+)['"]/g, 'href="/$1"') // Links internos
+            .replace(/action=['"]\/([^'"]+)['"]/g, 'action="/$1"') // Links de action
+            .replace(/<base[^>]*>/gi, ''); // Remove qualquer tag <base>
 
           // Remover ou alterar o título e o ícone
           data = data
-            .replace(/<title>[^<]*<\/title>/, '<title>Meu Site</title>')  // Coloque aqui o título desejado
+            .replace(/<title>[^<]*<\/title>/, '<title>Meu Site</title>')  // Título personalizado
             .replace(/<link[^>]*rel=["']icon["'][^>]*>/gi, '');  // Remove o ícone
 
-          // Verifica se a tag </body> existe
+          // Injeção segura de banner no final do body com verificação
           let finalHtml;
           if (data.includes('</body>')) {
-            // Adiciona o banner antes do fechamento da tag </body>
             finalHtml = data.replace('</body>', `
 <div id="custom-footer">
   <a href="https://8xbet86.com/" target="_blank">
@@ -72,7 +51,7 @@ module.exports = async (req, res) => {
 </style>
 </body>`);
           } else {
-            // Caso a tag </body> não exista, adiciona manualmente no final do conteúdo
+            // Se não tiver </body>, adiciona manualmente
             finalHtml = `
 ${data}
 <div id="custom-footer">
@@ -94,12 +73,8 @@ ${data}
 </style>`;
           }
 
-          // Cabeçalhos CORS: permite que qualquer origem acesse o conteúdo
-          res.setHeader('Access-Control-Allow-Origin', '*');  // Permite qualquer origem
-          res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');  // Métodos permitidos
-          res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');  // Cabeçalhos permitidos
-          res.setHeader('Content-Type', 'text/html');  // Garantir que a resposta seja HTML
-
+          res.setHeader('Access-Control-Allow-Origin', '*');
+          res.setHeader('Content-Type', resp.headers['content-type'] || 'text/html');
           res.statusCode = 200;
           res.end(finalHtml);
         } catch (err) {
