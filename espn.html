@@ -146,6 +146,13 @@
   <div class="dashboard">
     <div class="channel-list">
       <h2>Canais</h2>
+      <input
+  type="text"
+  id="searchInput"
+  placeholder="Buscar canal..."
+  oninput="filterChannels()"
+  style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: none; background: #252542; color: white;"
+/>
       <button class="control-button" onclick="fetchChannels()">Carregar Lista</button>
       <div id="channelContainer"></div>
     </div>
