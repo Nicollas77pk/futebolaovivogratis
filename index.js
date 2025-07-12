@@ -1,135 +1,67 @@
-const https = require('https');
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
 
-module.exports = async (req, res) => {
-  try {
-    const path = req.url === '/' ? '' : req.url;
-    const targetUrl = 'https://sinalpublico.vercel.app/' + path;
 
-    https.get(targetUrl, {
-      headers: {
-        'User-Agent': req.headers['user-agent'] || 'Mozilla/5.0',
-        'Referer': 'https://sinalpublico.vercel.app/',
-      }
-    }, (resp) => {
-      let data = '';
 
-      resp.on('data', chunk => data += chunk);
-      resp.on('end', () => {
-        try {
-          // Reescreve links para manter no domínio Vercel, mas NÃO altera URLs externas (como imagens)
-          data = data
-            .replace(/https:\/\/sinalpublico\.vercel\.app\//g, '/')  // Links internos
-            .replace(/href='\/([^']+)'/g, "href='/$1'")   // Links internos
-            .replace(/href="\/([^"]+)"/g, 'href="/$1"')    // Links internos
-            .replace(/action="\/([^"]+)"/g, 'action="/$1"') 
-            .replace(/<base[^>]*>/gi, '')
-            // Não reescreve links externos (como para imagens, JS, etc.)
-            .replace(/href="(http[s]?:\/\/[^"]+)"/g, 'href="$1"')  // Links externos
-            .replace(/src="(http[s]?:\/\/[^"]+)"/g, 'src="$1"')    // Fontes externas como imagens, vídeos
-            .replace(/src="\/([^"]+)"/g, 'src="/$1"');   // Links internos de recursos
-
-          // Remover ou alterar o título e o ícone
-          data = data
-            .replace(/<title>[^<]*<\/title>/, '<title>Futebol ao vivo</title>')  // Define o título como "Futebol ao vivo"
-            .replace(/<link[^>]*rel=["']icon["'][^>]*>/gi, '');  // Remove o ícone
-
-          // Injeção segura da faixa
-          let finalHtml;
-          if (data.includes('</body>')) {
-            finalHtml = data.replace('</body>', `
-<!-- Faixa na parte inferior -->
-<div id="bottom-bar" class="bottom-bar">
-  <p>ESCOLHA O CANAL PARA ASSISTIR SEU JOGO</p>
-</div>
-
-<!-- Script para manter o título da aba -->
-<script>
-  document.title = "Futebol ao vivo";  // Define o título da aba de forma fixa
-  const links = document.querySelectorAll('a');  // Seleciona todos os links da página
   
-  // Adiciona um evento de clique em cada link
-  links.forEach(link => {
-    link.addEventListener('click', function() {
-      document.title = "Futebol ao vivo";  // Garante que o título da aba permaneça como "Futebol ao vivo"
-    });
-  });
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Futebol Ao Vivo grátis</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      background: transparent;
+    }
 
-<style>
-  .bottom-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 18px;
-    font-family: Arial, sans-serif;
-    z-index: 9999;
-  }
-</style>
+    iframe {
+      border: none;
+      width: 100vw;
+      height: 100vh;
+      max-width: 100%;
+      display: block;
+    }
 
-</body>`);
-          } else {
-            finalHtml = `
-${data}
-<!-- Faixa na parte inferior -->
-<div id="bottom-bar" class="bottom-bar">
-  <p>CLIQUE DUAS VEZES NA TELA PARA ENCHER A TELA</p>
-</div>
+    /* Faixa fixa na parte inferior */
+    .banner-faixa {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 9999;
+      padding: 8px 0;
+      background: transparent; /* sem fundo */
+    }
 
-<!-- Script para manter o título da aba -->
-<script>
-  document.title = "Futebol ao vivo";  // Define o título da aba de forma fixa
-  const links = document.querySelectorAll('a');  // Seleciona todos os links da página
-  
-  // Adiciona um evento de clique em cada link
-  links.forEach(link => {
-    link.addEventListener('click', function() {
-      document.title = "Futebol ao vivo";  // Garante que o título da aba permaneça como "Futebol ao vivo"
-    });
-  });
-</script>
+    .banner-faixa img {
+      width: 90vw;
+      max-width: 500px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
 
-<style>
-  .bottom-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 18px;
-    font-family: Arial, sans-serif;
-    z-index: 9999;
-  }
-</style>
+  <iframe
+    src="/site"
+    allow="encrypted-media"
+    allowfullscreen
+    referrerpolicy="no-referrer"
+  ></iframe>
 
-</body>`;
-          }
+  <!-- Banner puro em forma de faixa -->
+  <div class="banner-faixa">
+    <a href="https://8xbet86.com/" target="_blank" rel="noopener noreferrer">
+      <img src="https://i.imgur.com/Fen20UR.gif" alt="Banner Promocional" />
+    </a>
+  </div>
 
-          res.setHeader('Access-Control-Allow-Origin', '*');
-          res.setHeader('Content-Type', resp.headers['content-type'] || 'text/html');
-          res.statusCode = 200;
-          res.end(finalHtml);
-        } catch (err) {
-          console.error("Erro ao processar o HTML:", err);
-          res.statusCode = 500;
-          res.end("Erro ao processar o conteúdo.");
-        }
-      });
-    }).on("error", (err) => {
-      console.error("Erro ao fazer requisição HTTPS:", err);
-      res.statusCode = 500;
-      res.end("Erro ao carregar conteúdo.");
-    });
-  } catch (err) {
-    console.error("Erro geral:", err);
-    res.statusCode = 500;
-    res.end("Erro interno.");
-  }
-};
+</body>
+</html>
