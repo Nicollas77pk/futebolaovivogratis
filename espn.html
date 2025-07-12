@@ -167,7 +167,7 @@
     let currentChannelIndex = 0;
 
     function fetchChannels() {
-      fetch('/canais')
+      fetch('/api/canais')
         .then(res => res.text())
         .then(text => {
           parseM3U(text);
