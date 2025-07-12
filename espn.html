@@ -205,29 +205,34 @@
       if (channels.length > 0) playChannel(0);
     }
 
-    function renderChannelList() {
-      const container = document.getElementById('channelContainer');
-      container.innerHTML = '';
+    function renderChannelList(list = channels) {
+  const container = document.getElementById('channelContainer');
+  container.innerHTML = '';
 
-      channels.forEach((channel, index) => {
-        const div = document.createElement('div');
-        div.className = 'channel-item';
-        div.innerHTML = `
-          <div class="channel-logo">
-            ${channel.logo
-              ? `<img src="${channel.logo}" alt="logo">`
-              : `<svg width="24" height="24" fill="white"><circle cx="12" cy="12" r="10"/></svg>`}
-          </div>
-          <div class="channel-info">
-            <h3>${channel.name}</h3>
-            <p>Canal ${index + 1}</p>
-          </div>
-        `;
-        div.onclick = () => playChannel(index);
-        container.appendChild(div);
-      });
-      highlightActiveChannel();
-    }
+  list.forEach((channel, index) => {
+    const div = document.createElement('div');
+    div.className = 'channel-item';
+    div.innerHTML = `
+      <div class="channel-logo">
+        ${channel.logo
+          ? `<img src="${channel.logo}" alt="logo">`
+          : `<svg width="24" height="24" fill="white"><circle cx="12" cy="12" r="10"/></svg>`}
+      </div>
+      <div class="channel-info">
+        <h3>${channel.name}</h3>
+        <p>Canal ${index + 1}</p>
+      </div>
+    `;
+    div.onclick = () => {
+      const originalIndex = channels.findIndex(c => c.name === channel.name && c.url === channel.url);
+      playChannel(originalIndex);
+    };
+    container.appendChild(div);
+  });
+
+  highlightActiveChannel();
+}
+
 
     function playChannel(index) {
       currentChannelIndex = index;
@@ -272,6 +277,13 @@
 
     // Carrega automaticamente ao abrir a página
     fetchChannels();
+
+    function filterChannels() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = channels.filter(c => c.name.toLowerCase().includes(search));
+  renderChannelList(filtered);
+}
+
   </script>
 </body>
 </html>
