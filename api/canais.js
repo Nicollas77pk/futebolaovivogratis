@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
 #EXTM3U
 #EXTINF:-1,Kuriakos Kids 
 #EXTIMG https://example.com/icon.png
-https://w2.manasat.com/kkids/smil:kkids.smil/playlist.m3u8
+https://br.futemais.eu/live/canal4/chunks.m3u8?md5=_BVqSzCbAEoRIGeFx3XB4w&expires=1772918565
 
 #EXTINF:-1,filme
 #EXTIMG https://example.com/icon.png
