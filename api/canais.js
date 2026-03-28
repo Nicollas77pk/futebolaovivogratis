@@ -11,21 +11,107 @@ https://edg.meusfavoritos.net/exemple.php?id=cfdd67b70d6fbb4cda8eb0f8db77d6a5
 http://46.151.196.211/vauth/249965.mp4?token=HJCklA0eMbyYq0zP8xU-jUt9_K9xAAzrxRgYneouo9NunbkteejgVS-YKbaj-9hqDPR-SETFL0xUf6HA4GW6uhI9ZiTnbWTZLTbnwn6e3xevvcj9YE1P1IxVjBHAiwBcaPW0Ij2VS8TEkKL52w9JHayh_gmSI8X5HN-CMdfPZuUYJi-SKAHzZfaumCy0zwrZR0MScYOVcTm6GMi6QoLMNF_gVbvcekIcnMDAutedY8eto5okV8ZbsP5uSWoR7T1bbgrGz-LBt9h6YBJ_NrDt9E5RNREl9v2nDtg37lldrz1MC-rCNQ2PYE4j4mJunp6LGYgw2bftJqbhB9NDMtXBksKYrLglI9HVLj-wfyTDMBZyk_8JrjC2GKG2q-SxIIx9IyP0yk_dCtyzJxJI2wShmbTRuzmUyUljSNHWdC2-v8-u6qkdMmZHcksLg2WGJIIUJEqdOd97CRqOV4RC4bW3L61MPPXzMJJIm1eoKWnHCS33G7HQwwW0G0wg0KMwW1wsQwhGkhYPYzyNGDrun0bSSLjAqSJnQZ6K1Qk8rXcBxmcpkvaBku0IHp8D06KT2mKcHxROct7wQ-LZ3tBbq2TxRqmSYzStKlgM2tmgNg4fTuw
 
 
+#EXTINF:-1 type="embed",Globo SP
+https://rdcanais.top/globosp
+
+#EXTINF:-1 type="embed",Globo RJ
+https://rdcanais.top/globorj
+
+#EXTINF:-1 type="embed",SBT
+https://rdcanais.top/sbt
+
+#EXTINF:-1 type="embed",Record
+https://rdcanais.top/record
+
+#EXTINF:-1 type="embed",Band
+https://rdcanais.top/band
+
+#EXTINF:-1 type="embed",RedeTV
+https://rdcanais.top/redetv
+
 #EXTINF:-1 type="embed",ESPN
-https://1embedcanaisonline.xyz/espn/
+https://rdcanais.top/espn
 
-#EXTINF:-1 type="embed",Sportv
-https://1embedcanaisonline.xyz/sportv/
+#EXTINF:-1 type="embed",ESPN 2
+https://rdcanais.top/espn2
 
-#EXTINF:-1,Kuriakos Kids
-http://gbbrlive2.sambatech.com.br/.../playlist.m3u8
+#EXTINF:-1 type="embed",ESPN 3
+https://rdcanais.top/espn3
 
-#EXTINF:-1,Filme
-http://meusite.com/video.mp4
+#EXTINF:-1 type="embed",ESPN 4
+https://rdcanais.top/espn4
 
+#EXTINF:-1 type="embed",SporTV
+https://rdcanais.top/sportv
 
+#EXTINF:-1 type="embed",SporTV 2
+https://rdcanais.top/sportv2
 
+#EXTINF:-1 type="embed",SporTV 3
+https://rdcanais.top/sportv3
 
+#EXTINF:-1 type="embed",Premiere
+https://rdcanais.top/premiere
+
+#EXTINF:-1 type="embed",Premiere 2
+https://rdcanais.top/premiere2
+
+#EXTINF:-1 type="embed",Premiere 3
+https://rdcanais.top/premiere3
+
+#EXTINF:-1 type="embed",Combate
+https://rdcanais.top/combate
+
+#EXTINF:-1 type="embed",TNT Sports
+https://rdcanais.top/tntsports
+
+#EXTINF:-1 type="embed",HBO
+https://rdcanais.top/hbo
+
+#EXTINF:-1 type="embed",HBO 2
+https://rdcanais.top/hbo2
+
+#EXTINF:-1 type="embed",HBO Plus
+https://rdcanais.top/hboplus
+
+#EXTINF:-1 type="embed",HBO Family
+https://rdcanais.top/hbofamily
+
+#EXTINF:-1 type="embed",HBO Signature
+https://rdcanais.top/hbosignature
+
+#EXTINF:-1 type="embed",Telecine Premium
+https://rdcanais.top/telecinepremium
+
+#EXTINF:-1 type="embed",Telecine Action
+https://rdcanais.top/telecineaction
+
+#EXTINF:-1 type="embed",Telecine Pipoca
+https://rdcanais.top/telecinepipoca
+
+#EXTINF:-1 type="embed",Telecine Touch
+https://rdcanais.top/telecinetouch
+
+#EXTINF:-1 type="embed",Telecine Cult
+https://rdcanais.top/telecinecult
+
+#EXTINF:-1 type="embed",Cartoon Network
+https://rdcanais.top/cartoonnetwork
+
+#EXTINF:-1 type="embed",Disney Channel
+https://rdcanais.top/disneychannel
+
+#EXTINF:-1 type="embed",Discovery Channel
+https://rdcanais.top/discoverychannel
+
+#EXTINF:-1 type="embed",History
+https://rdcanais.top/history
+
+#EXTINF:-1 type="embed",National Geographic
+https://rdcanais.top/nationalgeographic
+
+#EXTINF:-1 type="embed",Multishow
+https://rdcanais.top/multishow
 
 #EXTINF:-1,Gospel Movie TV
 #EXTIMG https://example.com/icon.png
