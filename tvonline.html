@@ -6,106 +6,132 @@
 <title>IPTV Dashboard</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial;
-}
-
-body {
-  background: #0b1419;
-  color: white;
-}
-
-.dashboard {
-  display: grid;
-  grid-template-columns: 220px 260px 1fr;
-  gap: 15px;
-  padding: 15px;
-  height: 100vh;
-}
-
-.categories, .channel-list, .player-section {
-  background: #0f1c24;
-  border-radius: 12px;
-  padding: 15px;
-  overflow-y: auto;
-}
-
-h2 {
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
-.category-item, .channel-item {
-  padding: 10px;
-  background: #13232c;
-  margin-bottom: 6px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.category-item:hover, .channel-item:hover {
-  background: #1a323d;
-}
-
-.channel-item {
-  display: flex;
-  align-items: center;
-}
-
-.channel-logo {
-  width: 30px;
-  margin-right: 10px;
-}
-
-.video-player {
-  width: 100%;
-  height: calc(100% - 60px);
-  background: black;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.player-controls {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.control-button {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  background: #a5edf5;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.search-box {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  border: none;
-  background: #13232c;
-  color: white;
-}
-
-@media(max-width:768px){
-  .dashboard {
-    grid-template-columns: 1fr;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #a5edf5 #0f1c24;
   }
-}
+
+  body {
+    background: #0b1419;
+    color: white;
+    min-height: 100vh;
+  }
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: 220px 260px 1fr;
+    gap: 20px;
+    padding: 20px;
+    height: 100vh;
+  }
+
+  .categories, .channel-list, .player-section {
+    background: #0f1c24;
+    border-radius: 15px;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(165, 237, 245, 0.08);
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(165, 237, 245, 0.2);
+    padding-bottom: 8px;
+  }
+
+  .category-item, .channel-item {
+    padding: 12px;
+    background: #13232c;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .category-item:hover, .channel-item:hover {
+    background: #1a323d;
+    transform: translateX(5px);
+  }
+
+  .category-item.active, .channel-item.active {
+    border-left: 4px solid #a5edf5;
+    background: #1a323d;
+  }
+
+  .channel-logo {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+  }
+
+  .channel-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .video-player {
+    width: 100%;
+    height: calc(100% - 100px);
+    background: black;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.7);
+    padding: 15px 25px;
+    border-radius: 10px;
+    display: none;
+  }
+
+  .player-controls {
+    display: flex;
+    gap: 10px;
+  }
+
+  .control-button {
+    flex: 1;
+    background: linear-gradient(135deg, #a5edf5, #6ed0db);
+    color: #0b1419;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .search-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #13232c;
+    color: white;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .dashboard {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 </head>
 
