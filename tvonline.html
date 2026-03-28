@@ -228,43 +228,43 @@ function renderChannelList(list = channels) {
   const container = document.getElementById('channelContainer');
   container.innerHTML = '';
 
-  list.forEach((channel, index) => {
+  list.forEach((channel) => {
     const div = document.createElement('div');
     div.className = 'channel-item';
     div.innerHTML = `
       ${channel.logo ? `<img class="channel-logo" src="${channel.logo}">` : ''}
       <div>${channel.name}</div>
     `;
-    div.onclick = () => playChannel(index);
+    div.onclick = () => playChannel(channel);
     container.appendChild(div);
   });
 
-  if (channels.length > 0) playChannel(0);
+  if (list.length > 0) playChannel(list[0]);
 }
-
-function playChannel(index) {
-  currentChannelIndex = index;
-  const channel = channels[index];
+  
+function playChannel(channel) {
   const video = document.getElementById('videoPlayer');
   const loader = document.getElementById('loader');
 
   loader.style.display = 'block';
 
-  if (Hls.isSupported()) {
-    const hls = new Hls();
-    hls.loadSource(channel.url);
-    hls.attachMedia(video);
-    hls.on(Hls.Events.MANIFEST_PARSED, () => {
-      loader.style.display = 'none';
-      video.play();
-    });
+  if (channel.url.includes('.m3u8')) {
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(channel.url);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        loader.style.display = 'none';
+        video.play();
+      });
+    }
   } else {
     video.src = channel.url;
-    video.onloadeddata = () => loader.style.display = 'none';
-    video.play();
+    loader.style.display = 'none';
   }
-}
-
+} 
+  
+  
 function playPrevious() {
   currentChannelIndex = (currentChannelIndex - 1 + channels.length) % channels.length;
   playChannel(currentChannelIndex);
