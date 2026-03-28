@@ -2,6 +2,10 @@
 module.exports = async (req, res) => {
   const lista = `
 #EXTM3U
+#EXTINF:-1,Band HD
+#EXTIMG:https://imgur.com/xYGjfh8.png
+https://stream1.freetv.fun/band-1.m3u8
+
 #EXTINF:-1 type="embed",Globo SP
 https://rdcanais.top/globosp
 
