@@ -216,9 +216,10 @@ function fetchChannels(){
   .then(text=>parseM3U(text));
 }
 
+
 function parseM3U(text){
   categories = {};
-  const lines = text.split('\\n');
+  const lines = text.split('\n'); // <-- CORRETO
 
   let name='', logo='', group='';
 
@@ -238,6 +239,9 @@ function parseM3U(text){
       });
     }
   });
+
+  renderCategories();
+}
 
   renderCategories();
 }
