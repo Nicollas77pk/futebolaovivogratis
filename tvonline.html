@@ -223,7 +223,9 @@ function renderCategories() {
     container.appendChild(div);
   });
 }
-
+currentCategory = Object.keys(categories)[0];
+channels = categories[currentCategory];
+renderChannelList();
 function renderChannelList(list = channels) {
   const container = document.getElementById('channelContainer');
   container.innerHTML = '';
