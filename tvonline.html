@@ -4,143 +4,183 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard IPTV</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+ <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #141428;
+  }
 
-    body {
-      background: #0f0f1a;
-      color: white;
-      min-height: 100vh;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 
+  body {
+    background: #0f0f1a;
+    color: white;
+    min-height: 100vh;
+  }
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    padding: 20px;
+    height: 100vh;
+  }
+
+  .channel-list, .player-section {
+    background: #1a1a2e;
+    border-radius: 15px;
+    padding: 20px;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    position: relative;
+  }
+
+  /* Fade no final da lista */
+  .channel-list::after {
+    content: "";
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, #1a1a2e);
+    pointer-events: none;
+  }
+
+  .channel-list h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4a4a6a;
+    padding-bottom: 10px;
+  }
+
+  .channel-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #252542;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .channel-item:hover {
+    background: #353564;
+    transform: translateX(5px);
+  }
+
+  .channel-item.active {
+    background: #353564;
+    border-left: 4px solid #007bff;
+  }
+
+  .channel-logo {
+    width: 40px;
+    height: 40px;
+    background: #4a4a6a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    overflow: hidden;
+  }
+
+  .channel-logo img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+  }
+
+  .channel-info h3 {
+    font-size: 16px;
+  }
+
+  .channel-info p {
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  .video-player {
+    width: 100%;
+    height: calc(100% - 100px);
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .video-player video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .player-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .control-button {
+    flex: 1;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .control-button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  /* Scroll moderno */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #141428;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #007bff, #00c6ff);
+    border-radius: 10px;
+    border: 2px solid #141428;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00c6ff, #007bff);
+  }
+
+  @media (max-width: 768px) {
     .dashboard {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 20px;
-      padding: 20px;
-      height: 100vh;
+      grid-template-columns: 1fr;
     }
 
     .channel-list, .player-section {
-      background: #1a1a2e;
-      border-radius: 15px;
-      padding: 20px;
-      height: calc(100vh - 40px);
-      overflow-y: auto;
-    }
-
-    .channel-list h2 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #4a4a6a;
-      padding-bottom: 10px;
-    }
-
-    .channel-item {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      background: #252542;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .channel-item:hover {
-      background: #353564;
-      transform: translateX(5px);
-    }
-
-    .channel-item.active {
-      background: #353564;
-      border-left: 4px solid #007bff;
-    }
-
-    .channel-logo {
-      width: 40px;
-      height: 40px;
-      background: #4a4a6a;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 15px;
-      overflow: hidden;
-    }
-
-    .channel-logo img {
-      max-width: 80%;
-      max-height: 80%;
-      object-fit: contain;
-    }
-
-    .channel-info h3 {
-      font-size: 16px;
-    }
-
-    .channel-info p {
-      font-size: 12px;
-      color: #aaa;
-    }
-
-    .video-player {
-      width: 100%;
-      height: calc(100% - 100px);
-      background: #000;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-
-    .video-player video {
-      width: 100%;
-      height: 100%;
+      height: auto;
     }
 
     .player-controls {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
+      flex-direction: column;
     }
 
     .control-button {
-      flex: 1;
-      background: #007bff;
-      border: none;
-      padding: 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      width: 100%;
     }
-
-    .control-button:hover {
-      background: #0056b3;
-    }
-
-    @media (max-width: 768px) {
-      .dashboard {
-        grid-template-columns: 1fr;
-      }
-
-      .channel-list, .player-section {
-        height: auto;
-      }
-
-      .player-controls {
-        flex-direction: column;
-      }
-
-      .control-button {
-        width: 100%;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
   <div class="dashboard">
@@ -288,3 +328,19 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
