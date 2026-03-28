@@ -2,15 +2,6 @@
 module.exports = async (req, res) => {
   const lista = `
 #EXTM3U
-#EXTINF:-1,Kuriakos Kids 
-#EXTIMG https://example.com/icon.png
-https://edg.meusfavoritos.net/exemple.php?id=cfdd67b70d6fbb4cda8eb0f8db77d6a5
-
-#EXTINF:-1,filme
-#EXTIMG https://example.com/icon.png
-http://46.151.196.211/vauth/249965.mp4?token=HJCklA0eMbyYq0zP8xU-jUt9_K9xAAzrxRgYneouo9NunbkteejgVS-YKbaj-9hqDPR-SETFL0xUf6HA4GW6uhI9ZiTnbWTZLTbnwn6e3xevvcj9YE1P1IxVjBHAiwBcaPW0Ij2VS8TEkKL52w9JHayh_gmSI8X5HN-CMdfPZuUYJi-SKAHzZfaumCy0zwrZR0MScYOVcTm6GMi6QoLMNF_gVbvcekIcnMDAutedY8eto5okV8ZbsP5uSWoR7T1bbgrGz-LBt9h6YBJ_NrDt9E5RNREl9v2nDtg37lldrz1MC-rCNQ2PYE4j4mJunp6LGYgw2bftJqbhB9NDMtXBksKYrLglI9HVLj-wfyTDMBZyk_8JrjC2GKG2q-SxIIx9IyP0yk_dCtyzJxJI2wShmbTRuzmUyUljSNHWdC2-v8-u6qkdMmZHcksLg2WGJIIUJEqdOd97CRqOV4RC4bW3L61MPPXzMJJIm1eoKWnHCS33G7HQwwW0G0wg0KMwW1wsQwhGkhYPYzyNGDrun0bSSLjAqSJnQZ6K1Qk8rXcBxmcpkvaBku0IHp8D06KT2mKcHxROct7wQ-LZ3tBbq2TxRqmSYzStKlgM2tmgNg4fTuw
-
-
 #EXTINF:-1 type="embed",Globo SP
 https://rdcanais.top/globosp
 
