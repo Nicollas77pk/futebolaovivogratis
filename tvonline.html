@@ -120,6 +120,24 @@ iframe {
   border: 1px solid rgba(165, 237, 245, 0.05);
 }
 
+  .channel-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.channel-list::-webkit-scrollbar-track {
+  background: #0b1419;
+  border-radius: 10px;
+}
+
+.channel-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #a5edf5, #6ed0db);
+  border-radius: 10px;
+}
+
+.channel-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #c8f7fb, #8be3ec);
+}
+
 .category-item:hover, .channel-item:hover {
   background: linear-gradient(145deg, #1a323d, #13232c);
   transform: translateX(4px);
