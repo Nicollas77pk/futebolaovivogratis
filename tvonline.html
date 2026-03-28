@@ -89,22 +89,29 @@ function playChannel(index) {
   const channel = channels[index];
   const player = document.querySelector('.video-player');
 
-  // recria estrutura (evita bug)
-  player.innerHTML = `
-    <div id="loader" class="loader">Carregando canal...</div>
-  `;
-
+  player.innerHTML = `<div id="loader" class="loader">Carregando canal...</div>`;
   const loader = document.getElementById('loader');
+
   loader.style.display = 'block';
 
-  // 🎬 EMBED (iframe)
+  // 🔥 AJUSTE AUTOMÁTICO DE EMBED
+  let url = channel.url;
+
   if (channel.type === 'embed') {
 
+    // transforma /espn -> /embed/espn
+    if (!url.includes('/embed/')) {
+      const parts = url.split('/');
+      const last = parts.pop();
+      url = parts.join('/') + '/embed/' + last;
+    }
+
     const iframe = document.createElement('iframe');
-    iframe.src = channel.url;
+    iframe.src = url;
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     iframe.style.border = 'none';
+    iframe.allow = "autoplay; fullscreen";
     iframe.allowFullscreen = true;
 
     player.appendChild(iframe);
@@ -114,6 +121,38 @@ function playChannel(index) {
     }, 1500);
 
   }
+
+  // 🎬 M3U8 / MP4
+  else {
+
+    const video = document.createElement('video');
+    video.controls = true;
+    video.autoplay = true;
+    video.style.width = '100%';
+    video.style.height = '100%';
+
+    player.appendChild(video);
+
+    if (channel.type === 'm3u8' && Hls.isSupported()) {
+
+      const hls = new Hls();
+      hls.loadSource(channel.url);
+      hls.attachMedia(video);
+
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        loader.style.display = 'none';
+        video.play();
+      });
+
+    } else {
+      video.src = channel.url;
+      video.onloadeddata = () => loader.style.display = 'none';
+      video.play();
+    }
+  }
+
+  highlightActiveChannel();
+}
 
   // 🎬 MP4 ou M3U8
   else {
