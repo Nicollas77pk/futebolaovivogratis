@@ -252,15 +252,6 @@ function toggleMenu() {
   document.querySelector('.channel-list').classList.toggle('show');
 }
 
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script>
-let channels = [];
-let currentChannelIndex = 0;
-
-function toggleMenu() {
-  document.querySelector('.channel-list').classList.toggle('show');
-}
-
 function fetchChannels() {
   fetch('/api/canais')
     .then(res => res.text())
@@ -271,38 +262,17 @@ function fetchChannels() {
 function parseM3U(m3uText) {
   channels = [];
   const lines = m3uText.split('\n');
-
-  let name = '', logo = '', type = 'm3u8';
+  let name = '', logo = '';
 
   lines.forEach((line, i) => {
-
     if (line.startsWith('#EXTINF')) {
-
       const nameMatch = line.match(/,(.*)$/);
       const logoMatch = line.match(/tvg-logo="([^"]+)"/);
-      const typeMatch = line.match(/type="([^"]+)"/);
-
       name = nameMatch ? nameMatch[1] : `Canal ${i}`;
       logo = logoMatch ? logoMatch[1] : '';
-      type = typeMatch ? typeMatch[1] : 'm3u8';
-
     } else if (line && !line.startsWith('#')) {
-
-      let detectedType = type;
-
-      // auto detect se não tiver type
-      if (line.includes('m3u8')) detectedType = 'm3u8';
-      else if (line.includes('.mp4')) detectedType = 'mp4';
-      else if (line.startsWith('http')) detectedType = 'embed';
-
-      channels.push({
-        name,
-        url: line.trim(),
-        logo,
-        type: detectedType
-      });
+      channels.push({ name, url: line.trim(), logo });
     }
-
   });
 
   renderChannelList();
@@ -316,22 +286,17 @@ function renderChannelList(list = channels) {
   list.forEach(channel => {
     const div = document.createElement('div');
     div.className = 'channel-item';
-
     div.innerHTML = `
       <div class="channel-logo">
-        ${channel.logo
-          ? `<img src="${channel.logo}">`
-          : `<svg width="24" height="24" fill="white"><circle cx="12" cy="12" r="10"/></svg>`}
+        ${channel.logo ? `<img src="${channel.logo}">` : `<svg width="24" height="24" fill="white"><circle cx="12" cy="12" r="10"/></svg>`}
       </div>
       <div>${channel.name}</div>
     `;
-
     div.onclick = () => {
       const index = channels.indexOf(channel);
       playChannel(index);
       toggleMenu();
     };
-
     container.appendChild(div);
   });
 
@@ -341,64 +306,23 @@ function renderChannelList(list = channels) {
 function playChannel(index) {
   currentChannelIndex = index;
   const channel = channels[index];
-  const player = document.querySelector('.video-player');
-
-  // recria estrutura (evita bug)
-  player.innerHTML = `
-    <div id="loader" class="loader">Carregando canal...</div>
-  `;
-
+  const video = document.getElementById('videoPlayer');
   const loader = document.getElementById('loader');
+
   loader.style.display = 'block';
 
-  // 🎬 EMBED (iframe)
-  if (channel.type === 'embed') {
-
-    const iframe = document.createElement('iframe');
-    iframe.src = channel.url;
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
-    iframe.allowFullscreen = true;
-
-    player.appendChild(iframe);
-
-    setTimeout(() => {
+  if (Hls.isSupported()) {
+    const hls = new Hls();
+    hls.loadSource(channel.url);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, () => {
       loader.style.display = 'none';
-    }, 1500);
-
-  }
-
-  // 🎬 MP4 ou M3U8
-  else {
-
-    const video = document.createElement('video');
-    video.controls = true;
-    video.autoplay = true;
-    video.style.width = '100%';
-    video.style.height = '100%';
-
-    player.appendChild(video);
-
-    // HLS
-    if (channel.type === 'm3u8' && Hls.isSupported()) {
-
-      const hls = new Hls();
-      hls.loadSource(channel.url);
-      hls.attachMedia(video);
-
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        loader.style.display = 'none';
-        video.play();
-      });
-
-    } else {
-      // MP4 ou fallback
-      video.src = channel.url;
-      video.onloadeddata = () => loader.style.display = 'none';
       video.play();
-    }
-
+    });
+  } else {
+    video.src = channel.url;
+    video.onloadeddata = () => loader.style.display = 'none';
+    video.play();
   }
 
   highlightActiveChannel();
@@ -422,9 +346,7 @@ function playNext() {
 }
 
 function togglePlay() {
-  const video = document.querySelector('video');
-  if (!video) return;
-
+  const video = document.getElementById('videoPlayer');
   if (video.paused) video.play();
   else video.pause();
 }
@@ -435,7 +357,6 @@ function filterChannels() {
   renderChannelList(filtered);
 }
 
-// auto load
 fetchChannels();
 </script>
 
