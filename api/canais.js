@@ -2,96 +2,201 @@
 module.exports = async (req, res) => {
   const lista = `
 #EXTM3U
-#EXTINF:-1,Band HD
-#EXTIMG:https://imgur.com/xYGjfh8.png
-https://stream1.freetv.fun/band-1.m3u8
-
 #EXTINF:-1 type="embed",Globo SP
-https://rdcanais.top/globosp
+https://rdcanais.top/globosp/
 
 #EXTINF:-1 type="embed",Globo RJ
-https://rdcanais.top/globorj
+https://rdcanais.top/globorj/
 
 #EXTINF:-1 type="embed",SBT
-https://rdcanais.top/sbt
+https://rdcanais.top/sbt/
 
 #EXTINF:-1 type="embed",Record
-https://rdcanais.top/record
+https://rdcanais.top/record/
 
 #EXTINF:-1 type="embed",Band
-https://rdcanais.top/band
+https://rdcanais.top/band/
 
 #EXTINF:-1 type="embed",RedeTV
-https://rdcanais.top/redetv
+https://rdcanais.top/redetv/
 
 #EXTINF:-1 type="embed",ESPN
-https://rdcanais.top/espn
+https://rdcanais.tp/espn/
 
 #EXTINF:-1 type="embed",ESPN 2
-https://rdcanais.top/espn2
+https://rdcanais.tp/espn2/
 
 #EXTINF:-1 type="embed",ESPN 3
-https://rdcanais.top/espn3
+https://rdcanais.tp/espn3/
 
 #EXTINF:-1 type="embed",ESPN 4
-https://rdcanais.top/espn4
+https://rdcanais.tp/espn4/
 
-#EXTINF:-1 type="embed",SporTV
-https://rdcanais.top/sportv
+#EXTINF:-1 type="embed",Sportv
+https://rdcanais.tp/sportv/
 
-#EXTINF:-1 type="embed",SporTV 2
-https://rdcanais.top/sportv2
+#EXTINF:-1 type="embed",Sportv 2
+https://rdcanais.tp/sportv2/
 
-#EXTINF:-1 type="embed",SporTV 3
-https://rdcanais.top/sportv3
-
-#EXTINF:-1 type="embed",Premiere
-https://rdcanais.top/premiere
-
-#EXTINF:-1 type="embed",Premiere 2
-https://rdcanais.top/premiere2
-
-#EXTINF:-1 type="embed",Premiere 3
-https://rdcanais.top/premiere3
+#EXTINF:-1 type="embed",Sportv 3
+https://rdcanais.tp/sportv3/
 
 #EXTINF:-1 type="embed",Combate
-https://rdcanais.top/combate
+https://rdcanais.tp/combate/
 
-#EXTINF:-1 type="embed",TNT Sports
-https://rdcanais.top/tntsports
+#EXTINF:-1 type="embed",Premiere
+https://rdcanais.tp/premiereclubes/
 
-#EXTINF:-1 type="embed",HBO
-https://rdcanais.top/hbo
+#EXTINF:-1 type="embed",Premiere 2
+https://rdcanais.tp/premiere2/
 
-#EXTINF:-1 type="embed",HBO 2
-https://rdcanais.top/hbo2
+#EXTINF:-1 type="embed",Premiere 3
+https://rdcanais.tp/premiere3/
 
-#EXTINF:-1 type="embed",HBO Plus
-https://rdcanais.top/hboplus
+#EXTINF:-1 type="embed",Paramount Plus
+https://rdcanais.top/paramountplus/
 
-#EXTINF:-1 type="embed",HBO Family
-https://rdcanais.top/hbofamily
+#EXTINF:-1 type="embed",Paramount Plus
+https://rdcanais.top/paramountplus2/
 
-#EXTINF:-1 type="embed",HBO Signature
-https://rdcanais.top/hbosignature
+#EXTINF:-1 type="embed",Paramount Plus
+https://rdcanais.top/paramountplus3/
+
+#EXTINF:-1 type="embed",Paramount Plus
+https://rdcanais.top/paramountplus4/
+
+#EXTINF:-1 type="embed",MAX
+https://rdcanais.top/max/
+
+#EXTINF:-1 type="embed",MAX
+https://rdcanais.top/max2/
+
+#EXTINF:-1 type="embed",MAX
+https://rdcanais.top/max3/
+
+#EXTINF:-1 type="embed",Prime
+https://rdcanais.com/primevideo
+
+#EXTINF:-1 type="embed",Prime
+https://rdcanais.com/primevideo2
+
+#EXTINF:-1 type="embed",Prime
+https://rdcanais.com/primevideo3
+
+#EXTINF:-1 type="embed",Prime
+https://rdcanais.com/primevideo4
+
+#EXTINF:-1 type="embed",TV Cultura
+https://rdcanais.top/tvcultura/
 
 #EXTINF:-1 type="embed",Telecine Premium
-https://rdcanais.top/telecinepremium
+https://rdcanais.top/telecinepremium/
 
 #EXTINF:-1 type="embed",Telecine Action
-https://rdcanais.top/telecineaction
-
-#EXTINF:-1 type="embed",Telecine Pipoca
-https://rdcanais.top/telecinepipoca
+https://rdcanais.top/telecineaction/
 
 #EXTINF:-1 type="embed",Telecine Touch
-https://rdcanais.top/telecinetouch
+https://rdcanais.top/telecinetouch/
+
+#EXTINF:-1 type="embed",Telecine Fun
+https://rdcanais.top/telecinefun/
+
+#EXTINF:-1 type="embed",Telecine Pipoca
+https://rdcanais.top/telecinepipoca/
 
 #EXTINF:-1 type="embed",Telecine Cult
-https://rdcanais.top/telecinecult
+https://rdcanais.top/telecinecult/
+#EXTINF:-1 type="embed",Telecine Premium
+https://rdcanais.top/telecinepremium/
 
+#EXTINF:-1 type="embed",Telecine Action
+https://rdcanais.top/telecineaction/
+
+#EXTINF:-1 type="embed",Telecine Touch
+https://rdcanais.top/telecinetouch/
+
+#EXTINF:-1 type="embed",Telecine Fun
+https://rdcanais.top/telecinefun/
+
+#EXTINF:-1 type="embed",Telecine Pipoca
+https://rdcanais.top/telecinepipoca/
+
+#EXTINF:-1 type="embed",Telecine Cult
+https://rdcanais.top/telecinecult/
 #EXTINF:-1 type="embed",Cartoon Network
-https://rdcanais.top/cartoonnetwork
+https://rdcanais.top/cartoonnetwork/
+
+#EXTINF:-1 type="embed",Disney Channel
+https://rdcanais.top/disneychannel/
+
+#EXTINF:-1 type="embed",Disney XD
+https://rdcanais.top/disneyxd/
+
+#EXTINF:-1 type="embed",Nickelodeon
+https://rdcanais.top/nickelodeon/
+
+#EXTINF:-1 type="embed",Nick Jr
+https://rdcanais.top/nickjr/
+
+#EXTINF:-1 type="embed",Boomerang
+https://rdcanais.top/boomerang/
+
+#EXTINF:-1 type="embed",Tooncast
+https://rdcanais.top/tooncast/
+#EXTINF:-1 type="embed",HBO
+https://rdcanais.top/hbo/
+
+#EXTINF:-1 type="embed",HBO 2
+https://rdcanais.top/hbo2/
+
+#EXTINF:-1 type="embed",HBO Plus
+https://rdcanais.top/hboplus/
+
+#EXTINF:-1 type="embed",HBO Family
+https://rdcanais.top/hbofamily/
+
+#EXTINF:-1 type="embed",HBO Signature
+https://rdcanais.top/hbosignature/
+
+#EXTINF:-1 type="embed",HBO Xtreme
+https://rdcanais.top/hboxtreme/
+#EXTINF:-1 type="embed",Discovery Channel
+https://rdcanais.top/discovery/
+
+#EXTINF:-1 type="embed",Discovery Science
+https://rdcanais.top/discoveryscience/
+
+#EXTINF:-1 type="embed",Animal Planet
+https://rdcanais.top/animalplanet/
+
+#EXTINF:-1 type="embed",National Geographic
+https://rdcanais.top/natgeo/
+
+#EXTINF:-1 type="embed",History Channel
+https://rdcanais.top/history/
+
+#EXTINF:-1 type="embed",TLC
+https://rdcanais.top/tlc/
+#EXTINF:-1 type="embed",Paramount
+https://rdcanais.top/paramount/
+
+#EXTINF:-1 type="embed",AXN
+https://rdcanais.top/axn/
+
+#EXTINF:-1 type="embed",Sony Channel
+https://rdcanais.top/sony/
+
+#EXTINF:-1 type="embed",Warner Channel
+https://rdcanais.top/warner/
+
+#EXTINF:-1 type="embed",Universal TV
+https://rdcanais.top/universal/
+
+#EXTINF:-1 type="embed",Studio Universal
+https://rdcanais.top/studiouniversal/
+
+#EXTINF:-1 type="embed",Megapix
+https://rdcanais.top/megapix/
 
 #EXTINF:-1 type="embed",Disney Channel
 https://rdcanais.top/disneychannel
