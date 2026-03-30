@@ -21,37 +21,37 @@ https://rdcanais.top/band/
 https://rdcanais.top/redetv/
 
 #EXTINF:-1 type="embed",ESPN
-https://rdcanais.tp/espn/
+https://rdcanais.top/espn/
 
 #EXTINF:-1 type="embed",ESPN 2
-https://rdcanais.tp/espn2/
+https://rdcanais.top/espn2/
 
 #EXTINF:-1 type="embed",ESPN 3
-https://rdcanais.tp/espn3/
+https://rdcanais.top/espn3/
 
 #EXTINF:-1 type="embed",ESPN 4
-https://rdcanais.tp/espn4/
+https://rdcanais.top/espn4/
 
 #EXTINF:-1 type="embed",Sportv
-https://rdcanais.tp/sportv/
+https://rdcanais.top/sportv/
 
 #EXTINF:-1 type="embed",Sportv 2
-https://rdcanais.tp/sportv2/
+https://rdcanais.top/sportv2/
 
 #EXTINF:-1 type="embed",Sportv 3
-https://rdcanais.tp/sportv3/
+https://rdcanais.top/sportv3/
 
 #EXTINF:-1 type="embed",Combate
-https://rdcanais.tp/combate/
+https://rdcanais.top/combate/
 
 #EXTINF:-1 type="embed",Premiere
-https://rdcanais.tp/premiereclubes/
+https://rdcanais.top/premiereclubes/
 
 #EXTINF:-1 type="embed",Premiere 2
-https://rdcanais.tp/premiere2/
+https://rdcanais.top/premiere2/
 
 #EXTINF:-1 type="embed",Premiere 3
-https://rdcanais.tp/premiere3/
+https://rdcanais.top/premiere3/
 
 #EXTINF:-1 type="embed",Paramount Plus
 https://rdcanais.top/paramountplus/
@@ -75,16 +75,16 @@ https://rdcanais.top/max2/
 https://rdcanais.top/max3/
 
 #EXTINF:-1 type="embed",Prime
-https://rdcanais.com/primevideo
+https://rdcanais.top/primevideo
 
 #EXTINF:-1 type="embed",Prime
-https://rdcanais.com/primevideo2
+https://rdcanais.top/primevideo2
 
 #EXTINF:-1 type="embed",Prime
-https://rdcanais.com/primevideo3
+https://rdcanais.top/primevideo3
 
 #EXTINF:-1 type="embed",Prime
-https://rdcanais.com/primevideo4
+https://rdcanais.top/primevideo4
 
 #EXTINF:-1 type="embed",TV Cultura
 https://rdcanais.top/tvcultura/
