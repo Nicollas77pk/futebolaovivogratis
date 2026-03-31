@@ -2,215 +2,215 @@
 module.exports = async (req, res) => {
   const lista = `
 #EXTM3U
-#EXTINF:-1 type="embed",Globo SP
+#EXTINF:-1 group-title="Abertos" type="embed",Globo SP
 https://rdcanais.top/globosp/
 
-#EXTINF:-1 type="embed",Globo RJ
+#EXTINF:-1 group-title="Abertos" type="embed",Globo RJ
 https://rdcanais.top/globorj/
 
-#EXTINF:-1 type="embed",SBT
+#EXTINF:-1 group-title="Abertos" type="embed",SBT
 https://rdcanais.top/sbt/
 
-#EXTINF:-1 type="embed",Record
+#EXTINF:-1 group-title="Abertos" type="embed",Record
 https://rdcanais.top/record/
 
-#EXTINF:-1 type="embed",Band
+#EXTINF:-1 group-title="Abertos" type="embed",Band
 https://rdcanais.top/band/
 
-#EXTINF:-1 type="embed",RedeTV
+#EXTINF:-1 group-title="Abertos" type="embed",RedeTV
 https://rdcanais.top/redetv/
 
-#EXTINF:-1 type="embed",ESPN
+#EXTINF:-1 group-title="Abertos" type="embed",ESPN
 https://rdcanais.top/espn/
 
-#EXTINF:-1 type="embed",ESPN 2
+#EXTINF:-1 group-title="Abertos" type="embed",ESPN 2
 https://rdcanais.top/espn2/
 
-#EXTINF:-1 type="embed",ESPN 3
+#EXTINF:-1 group-title="Abertos" type="embed",ESPN 3
 https://rdcanais.top/espn3/
 
-#EXTINF:-1 type="embed",ESPN 4
+#EXTINF:-1 group-title="Abertos" type="embed",ESPN 4
 https://rdcanais.top/espn4/
 
-#EXTINF:-1 type="embed",Sportv
+#EXTINF:-1 group-title="Abertos" type="embed",Sportv
 https://rdcanais.top/sportv/
 
-#EXTINF:-1 type="embed",Sportv 2
+#EXTINF:-1 group-title="Abertos" type="embed",Sportv 2
 https://rdcanais.top/sportv2/
 
-#EXTINF:-1 type="embed",Sportv 3
+#EXTINF:-1 group-title="Abertos" type="embed",Sportv 3
 https://rdcanais.top/sportv3/
 
-#EXTINF:-1 type="embed",Combate
+#EXTINF:-1 group-title="Abertos" type="embed",Combate
 https://rdcanais.top/combate/
 
-#EXTINF:-1 type="embed",Premiere
+#EXTINF:-1 group-title="Abertos" type="embed",Premiere
 https://rdcanais.top/premiereclubes/
 
-#EXTINF:-1 type="embed",Premiere 2
+#EXTINF:-1 group-title="Abertos" type="embed",Premiere 2
 https://rdcanais.top/premiere2/
 
-#EXTINF:-1 type="embed",Premiere 3
+#EXTINF:-1 group-title="Abertos" type="embed",Premiere 3
 https://rdcanais.top/premiere3/
 
-#EXTINF:-1 type="embed",Paramount Plus
+#EXTINF:-1 group-title="Abertos" type="embed",Paramount Plus
 https://rdcanais.top/paramountplus/
 
-#EXTINF:-1 type="embed",Paramount Plus
+#EXTINF:-1 group-title="Abertos" type="embed",Paramount Plus
 https://rdcanais.top/paramountplus2/
 
-#EXTINF:-1 type="embed",Paramount Plus
+#EXTINF:-1 group-title="Abertos" type="embed",Paramount Plus
 https://rdcanais.top/paramountplus3/
 
-#EXTINF:-1 type="embed",Paramount Plus
+#EXTINF:-1 group-title="Abertos" type="embed",Paramount Plus
 https://rdcanais.top/paramountplus4/
 
-#EXTINF:-1 type="embed",MAX
+#EXTINF:-1 group-title="Abertos" type="embed",MAX
 https://rdcanais.top/max/
 
-#EXTINF:-1 type="embed",MAX
+#EXTINF:-1 group-title="Abertos" type="embed",MAX
 https://rdcanais.top/max2/
 
-#EXTINF:-1 type="embed",MAX
+#EXTINF:-1 group-title="Abertos" type="embed",MAX
 https://rdcanais.top/max3/
 
-#EXTINF:-1 type="embed",Prime
+#EXTINF:-1 group-title="Abertos" type="embed",Prime
 https://rdcanais.top/primevideo
 
-#EXTINF:-1 type="embed",Prime
+#EXTINF:-1 group-title="Abertos" type="embed",Prime
 https://rdcanais.top/primevideo2
 
-#EXTINF:-1 type="embed",Prime
+#EXTINF:-1 group-title="Abertos" type="embed",Prime
 https://rdcanais.top/primevideo3
 
-#EXTINF:-1 type="embed",Prime
+#EXTINF:-1 group-title="Abertos" type="embed",Prime
 https://rdcanais.top/primevideo4
 
-#EXTINF:-1 type="embed",TV Cultura
+#EXTINF:-1 group-title="Abertos" type="embed",TV Cultura
 https://rdcanais.top/tvcultura/
 
-#EXTINF:-1 type="embed",Telecine Premium
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Premium
 https://rdcanais.top/telecinepremium/
 
-#EXTINF:-1 type="embed",Telecine Action
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Action
 https://rdcanais.top/telecineaction/
 
-#EXTINF:-1 type="embed",Telecine Touch
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Touch
 https://rdcanais.top/telecinetouch/
 
-#EXTINF:-1 type="embed",Telecine Fun
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Fun
 https://rdcanais.top/telecinefun/
 
-#EXTINF:-1 type="embed",Telecine Pipoca
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Pipoca
 https://rdcanais.top/telecinepipoca/
 
-#EXTINF:-1 type="embed",Telecine Cult
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Cult
 https://rdcanais.top/telecinecult/
-#EXTINF:-1 type="embed",Telecine Premium
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Premium
 https://rdcanais.top/telecinepremium/
 
-#EXTINF:-1 type="embed",Telecine Action
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Action
 https://rdcanais.top/telecineaction/
 
-#EXTINF:-1 type="embed",Telecine Touch
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Touch
 https://rdcanais.top/telecinetouch/
 
-#EXTINF:-1 type="embed",Telecine Fun
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Fun
 https://rdcanais.top/telecinefun/
 
-#EXTINF:-1 type="embed",Telecine Pipoca
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Pipoca
 https://rdcanais.top/telecinepipoca/
 
-#EXTINF:-1 type="embed",Telecine Cult
+#EXTINF:-1 group-title="Abertos" type="embed",Telecine Cult
 https://rdcanais.top/telecinecult/
-#EXTINF:-1 type="embed",Cartoon Network
+#EXTINF:-1 group-title="Abertos" type="embed",Cartoon Network
 https://rdcanais.top/cartoonnetwork/
 
-#EXTINF:-1 type="embed",Disney Channel
+#EXTINF:-1 group-title="Abertos" type="embed",Disney Channel
 https://rdcanais.top/disneychannel/
 
-#EXTINF:-1 type="embed",Disney XD
+#EXTINF:-1 group-title="Abertos" type="embed",Disney XD
 https://rdcanais.top/disneyxd/
 
-#EXTINF:-1 type="embed",Nickelodeon
+#EXTINF:-1 group-title="Abertos" type="embed",Nickelodeon
 https://rdcanais.top/nickelodeon/
 
-#EXTINF:-1 type="embed",Nick Jr
+#EXTINF:-1 group-title="Abertos" type="embed",Nick Jr
 https://rdcanais.top/nickjr/
 
-#EXTINF:-1 type="embed",Boomerang
+#EXTINF:-1 group-title="Abertos" type="embed",Boomerang
 https://rdcanais.top/boomerang/
 
-#EXTINF:-1 type="embed",Tooncast
+#EXTINF:-1 group-title="Abertos" type="embed",Tooncast
 https://rdcanais.top/tooncast/
-#EXTINF:-1 type="embed",HBO
+#EXTINF:-1 group-title="Abertos" type="embed",HBO
 https://rdcanais.top/hbo/
 
-#EXTINF:-1 type="embed",HBO 2
+#EXTINF:-1 group-title="Abertos" type="embed",HBO 2
 https://rdcanais.top/hbo2/
 
-#EXTINF:-1 type="embed",HBO Plus
+#EXTINF:-1 group-title="Abertos" type="embed",HBO Plus
 https://rdcanais.top/hboplus/
 
-#EXTINF:-1 type="embed",HBO Family
+#EXTINF:-1 group-title="Abertos" type="embed",HBO Family
 https://rdcanais.top/hbofamily/
 
-#EXTINF:-1 type="embed",HBO Signature
+#EXTINF:-1 group-title="Abertos" type="embed",HBO Signature
 https://rdcanais.top/hbosignature/
 
-#EXTINF:-1 type="embed",HBO Xtreme
+#EXTINF:-1 group-title="Abertos" type="embed",HBO Xtreme
 https://rdcanais.top/hboxtreme/
-#EXTINF:-1 type="embed",Discovery Channel
+#EXTINF:-1 group-title="Abertos" type="embed",Discovery Channel
 https://rdcanais.top/discovery/
 
-#EXTINF:-1 type="embed",Discovery Science
+#EXTINF:-1 group-title="Abertos" type="embed",Discovery Science
 https://rdcanais.top/discoveryscience/
 
-#EXTINF:-1 type="embed",Animal Planet
+#EXTINF:-1 group-title="Abertos" type="embed",Animal Planet
 https://rdcanais.top/animalplanet/
 
-#EXTINF:-1 type="embed",National Geographic
+#EXTINF:-1 group-title="Abertos" type="embed",National Geographic
 https://rdcanais.top/natgeo/
 
-#EXTINF:-1 type="embed",History Channel
+#EXTINF:-1 group-title="Abertos" type="embed",History Channel
 https://rdcanais.top/history/
 
-#EXTINF:-1 type="embed",TLC
+#EXTINF:-1 group-title="Abertos" type="embed",TLC
 https://rdcanais.top/tlc/
-#EXTINF:-1 type="embed",Paramount
+#EXTINF:-1 group-title="Abertos" type="embed",Paramount
 https://rdcanais.top/paramount/
 
-#EXTINF:-1 type="embed",AXN
+#EXTINF:-1 group-title="Abertos" type="embed",AXN
 https://rdcanais.top/axn/
 
-#EXTINF:-1 type="embed",Sony Channel
+#EXTINF:-1 group-title="Abertos" type="embed",Sony Channel
 https://rdcanais.top/sony/
 
-#EXTINF:-1 type="embed",Warner Channel
+#EXTINF:-1 group-title="Abertos" type="embed",Warner Channel
 https://rdcanais.top/warner/
 
-#EXTINF:-1 type="embed",Universal TV
+#EXTINF:-1 group-title="Abertos" type="embed",Universal TV
 https://rdcanais.top/universal/
 
-#EXTINF:-1 type="embed",Studio Universal
+#EXTINF:-1 group-title="Abertos" type="embed",Studio Universal
 https://rdcanais.top/studiouniversal/
 
-#EXTINF:-1 type="embed",Megapix
+#EXTINF:-1 group-title="Abertos" type="embed",Megapix
 https://rdcanais.top/megapix/
 
-#EXTINF:-1 type="embed",Disney Channel
+#EXTINF:-1 group-title="Abertos" type="embed",Disney Channel
 https://rdcanais.top/disneychannel
 
-#EXTINF:-1 type="embed",Discovery Channel
+#EXTINF:-1 group-title="Abertos" type="embed",Discovery Channel
 https://rdcanais.top/discoverychannel
 
-#EXTINF:-1 type="embed",History
+#EXTINF:-1 group-title="Abertos" type="embed",History
 https://rdcanais.top/history
 
-#EXTINF:-1 type="embed",National Geographic
+#EXTINF:-1 group-title="Abertos" type="embed",National Geographic
 https://rdcanais.top/nationalgeographic
 
-#EXTINF:-1 type="embed",Multishow
+#EXTINF:-1 group-title="Abertos" type="embed",Multishow
 https://rdcanais.top/multishow
 
 #EXTINF:-1,Gospel Movie TV
@@ -1501,6 +1501,6 @@ https://aym-cbtv.otteravision.com/aym/cbtv/cbtv_480p.m3u8
 
   `.trim();
 
-  res.setHeader('Content-Type', 'text/plain');
+  res.setHeader('Content-group-title="Abertos" type', 'text/plain');
   res.status(200).send(lista);
 };
