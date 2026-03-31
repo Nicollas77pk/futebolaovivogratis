@@ -1,225 +1,150 @@
-// api/canais.js
 module.exports = async (req, res) => {
   const lista = `
 #EXTM3U
-#EXTINF:-1 group-title="Abertos" type="embed",Globo SP
+
+############## ABERTOS ##############
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/15/TV_Globo_2021.svg" group-title="Abertos" type="embed",Globo SP
 https://rdcanais.top/globosp/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Globo RJ
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/15/TV_Globo_2021.svg" group-title="Abertos" type="embed",Globo RJ
 https://rdcanais.top/globorj/
 
-#EXTINF:-1 group-title="Abertos" type="embed",SBT
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/16/SBT_Logo_2015.svg" group-title="Abertos" type="embed",SBT
 https://rdcanais.top/sbt/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Record
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/2f/RecordTV_logo_2015.png" group-title="Abertos" type="embed",Record
 https://rdcanais.top/record/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Band
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3e/Band_logo_2018.png" group-title="Abertos" type="embed",Band
 https://rdcanais.top/band/
 
-#EXTINF:-1 group-title="Abertos" type="embed",RedeTV
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9a/RedeTV%21_logo_2017.png" group-title="Abertos" type="embed",RedeTV
 https://rdcanais.top/redetv/
 
-#EXTINF:-1 group-title="Esportes" type="embed",ESPN
-https://rdcanais.top/espn/
-
-#EXTINF:-1 group-title="Esportes" type="embed",ESPN 2
-https://rdcanais.top/espn2/
-
-#EXTINF:-1 group-title="Esportes" type="embed",ESPN 3
-https://rdcanais.top/espn3/
-
-#EXTINF:-1 group-title="Esportes" type="embed",ESPN 4
-https://rdcanais.top/espn4/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Sportv
-https://rdcanais.top/sportv/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Sportv 2
-https://rdcanais.top/sportv2/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Sportv 3
-https://rdcanais.top/sportv3/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Combate
-https://rdcanais.top/combate/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Premiere
-https://rdcanais.top/premiereclubes/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Premiere 2
-https://rdcanais.top/premiere2/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Premiere 3
-https://rdcanais.top/premiere3/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Paramount Plus
-https://rdcanais.top/paramountplus/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Paramount Plus
-https://rdcanais.top/paramountplus2/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Paramount Plus
-https://rdcanais.top/paramountplus3/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Paramount Plus
-https://rdcanais.top/paramountplus4/
-
-#EXTINF:-1 group-title="Esportes" type="embed",MAX
-https://rdcanais.top/max/
-
-#EXTINF:-1 group-title="Esportes" type="embed",MAX
-https://rdcanais.top/max2/
-
-#EXTINF:-1 group-title="Esportes" type="embed",MAX
-https://rdcanais.top/max3/
-
-#EXTINF:-1 group-title="Esportes" type="embed",Prime
-https://rdcanais.top/primevideo
-
-#EXTINF:-1 group-title="Esportes" type="embed",Prime
-https://rdcanais.top/primevideo2
-
-#EXTINF:-1 group-title="Esportes" type="embed",Prime
-https://rdcanais.top/primevideo3
-
-#EXTINF:-1 group-title="Esportes" type="embed",Prime
-https://rdcanais.top/primevideo4
-
-#EXTINF:-1 group-title="Abertos" type="embed",TV Cultura
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c1/TV_Cultura_logo_2013.svg" group-title="Abertos" type="embed",TV Cultura
 https://rdcanais.top/tvcultura/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Premium
-https://rdcanais.top/telecinepremium/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/6a/Multishow_logo.png" group-title="Abertos" type="embed",Multishow
+https://rdcanais.top/multishow/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Action
-https://rdcanais.top/telecineaction/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Touch
-https://rdcanais.top/telecinetouch/
+############## ESPORTES ##############
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Fun
-https://rdcanais.top/telecinefun/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7a/ESPN_logo_2019.svg" group-title="Esportes" type="embed",ESPN
+https://rdcanais.top/espn/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Pipoca
-https://rdcanais.top/telecinepipoca/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7a/ESPN_logo_2019.svg" group-title="Esportes" type="embed",ESPN 2
+https://rdcanais.top/espn2/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Cult
-https://rdcanais.top/telecinecult/
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Premium
-https://rdcanais.top/telecinepremium/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7a/ESPN_logo_2019.svg" group-title="Esportes" type="embed",ESPN 3
+https://rdcanais.top/espn3/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Action
-https://rdcanais.top/telecineaction/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e7/SporTV_logo_2016.png" group-title="Esportes" type="embed",Sportv
+https://rdcanais.top/sportv/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Touch
-https://rdcanais.top/telecinetouch/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e7/SporTV_logo_2016.png" group-title="Esportes" type="embed",Sportv 2
+https://rdcanais.top/sportv2/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Fun
-https://rdcanais.top/telecinefun/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e7/SporTV_logo_2016.png" group-title="Esportes" type="embed",Sportv 3
+https://rdcanais.top/sportv3/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Pipoca
-https://rdcanais.top/telecinepipoca/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/4b/Combate_logo.png" group-title="Esportes" type="embed",Combate
+https://rdcanais.top/combate/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Telecine Cult
-https://rdcanais.top/telecinecult/
-
-#EXTINF:-1 group-title="Filmes" type="embed",TNT
-https://rdcanais.top/tnt/
-
-#EXTINF:-1 group-title="Filmes" type="embed",Space
-https://rdcanais.top/space/
-
-#EXTINF:-1 group-title="Desenhos" type="embed",Cartoon Network
-https://rdcanais.top/cartoonnetwork/
-
-#EXTINF:-1 group-title="Desenhos" type="embed",Disney Channel
-https://rdcanais.top/disneychannel/
-
-#EXTINF:-1 group-title="Desenhos" type="embed",Disney XD
-https://rdcanais.top/disneyxd/
-
-#EXTINF:-1 group-title="Desenhos" type="embed",Nickelodeon
-https://rdcanais.top/nickelodeon/
-
-#EXTINF:-1 group-title="Desenhos" type="embed",Nick Jr
-https://rdcanais.top/nickjr/
-
-#EXTINF:-1 group-title="Desenhos" type="embed",Boomerang
-https://rdcanais.top/boomerang/
-
-#EXTINF:-1 group-title="Desenhos" type="embed",Tooncast
-https://rdcanais.top/tooncast/
-#EXTINF:-1 group-title="Filmes" type="embed",HBO
-https://rdcanais.top/hbo/
-
-#EXTINF:-1 group-title="Filmes" type="embed",HBO 2
-https://rdcanais.top/hbo2/
-
-#EXTINF:-1 group-title="Filmes" type="embed",HBO Plus
-https://rdcanais.top/hboplus/
-
-#EXTINF:-1 group-title="Filmes" type="embed",HBO Family
-https://rdcanais.top/hbofamily/
-
-#EXTINF:-1 group-title="Filmes" type="embed",HBO Signature
-https://rdcanais.top/hbosignature/
-
-#EXTINF:-1 group-title="Esportes" type="embed",HBO Xtreme
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg" group-title="Esportes" type="embed",HBO Xtreme
 https://rdcanais.top/hboxtreme/
 
-#EXTINF:-1 group-title="Docunentário" type="embed",Discovery Channel
-https://rdcanais.top/discovery/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/8c/Paramount_Plus_Logo.svg" group-title="Esportes" type="embed",Paramount+
+https://rdcanais.top/paramountplus/
 
-#EXTINF:-1 group-title="Docunentário" type="embed",Discovery Science
-https://rdcanais.top/discoveryscience/
 
-#EXTINF:-1 group-title="Docunentário" type="embed",Animal Planet
-https://rdcanais.top/animalplanet/
+############## FILMES ##############
 
-#EXTINF:-1 group-title="Docunentário" type="embed",National Geographic
-https://rdcanais.top/natgeo/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9b/Telecine.png" group-title="Filmes" type="embed",Telecine Premium
+https://rdcanais.top/telecinepremium/
 
-#EXTINF:-1 group-title="Docunentário" type="embed",History Channel
-https://rdcanais.top/history/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9b/Telecine.png" group-title="Filmes" type="embed",Telecine Action
+https://rdcanais.top/telecineaction/
 
-#EXTINF:-1 group-title="Abertos" type="embed",TLC
-https://rdcanais.top/tlc/
-#EXTINF:-1 group-title="Abertos" type="embed",Paramount
-https://rdcanais.top/paramount/
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9b/Telecine.png" group-title="Filmes" type="embed",Telecine Touch
+https://rdcanais.top/telecinetouch/
 
-#EXTINF:-1 group-title="Fimes" type="embed",AXN
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9b/Telecine.png" group-title="Filmes" type="embed",Telecine Fun
+https://rdcanais.top/telecinefun/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9b/Telecine.png" group-title="Filmes" type="embed",Telecine Pipoca
+https://rdcanais.top/telecinepipoca/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9b/Telecine.png" group-title="Filmes" type="embed",Telecine Cult
+https://rdcanais.top/telecinecult/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg" group-title="Filmes" type="embed",HBO
+https://rdcanais.top/hbo/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg" group-title="Filmes" type="embed",HBO 2
+https://rdcanais.top/hbo2/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg" group-title="Filmes" type="embed",HBO Plus
+https://rdcanais.top/hboplus/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg" group-title="Filmes" type="embed",HBO Family
+https://rdcanais.top/hbofamily/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg" group-title="Filmes" type="embed",HBO Signature
+https://rdcanais.top/hbosignature/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/67/TNT_Logo_2016.svg" group-title="Filmes" type="embed",TNT
+https://rdcanais.top/tnt/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/8f/AXN_logo_2015.png" group-title="Filmes" type="embed",AXN
 https://rdcanais.top/axn/
 
-#EXTINF:-1 group-title="Fimes" type="embed",Sony Channel
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3f/Sony_Channel_logo.png" group-title="Filmes" type="embed",Sony Channel
 https://rdcanais.top/sony/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Warner Channel
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9e/Warner_Channel_logo_2014.png" group-title="Filmes" type="embed",Warner Channel
 https://rdcanais.top/warner/
 
-#EXTINF:-1 group-title="Variedades" type="embed",Universal TV
-https://rdcanais.top/universal/
-
-#EXTINF:-1 group-title="Abertos" type="embed",Studio Universal
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/5a/Studio_Universal_logo.png" group-title="Filmes" type="embed",Studio Universal
 https://rdcanais.top/studiouniversal/
 
-#EXTINF:-1 group-title="Filmes" type="embed",Megapix
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/6b/Megapix_logo.png" group-title="Filmes" type="embed",Megapix
 https://rdcanais.top/megapix/
 
-#EXTINF:-1 group-title="Desenhos" type="embed",Disney Channel
-https://rdcanais.top/disneychannel
 
-#EXTINF:-1 group-title="Documentários" type="embed",Discovery Channel
-https://rdcanais.top/discoverychannel
+############## DESENHOS ##############
 
-#EXTINF:-1 group-title="Documentários" type="embed",History
-https://rdcanais.top/history
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/64/Cartoon_Network_2010_logo.svg" group-title="Desenhos" type="embed",Cartoon Network
+https://rdcanais.top/cartoonnetwork/
 
-#EXTINF:-1 group-title="Documentários" type="embed",National Geographic
-https://rdcanais.top/nationalgeographic
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney_Channel_logo.svg" group-title="Desenhos" type="embed",Disney Channel
+https://rdcanais.top/disneychannel/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Multishow
-https://rdcanais.top/multishow
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7a/Nickelodeon_2023_logo.svg" group-title="Desenhos" type="embed",Nickelodeon
+https://rdcanais.top/nickelodeon/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/11/Nick_Jr._logo_2009.svg" group-title="Desenhos" type="embed",Nick Jr
+https://rdcanais.top/nickjr/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/6a/Boomerang_logo_2015.svg" group-title="Desenhos" type="embed",Boomerang
+https://rdcanais.top/boomerang/
+
+
+############## DOCUMENTÁRIOS ##############
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/5a/Discovery_Channel_logo.svg" group-title="Documentários" type="embed",Discovery Channel
+https://rdcanais.top/discovery/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/fc/National_Geographic_Logo.svg" group-title="Documentários" type="embed",National Geographic
+https://rdcanais.top/natgeo/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/0/02/History_logo_2021.svg" group-title="Documentários" type="embed",History
+https://rdcanais.top/history/
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/Animal_Planet_logo_2018.svg" group-title="Documentários" type="embed",Animal Planet
+https://rdcanais.top/animalplanet/
+
 
 #EXTINF:-1 group-title="Abertos",Gospel Movie TV
 #EXTIMG https://example.com/icon.png
