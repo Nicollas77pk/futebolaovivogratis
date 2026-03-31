@@ -41,16 +41,6 @@
     box-shadow: 0 0 20px rgba(165, 237, 245, 0.08);
   }
 
-  .channel-list::after {
-    content: "";
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    background: linear-gradient(to bottom, transparent, #0f1c24);
-    pointer-events: none;
-  }
-
   h2 {
     font-size: 22px;
     margin-bottom: 10px;
@@ -105,15 +95,9 @@
     overflow: hidden;
     margin-bottom: 15px;
     position: relative;
-    animation: fadeIn 0.4s ease;
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0.3; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  video {
+  video, iframe {
     width: 100%;
     height: 100%;
   }
@@ -165,16 +149,33 @@
     outline: none;
   }
 
-  .open-menu {
+  /* HAMBURGER */
+  .hamburger {
     display: none;
-    width: 100%;
-    margin-bottom: 10px;
     background: linear-gradient(135deg, #a5edf5, #6ed0db);
     border: none;
-    padding: 12px;
+    padding: 12px 15px;
     border-radius: 8px;
+    font-size: 20px;
     font-weight: bold;
     color: #000;
+    margin-bottom: 10px;
+  }
+
+  /* OVERLAY */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 998;
+  }
+
+  .overlay.show {
+    display: block;
   }
 
   /* Scroll */
@@ -193,29 +194,33 @@
       height: auto;
     }
 
-    .open-menu { display: block; }
+    .hamburger {
+      display: block;
+    }
 
     .channel-list {
-      display: none;
       position: fixed;
       top: 0;
-      left: 0;
+      left: -100%;
       width: 80%;
       height: 100%;
       z-index: 999;
       border-radius: 0;
+      transition: 0.3s;
     }
 
-    .channel-list.show { display: block; }
+    .channel-list.show {
+      left: 0;
+    }
 
     .video-player { height: 220px; }
-
-    .player-controls { flex-direction: row; }
   }
 </style>
 </head>
 
 <body>
+
+<div class="overlay" onclick="toggleMenu()"></div>
 
 <div class="dashboard">
 
@@ -227,11 +232,10 @@
   </div>
 
   <div class="player-section">
-    <button class="open-menu" onclick="toggleMenu()">Listas de Canais</button>
+    <button class="hamburger" onclick="toggleMenu()">☰ Canais</button>
 
     <div class="video-player">
       <div id="loader" class="loader">Carregando canal...</div>
-      <video id="videoPlayer" controls></video>
     </div>
 
     <div class="player-controls">
@@ -250,6 +254,7 @@ let currentChannelIndex = 0;
 
 function toggleMenu() {
   document.querySelector('.channel-list').classList.toggle('show');
+  document.querySelector('.overlay').classList.toggle('show');
 }
 
 function fetchChannels() {
@@ -261,14 +266,12 @@ function fetchChannels() {
 
 function parseM3U(m3uText) {
   channels = [];
-  const lines = m3uText.split('\n');
+  const lines = m3uText.split('\\n');
 
   let name = '', logo = '', type = 'm3u8';
 
   lines.forEach((line, i) => {
-
     if (line.startsWith('#EXTINF')) {
-
       const nameMatch = line.match(/,(.*)$/);
       const logoMatch = line.match(/tvg-logo="([^"]+)"/);
       const typeMatch = line.match(/type="([^"]+)"/);
@@ -276,12 +279,10 @@ function parseM3U(m3uText) {
       name = nameMatch ? nameMatch[1] : `Canal ${i}`;
       logo = logoMatch ? logoMatch[1] : '';
       type = typeMatch ? typeMatch[1] : 'm3u8';
-
-    } else if (line && !line.startsWith('#')) {
-
+    } 
+    else if (line && !line.startsWith('#')) {
       let detectedType = type;
 
-      // auto detect se não tiver type
       if (line.includes('m3u8')) detectedType = 'm3u8';
       else if (line.includes('.mp4')) detectedType = 'mp4';
       else if (line.startsWith('http')) detectedType = 'embed';
@@ -293,7 +294,6 @@ function parseM3U(m3uText) {
         type: detectedType
       });
     }
-
   });
 
   renderChannelList();
@@ -334,62 +334,35 @@ function playChannel(index) {
   const channel = channels[index];
   const player = document.querySelector('.video-player');
 
-  // recria estrutura (evita bug)
-  player.innerHTML = `
-    <div id="loader" class="loader">Carregando canal...</div>
-  `;
-
+  player.innerHTML = `<div id="loader" class="loader">Carregando canal...</div>`;
   const loader = document.getElementById('loader');
   loader.style.display = 'block';
 
-  // 🎬 EMBED (iframe)
   if (channel.type === 'embed') {
-
     const iframe = document.createElement('iframe');
     iframe.src = channel.url;
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
     iframe.allowFullscreen = true;
-
     player.appendChild(iframe);
-
-    setTimeout(() => {
-      loader.style.display = 'none';
-    }, 1500);
-
-  }
-
-  // 🎬 MP4 ou M3U8
-  else {
-
+    setTimeout(() => loader.style.display = 'none', 1500);
+  } else {
     const video = document.createElement('video');
     video.controls = true;
     video.autoplay = true;
-    video.style.width = '100%';
-    video.style.height = '100%';
-
     player.appendChild(video);
 
-    // HLS
     if (channel.type === 'm3u8' && Hls.isSupported()) {
-
       const hls = new Hls();
       hls.loadSource(channel.url);
       hls.attachMedia(video);
-
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         loader.style.display = 'none';
         video.play();
       });
-
     } else {
-      // MP4 ou fallback
       video.src = channel.url;
       video.onloadeddata = () => loader.style.display = 'none';
       video.play();
     }
-
   }
 
   highlightActiveChannel();
@@ -415,7 +388,6 @@ function playNext() {
 function togglePlay() {
   const video = document.querySelector('video');
   if (!video) return;
-
   if (video.paused) video.play();
   else video.pause();
 }
@@ -426,7 +398,6 @@ function filterChannels() {
   renderChannelList(filtered);
 }
 
-// auto load
 fetchChannels();
 </script>
 
