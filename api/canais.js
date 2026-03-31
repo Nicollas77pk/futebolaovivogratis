@@ -20,34 +20,34 @@ https://rdcanais.top/band/
 #EXTINF:-1 group-title="Abertos" type="embed",RedeTV
 https://rdcanais.top/redetv/
 
-#EXTINF:-1 group-title="Abertos" type="embed",ESPN
+#EXTINF:-1 group-title="Esportes" type="embed",ESPN
 https://rdcanais.top/espn/
 
-#EXTINF:-1 group-title="Abertos" type="embed",ESPN 2
+#EXTINF:-1 group-title="Esportes" type="embed",ESPN 2
 https://rdcanais.top/espn2/
 
-#EXTINF:-1 group-title="Abertos" type="embed",ESPN 3
+#EXTINF:-1 group-title="Esportes" type="embed",ESPN 3
 https://rdcanais.top/espn3/
 
-#EXTINF:-1 group-title="Abertos" type="embed",ESPN 4
+#EXTINF:-1 group-title="Esportes" type="embed",ESPN 4
 https://rdcanais.top/espn4/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Sportv
+#EXTINF:-1 group-title="Esportes" type="embed",Sportv
 https://rdcanais.top/sportv/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Sportv 2
+#EXTINF:-1 group-title="Esportes" type="embed",Sportv 2
 https://rdcanais.top/sportv2/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Sportv 3
+#EXTINF:-1 group-title="Esportes" type="embed",Sportv 3
 https://rdcanais.top/sportv3/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Combate
+#EXTINF:-1 group-title="Esportes" type="embed",Combate
 https://rdcanais.top/combate/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Premiere
+#EXTINF:-1 group-title="Esportes" type="embed",Premiere
 https://rdcanais.top/premiereclubes/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Premiere 2
+#EXTINF:-1 group-title="Esportes" type="embed",Premiere 2
 https://rdcanais.top/premiere2/
 
 #EXTINF:-1 group-title="Abertos" type="embed",Premiere 3
