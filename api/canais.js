@@ -50,129 +50,137 @@ https://rdcanais.top/premiereclubes/
 #EXTINF:-1 group-title="Esportes" type="embed",Premiere 2
 https://rdcanais.top/premiere2/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Premiere 3
+#EXTINF:-1 group-title="Esportes" type="embed",Premiere 3
 https://rdcanais.top/premiere3/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Paramount Plus
+#EXTINF:-1 group-title="Esportes" type="embed",Paramount Plus
 https://rdcanais.top/paramountplus/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Paramount Plus
+#EXTINF:-1 group-title="Esportes" type="embed",Paramount Plus
 https://rdcanais.top/paramountplus2/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Paramount Plus
+#EXTINF:-1 group-title="Esportes" type="embed",Paramount Plus
 https://rdcanais.top/paramountplus3/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Paramount Plus
+#EXTINF:-1 group-title="Esportes" type="embed",Paramount Plus
 https://rdcanais.top/paramountplus4/
 
-#EXTINF:-1 group-title="Abertos" type="embed",MAX
+#EXTINF:-1 group-title="Esportes" type="embed",MAX
 https://rdcanais.top/max/
 
-#EXTINF:-1 group-title="Abertos" type="embed",MAX
+#EXTINF:-1 group-title="Esportes" type="embed",MAX
 https://rdcanais.top/max2/
 
-#EXTINF:-1 group-title="Abertos" type="embed",MAX
+#EXTINF:-1 group-title="Esportes" type="embed",MAX
 https://rdcanais.top/max3/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Prime
+#EXTINF:-1 group-title="Esportes" type="embed",Prime
 https://rdcanais.top/primevideo
 
-#EXTINF:-1 group-title="Abertos" type="embed",Prime
+#EXTINF:-1 group-title="Esportes" type="embed",Prime
 https://rdcanais.top/primevideo2
 
-#EXTINF:-1 group-title="Abertos" type="embed",Prime
+#EXTINF:-1 group-title="Esportes" type="embed",Prime
 https://rdcanais.top/primevideo3
 
-#EXTINF:-1 group-title="Abertos" type="embed",Prime
+#EXTINF:-1 group-title="Esportes" type="embed",Prime
 https://rdcanais.top/primevideo4
 
 #EXTINF:-1 group-title="Abertos" type="embed",TV Cultura
 https://rdcanais.top/tvcultura/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Premium
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Premium
 https://rdcanais.top/telecinepremium/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Action
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Action
 https://rdcanais.top/telecineaction/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Touch
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Touch
 https://rdcanais.top/telecinetouch/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Fun
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Fun
 https://rdcanais.top/telecinefun/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Pipoca
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Pipoca
 https://rdcanais.top/telecinepipoca/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Cult
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Cult
 https://rdcanais.top/telecinecult/
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Premium
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Premium
 https://rdcanais.top/telecinepremium/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Action
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Action
 https://rdcanais.top/telecineaction/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Touch
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Touch
 https://rdcanais.top/telecinetouch/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Fun
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Fun
 https://rdcanais.top/telecinefun/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Pipoca
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Pipoca
 https://rdcanais.top/telecinepipoca/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Telecine Cult
+#EXTINF:-1 group-title="Filmes" type="embed",Telecine Cult
 https://rdcanais.top/telecinecult/
-#EXTINF:-1 group-title="Abertos" type="embed",Cartoon Network
+
+#EXTINF:-1 group-title="Filmes" type="embed",TNT
+https://rdcanais.top/tnt/
+
+#EXTINF:-1 group-title="Filmes" type="embed",Space
+https://rdcanais.top/space/
+
+#EXTINF:-1 group-title="Desenhos" type="embed",Cartoon Network
 https://rdcanais.top/cartoonnetwork/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Disney Channel
+#EXTINF:-1 group-title="Desenhos" type="embed",Disney Channel
 https://rdcanais.top/disneychannel/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Disney XD
+#EXTINF:-1 group-title="Desenhos" type="embed",Disney XD
 https://rdcanais.top/disneyxd/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Nickelodeon
+#EXTINF:-1 group-title="Desenhos" type="embed",Nickelodeon
 https://rdcanais.top/nickelodeon/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Nick Jr
+#EXTINF:-1 group-title="Desenhos" type="embed",Nick Jr
 https://rdcanais.top/nickjr/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Boomerang
+#EXTINF:-1 group-title="Desenhos" type="embed",Boomerang
 https://rdcanais.top/boomerang/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Tooncast
+#EXTINF:-1 group-title="Desenhos" type="embed",Tooncast
 https://rdcanais.top/tooncast/
-#EXTINF:-1 group-title="Abertos" type="embed",HBO
+#EXTINF:-1 group-title="Filmes" type="embed",HBO
 https://rdcanais.top/hbo/
 
-#EXTINF:-1 group-title="Abertos" type="embed",HBO 2
+#EXTINF:-1 group-title="Filmes" type="embed",HBO 2
 https://rdcanais.top/hbo2/
 
-#EXTINF:-1 group-title="Abertos" type="embed",HBO Plus
+#EXTINF:-1 group-title="Filmes" type="embed",HBO Plus
 https://rdcanais.top/hboplus/
 
-#EXTINF:-1 group-title="Abertos" type="embed",HBO Family
+#EXTINF:-1 group-title="Filmes" type="embed",HBO Family
 https://rdcanais.top/hbofamily/
 
-#EXTINF:-1 group-title="Abertos" type="embed",HBO Signature
+#EXTINF:-1 group-title="Filmes" type="embed",HBO Signature
 https://rdcanais.top/hbosignature/
 
-#EXTINF:-1 group-title="Abertos" type="embed",HBO Xtreme
+#EXTINF:-1 group-title="Esportes" type="embed",HBO Xtreme
 https://rdcanais.top/hboxtreme/
-#EXTINF:-1 group-title="Abertos" type="embed",Discovery Channel
+
+#EXTINF:-1 group-title="Docunentário" type="embed",Discovery Channel
 https://rdcanais.top/discovery/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Discovery Science
+#EXTINF:-1 group-title="Docunentário" type="embed",Discovery Science
 https://rdcanais.top/discoveryscience/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Animal Planet
+#EXTINF:-1 group-title="Docunentário" type="embed",Animal Planet
 https://rdcanais.top/animalplanet/
 
-#EXTINF:-1 group-title="Abertos" type="embed",National Geographic
+#EXTINF:-1 group-title="Docunentário" type="embed",National Geographic
 https://rdcanais.top/natgeo/
 
-#EXTINF:-1 group-title="Abertos" type="embed",History Channel
+#EXTINF:-1 group-title="Docunentário" type="embed",History Channel
 https://rdcanais.top/history/
 
 #EXTINF:-1 group-title="Abertos" type="embed",TLC
@@ -180,34 +188,34 @@ https://rdcanais.top/tlc/
 #EXTINF:-1 group-title="Abertos" type="embed",Paramount
 https://rdcanais.top/paramount/
 
-#EXTINF:-1 group-title="Abertos" type="embed",AXN
+#EXTINF:-1 group-title="Fimes" type="embed",AXN
 https://rdcanais.top/axn/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Sony Channel
+#EXTINF:-1 group-title="Fimes" type="embed",Sony Channel
 https://rdcanais.top/sony/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Warner Channel
+#EXTINF:-1 group-title="Filmes" type="embed",Warner Channel
 https://rdcanais.top/warner/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Universal TV
+#EXTINF:-1 group-title="Variedades" type="embed",Universal TV
 https://rdcanais.top/universal/
 
 #EXTINF:-1 group-title="Abertos" type="embed",Studio Universal
 https://rdcanais.top/studiouniversal/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Megapix
+#EXTINF:-1 group-title="Filmes" type="embed",Megapix
 https://rdcanais.top/megapix/
 
-#EXTINF:-1 group-title="Abertos" type="embed",Disney Channel
+#EXTINF:-1 group-title="Desenhos" type="embed",Disney Channel
 https://rdcanais.top/disneychannel
 
-#EXTINF:-1 group-title="Abertos" type="embed",Discovery Channel
+#EXTINF:-1 group-title="Documentários" type="embed",Discovery Channel
 https://rdcanais.top/discoverychannel
 
-#EXTINF:-1 group-title="Abertos" type="embed",History
+#EXTINF:-1 group-title="Documentários" type="embed",History
 https://rdcanais.top/history
 
-#EXTINF:-1 group-title="Abertos" type="embed",National Geographic
+#EXTINF:-1 group-title="Documentários" type="embed",National Geographic
 https://rdcanais.top/nationalgeographic
 
 #EXTINF:-1 group-title="Abertos" type="embed",Multishow
@@ -217,7 +225,7 @@ https://rdcanais.top/multishow
 #EXTIMG https://example.com/icon.png
 https://stmv1.srvif.com/gospelf/gospelf/playlist.m3u8
 
-#EXTINF:-1 group-title="Abertos",Gospel Cartoon
+#EXTINF:-1 group-title="Desenhos",Gospel Cartoon
 #EXTIMG https://example.com/icon.png
 https://stmv1.srvif.com/gospelcartoon/gospelcartoon/playlist.m3u8
 
