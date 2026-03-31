@@ -266,11 +266,13 @@ function fetchChannels() {
 
 function parseM3U(m3uText) {
   channels = [];
-  const lines = m3uText.split('\\n');
+  const lines = m3uText.split('\n');
 
   let name = '', logo = '', type = 'm3u8';
 
   lines.forEach((line, i) => {
+    line = line.trim();
+
     if (line.startsWith('#EXTINF')) {
       const nameMatch = line.match(/,(.*)$/);
       const logoMatch = line.match(/tvg-logo="([^"]+)"/);
@@ -278,27 +280,31 @@ function parseM3U(m3uText) {
 
       name = nameMatch ? nameMatch[1] : `Canal ${i}`;
       logo = logoMatch ? logoMatch[1] : '';
-      type = typeMatch ? typeMatch[1] : 'm3u8';
+      type = typeMatch ? typeMatch[1] : 'embed';
     } 
     else if (line && !line.startsWith('#')) {
+
       let detectedType = type;
 
       if (line.includes('m3u8')) detectedType = 'm3u8';
       else if (line.includes('.mp4')) detectedType = 'mp4';
-      else if (line.startsWith('http')) detectedType = 'embed';
+      else detectedType = 'embed';
 
       channels.push({
         name,
-        url: line.trim(),
+        url: line,
         logo,
         type: detectedType
       });
     }
   });
 
+  console.log("Canais carregados:", channels);
+
   renderChannelList();
   if (channels.length > 0) playChannel(0);
 }
+
 
 function renderChannelList(list = channels) {
   const container = document.getElementById('channelContainer');
