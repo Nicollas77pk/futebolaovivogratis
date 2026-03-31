@@ -27,16 +27,16 @@ https://rdcanais.top/espn/
 https://rdcanais.top/espn2/
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN 3
-https://rdcanais.top/espn3/
+https://rdcanais.top/espn3
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN 4
-https://rdcanais.top/espn4/
+https://rdcanais.top/espn4
 
 #EXTINF:-1 group-title="Esportes" type="embed",Sportv
-https://rdcanais.top/sportv/
+https://rdcanais.com/sportvalternativo
 
 #EXTINF:-1 group-title="Esportes" type="embed",Sportv 2
-https://rdcanais.top/sportv2/
+https://rdcanais.top/sportv2
 
 #EXTINF:-1 group-title="Esportes" type="embed",Sportv 3
 https://rdcanais.top/sportv3/
