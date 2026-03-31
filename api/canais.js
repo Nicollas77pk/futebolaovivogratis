@@ -40,13 +40,13 @@ https://rdcanais.top/espn2/
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7a/ESPN_logo_2019.svg" group-title="Esportes" type="embed",ESPN 3
 https://rdcanais.top/espn3/
 
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e7/SporTV_logo_2016.png" group-title="Esportes" type="embed",Sportv
+#EXTINF:-1 tvg-logo="https://i.ibb.co/994zgWX/7.png" group-title="Esportes" type="embed",Sportv
 https://rdcanais.top/sportv/
 
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e7/SporTV_logo_2016.png" group-title="Esportes" type="embed",Sportv 2
+#EXTINF:-1 tvg-logo="https://i.ibb.co/994zgWX/7.png" group-title="Esportes" type="embed",Sportv 2
 https://rdcanais.top/sportv2/
 
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e7/SporTV_logo_2016.png" group-title="Esportes" type="embed",Sportv 3
+#EXTINF:-1 tvg-logo="https://i.ibb.co/994zgWX/7.png" group-title="Esportes" type="embed",Sportv 3
 https://rdcanais.top/sportv3/
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/4b/Combate_logo.png" group-title="Esportes" type="embed",Combate
