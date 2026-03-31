@@ -1,67 +1,189 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TV Online - Início</title>
 
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
+body {
+  background: #0b1419;
+  color: white;
+}
 
-  
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Futebol Ao Vivo grátis</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow: auto;
-      background: transparent;
-    }
+/* HERO */
+.hero {
+  height: 90vh;
+  background: linear-gradient(180deg, rgba(0,0,0,0.5), #0b1419),
+              url('https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
 
-    iframe {
-      border: none;
-      width: 100vw;
-      height: 100vh;
-      max-width: 100%;
-      display: block;
-    }
+.hero-content {
+  max-width: 500px;
+}
 
-    /* Faixa fixa na parte inferior */
-    .banner-faixa {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      z-index: 9999;
-      padding: 8px 0;
-      background: transparent; /* sem fundo */
-    }
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
 
-    .banner-faixa img {
-      width: 90vw;
-      max-width: 500px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-  </style>
+.hero p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* BOTÃO PRINCIPAL */
+.btn {
+  display: inline-block;
+  padding: 14px 25px;
+  background: linear-gradient(135deg, #a5edf5, #6ed0db);
+  color: black;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #a5edf5;
+}
+
+/* SEÇÕES */
+.section {
+  padding: 30px;
+}
+
+.section h2 {
+  margin-bottom: 15px;
+}
+
+/* GRID CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: #13232c;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: #1a323d;
+}
+
+.card img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+  .hero {
+    height: 70vh;
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <iframe
-    src="/site"
-    allow="encrypted-media"
-    allowfullscreen
-    referrerpolicy="no-referrer"
-  ></iframe>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Assista TV Online Grátis</h1>
+    <p>Canais ao vivo, esportes, filmes e muito mais direto no seu navegador.</p>
 
-  <!-- Banner puro em forma de faixa -->
-  <div class="banner-faixa">
-    <a href="https://8xbet86.com/" target="_blank" rel="noopener noreferrer">
-      <img src="https://i.imgur.com/Fen20UR.gif" alt="Banner Promocional" />
-    </a>
+    <!-- BOTÃO PRINCIPAL -->
+    <a href="player.html" class="btn">📺 Ver TV Online</a>
   </div>
+</section>
+
+<!-- DESTAQUES -->
+<section class="section">
+  <h2>🔥 Destaques</h2>
+
+  <div class="cards">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/ESPN_logo_2019.svg">
+      <p>ESPN</p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/SporTV_logo_2016.png">
+      <p>SporTV</p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg">
+      <p>HBO</p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Telecine.png">
+      <p>Telecine</p>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIAS -->
+<section class="section">
+  <h2>📂 Categorias</h2>
+
+  <div class="cards">
+    <div class="card">📺 Abertos</div>
+    <div class="card">⚽ Esportes</div>
+    <div class="card">🎬 Filmes</div>
+    <div class="card">🧸 Infantil</div>
+    <div class="card">🌍 Documentários</div>
+  </div>
+</section>
+
+<!-- CHAMADA FINAL -->
+<section class="section" style="text-align:center;">
+  <h2>Pronto para assistir?</h2>
+  <p style="margin:10px 0 20px; color:#aaa;">
+    Clique abaixo e comece agora
+  </p>
+
+  <a href="player.html" class="btn">🚀 Acessar Player</a>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  © 2026 TV Online - Todos os direitos reservados
+</div>
 
 </body>
 </html>
