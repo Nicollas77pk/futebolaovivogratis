@@ -101,25 +101,7 @@
     width: 100%;
     height: 100%;
   }
-.btn-home {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: linear-gradient(135deg, #a5edf5, #6ed0db);
-  color: black;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  z-index: 999;
-  transition: 0.3s;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
 
-.btn-home:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #a5edf5;
-}
   .loader {
     position: absolute;
     top: 50%;
@@ -238,11 +220,6 @@
 
 <body>
 
-<div class="top-buttons">
-  <a href="index.html" class="btn-home">🏠 Início</a>
-  <button onclick="toggleMenu()" class="btn-menu">☰ Menu</button>
-</div>
-
 <div class="overlay" onclick="toggleMenu()"></div>
 
 <div class="dashboard">
@@ -291,7 +268,7 @@ function parseM3U(m3uText) {
   channels = [];
   const lines = m3uText.split('\n');
 
-  let name = '', logo = '', type = 'embed', group = 'Outros';
+  let name = '', logo = '', type = 'm3u8';
 
   lines.forEach((line, i) => {
     line = line.trim();
@@ -300,20 +277,24 @@ function parseM3U(m3uText) {
       const nameMatch = line.match(/,(.*)$/);
       const logoMatch = line.match(/tvg-logo="([^"]+)"/);
       const typeMatch = line.match(/type="([^"]+)"/);
-      const groupMatch = line.match(/group-title="([^"]+)"/);
 
       name = nameMatch ? nameMatch[1] : `Canal ${i}`;
       logo = logoMatch ? logoMatch[1] : '';
       type = typeMatch ? typeMatch[1] : 'embed';
-      group = groupMatch ? groupMatch[1] : 'Outros';
     } 
     else if (line && !line.startsWith('#')) {
+
+      let detectedType = type;
+
+      if (line.includes('m3u8')) detectedType = 'm3u8';
+      else if (line.includes('.mp4')) detectedType = 'mp4';
+      else detectedType = 'embed';
+
       channels.push({
         name,
         url: line,
         logo,
-        type,
-        group
+        type: detectedType
       });
     }
   });
@@ -323,49 +304,31 @@ function parseM3U(m3uText) {
   renderChannelList();
   if (channels.length > 0) playChannel(0);
 }
-
 function renderChannelList(list = channels) {
   const container = document.getElementById('channelContainer');
   container.innerHTML = '';
 
-  const groups = {};
-
   list.forEach(channel => {
-    if (!groups[channel.group]) {
-      groups[channel.group] = [];
-    }
-    groups[channel.group].push(channel);
+    const div = document.createElement('div');
+    div.className = 'channel-item';
+
+    div.innerHTML = `
+      <div class="channel-logo">
+        ${channel.logo
+          ? `<img src="${channel.logo}">`
+          : `<svg width="24" height="24" fill="white"><circle cx="12" cy="12" r="10"/></svg>`}
+      </div>
+      <div>${channel.name}</div>
+    `;
+
+    div.onclick = () => {
+      const index = channels.indexOf(channel);
+      playChannel(index);
+      toggleMenu();
+    };
+
+    container.appendChild(div);
   });
-
-  for (const groupName in groups) {
-    const title = document.createElement('h3');
-    title.innerText = groupName;
-    title.style.margin = '15px 0 5px';
-    title.style.color = '#a5edf5';
-    container.appendChild(title);
-
-    groups[groupName].forEach(channel => {
-      const div = document.createElement('div');
-      div.className = 'channel-item';
-
-      div.innerHTML = `
-        <div class="channel-logo">
-          ${channel.logo
-            ? `<img src="${channel.logo}">`
-            : `<svg width="24" height="24" fill="white"><circle cx="12" cy="12" r="10"/></svg>`}
-        </div>
-        <div>${channel.name}</div>
-      `;
-
-      div.onclick = () => {
-        const index = channels.indexOf(channel);
-        playChannel(index);
-        toggleMenu();
-      };
-
-      container.appendChild(div);
-    });
-  }
 
   highlightActiveChannel();
 }
@@ -383,17 +346,12 @@ function playChannel(index) {
     const iframe = document.createElement('iframe');
     iframe.src = channel.url;
     iframe.allowFullscreen = true;
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
     player.appendChild(iframe);
     setTimeout(() => loader.style.display = 'none', 1500);
   } else {
     const video = document.createElement('video');
     video.controls = true;
     video.autoplay = true;
-    video.style.width = '100%';
-    video.style.height = '100%';
     player.appendChild(video);
 
     if (channel.type === 'm3u8' && Hls.isSupported()) {
