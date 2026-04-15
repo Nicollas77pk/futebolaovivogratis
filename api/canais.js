@@ -20,7 +20,7 @@ https://rdcanais.top/record/
 https://sinalpublicoetv.vercel.app/?id=record
 
 #EXTINF:-1 group-title="Abertos" type="embed",Band
-https://rdcanais.top/band/
+https://rdcanais.com/band/
 https://sinalpublicoetv.vercel.app/?id=band
 
 #EXTINF:-1 group-title="Abertos" type="embed",RedeTV
@@ -28,19 +28,19 @@ https://rdcanais.top/redetv/
 https://sinalpublicoetv.vercel.app/?id=redetv
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN
-https://rdcanais.top/espn/
+https://rdcanais.com/espn/
 https://sinalpublicoetv.vercel.app/?id=espn1
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN 2
-https://rdcanais.top/espn2/
+https://rdcanais.com/espn2/
 https://sinalpublicoetv.vercel.app/?id=espn2
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN 3
-https://rdcanais.top/espn3
+https://rdcanais.com/espn3
 https://sinalpublicoetv.vercel.app/?id=espn3
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN 4
-https://rdcanais.top/espn4
+https://rdcanais.com/espn4
 https://sinalpublicoetv.vercel.app/?id=espn4
 
 #EXTINF:-1 group-title="Esportes" type="embed",Sportv
@@ -48,29 +48,29 @@ https://rdcanais.com/sportvalternativo
 https://sinalpublicoetv.vercel.app/?id=sportv1
 
 #EXTINF:-1 group-title="Esportes" type="embed",Sportv 2
-https://rdcanais.top/sportv2
+https://rdcanais.com/sportv2
 https://sinalpublicoetv.vercel.app/?id=sportv2
 
 #EXTINF:-1 group-title="Esportes" type="embed",Sportv 3
-https://rdcanais.top/sportv3/
+https://rdcanais.com/sportv3/
 https://sinalpublicoetv.vercel.app/?id=sportv3
 
 #EXTINF:-1 group-title="Esportes" type="embed",Combate
-https://rdcanais.top/combate/
+https://rdcanais.com/combate/
 https://sinalpublicoetv.vercel.app/?id=combate
 
 #EXTM3U
 
 #EXTINF:-1 group-title="Esportes" type="embed",Premiere
-https://rdcanais.top/premiereclubes/
+https://rdcanais.com/premiereclubes/
 https://sinalpublicoetv.vercel.app/?id=premiereclubes
 
 #EXTINF:-1 group-title="Esportes" type="embed",Premiere 2
-https://rdcanais.top/premiere2/
+https://rdcanais.com/premiere2/
 https://sinalpublicoetv.vercel.app/?id=premiere2
 
 #EXTINF:-1 group-title="Esportes" type="embed",Premiere 3
-https://rdcanais.top/premiere3/
+https://rdcanais.com/premiere3/
 https://sinalpublicoetv.vercel.app/?id=premiere3
 
 
