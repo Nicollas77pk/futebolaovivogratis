@@ -4,19 +4,19 @@ module.exports = async (req, res) => {
 #EXTM3U
 
 #EXTINF:-1 group-title="Abertos" type="embed",Globo SP
-https://rdcanais.top/globosp/
+https://rdcanais.com/globosp/
 https://sinalpublicoetv.vercel.app/?id=globosp
 
 #EXTINF:-1 group-title="Abertos" type="embed",Globo RJ
-https://rdcanais.top/globorj/
+https://rdcanais.com/globorj/
 https://sinalpublicoetv.vercel.app/?id=globorj
 
 #EXTINF:-1 group-title="Abertos" type="embed",SBT
-https://rdcanais.top/sbt/
+https://rdcanais.com/sbt/
 https://sinalpublicoetv.vercel.app/?id=sbt
 
 #EXTINF:-1 group-title="Abertos" type="embed",Record
-https://rdcanais.top/record/
+https://rdcanais.com/record/
 https://sinalpublicoetv.vercel.app/?id=record
 
 #EXTINF:-1 group-title="Abertos" type="embed",Band
@@ -24,12 +24,12 @@ https://rdcanais.com/band/
 https://sinalpublicoetv.vercel.app/?id=band
 
 #EXTINF:-1 group-title="Abertos" type="embed",RedeTV
-https://rdcanais.top/redetv/
+https://rdcanais.com/redetv/
 https://sinalpublicoetv.vercel.app/?id=redetv
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN
 https://rdcanais.com/espn/
-https://sinalpublicoetv.vercel.app/?id=espn1
+https://sinalpublicoetv.vercel.app/?id=espn
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN 2
 https://rdcanais.com/espn2/
@@ -45,7 +45,7 @@ https://sinalpublicoetv.vercel.app/?id=espn4
 
 #EXTINF:-1 group-title="Esportes" type="embed",Sportv
 https://rdcanais.com/sportvalternativo
-https://sinalpublicoetv.vercel.app/?id=sportv1
+https://sinalpublicoetv.vercel.app/?id=sportv
 
 #EXTINF:-1 group-title="Esportes" type="embed",Sportv 2
 https://rdcanais.com/sportv2
@@ -63,7 +63,7 @@ https://sinalpublicoetv.vercel.app/?id=combate
 
 #EXTINF:-1 group-title="Esportes" type="embed",Premiere
 https://rdcanais.com/premiereclubes/
-https://sinalpublicoetv.vercel.app/?id=premiereclubes
+https://sinalpublicoetv.vercel.app/?id=premiere
 
 #EXTINF:-1 group-title="Esportes" type="embed",Premiere 2
 https://rdcanais.com/premiere2/
@@ -75,221 +75,221 @@ https://sinalpublicoetv.vercel.app/?id=premiere3
 
 
 #EXTINF:-1 group-title="Esportes" type="embed",Paramount 1
-https://rdcanais.top/paramountplus/
+https://rdcanais.com/paramountplus/
 https://sinalpublicoetv.vercel.app/?id=paramount1
 
 #EXTINF:-1 group-title="Esportes" type="embed",Paramount 2
-https://rdcanais.top/paramountplus2/
+https://rdcanais.com/paramountplus2/
 https://sinalpublicoetv.vercel.app/?id=paramount2
 
 #EXTINF:-1 group-title="Esportes" type="embed",Paramount 3
-https://rdcanais.top/paramountplus3/
+https://rdcanais.com/paramountplus3/
 https://sinalpublicoetv.vercel.app/?id=paramount3
 
 #EXTINF:-1 group-title="Esportes" type="embed",Paramount 4
-https://rdcanais.top/paramountplus4/
+https://rdcanais.com/paramountplus4/
 https://sinalpublicoetv.vercel.app/?id=paramount4
 
 
 #EXTINF:-1 group-title="Esportes" type="embed",MAX 1
-https://rdcanais.top/max/
+https://rdcanais.com/max/
 https://sinalpublicoetv.vercel.app/?id=max1
 
 #EXTINF:-1 group-title="Esportes" type="embed",MAX 2
-https://rdcanais.top/max2/
+https://rdcanais.com/max2/
 https://sinalpublicoetv.vercel.app/?id=max2
 
 #EXTINF:-1 group-title="Esportes" type="embed",MAX 3
-https://rdcanais.top/max3/
+https://rdcanais.com/max3/
 https://sinalpublicoetv.vercel.app/?id=max3
 
 
 #EXTINF:-1 group-title="Esportes" type="embed",Prime 1
-https://rdcanais.top/primevideo
+https://rdcanais.com/primevideo
 https://sinalpublicoetv.vercel.app/?id=prime1
 
 #EXTINF:-1 group-title="Esportes" type="embed",Prime 2
-https://rdcanais.top/primevideo2
+https://rdcanais.com/primevideo2
 https://sinalpublicoetv.vercel.app/?id=prime2
 
 #EXTINF:-1 group-title="Esportes" type="embed",Prime 3
-https://rdcanais.top/primevideo3
+https://rdcanais.com/primevideo3
 https://sinalpublicoetv.vercel.app/?id=prime3
 
 #EXTINF:-1 group-title="Esportes" type="embed",Prime 4
-https://rdcanais.top/primevideo4
+https://rdcanais.com/primevideo4
 https://sinalpublicoetv.vercel.app/?id=prime4
 
 
 #EXTINF:-1 group-title="Abertos" type="embed",TV Cultura
-https://rdcanais.top/tvcultura/
+https://rdcanais.com/tvcultura/
 https://sinalpublicoetv.vercel.app/?id=tvcultura
 
 
 #EXTINF:-1 group-title="Filmes" type="embed",Telecine Premium
-https://rdcanais.top/telecinepremium/
+https://rdcanais.com/telecinepremium/
 https://sinalpublicoetv.vercel.app/?id=telecinepremium
 
 #EXTINF:-1 group-title="Filmes" type="embed",Telecine Action
-https://rdcanais.top/telecineaction/
+https://rdcanais.com/telecineaction/
 https://sinalpublicoetv.vercel.app/?id=telecineaction
 
 #EXTINF:-1 group-title="Filmes" type="embed",Telecine Touch
-https://rdcanais.top/telecinetouch/
+https://rdcanais.com/telecinetouch/
 https://sinalpublicoetv.vercel.app/?id=telecinetouch
 
 #EXTINF:-1 group-title="Filmes" type="embed",Telecine Fun
-https://rdcanais.top/telecinefun/
+https://rdcanais.com/telecinefun/
 https://sinalpublicoetv.vercel.app/?id=telecinefun
 
 #EXTINF:-1 group-title="Filmes" type="embed",Telecine Pipoca
-https://rdcanais.top/telecinepipoca/
+https://rdcanais.com/telecinepipoca/
 https://sinalpublicoetv.vercel.app/?id=telecinepipoca
 
 #EXTINF:-1 group-title="Filmes" type="embed",Telecine Cult
-https://rdcanais.top/telecinecult/
+https://rdcanais.com/telecinecult/
 https://sinalpublicoetv.vercel.app/?id=telecinecult
 
 #EXTM3U
 
 #EXTINF:-1 group-title="Filmes" type="embed",Telecine Touch
-https://rdcanais.top/telecinetouch/
+https://rdcanais.com/telecinetouch/
 https://sinalpublicoetv.vercel.app/?id=telecinetouch
 
 #EXTINF:-1 group-title="Filmes" type="embed",Telecine Fun
-https://rdcanais.top/telecinefun/
+https://rdcanais.com/telecinefun/
 https://sinalpublicoetv.vercel.app/?id=telecinefun
 
 #EXTINF:-1 group-title="Filmes" type="embed",Telecine Pipoca
-https://rdcanais.top/telecinepipoca/
+https://rdcanais.com/telecinepipoca/
 https://sinalpublicoetv.vercel.app/?id=telecinepipoca
 
 #EXTINF:-1 group-title="Filmes" type="embed",Telecine Cult
-https://rdcanais.top/telecinecult/
+https://rdcanais.com/telecinecult/
 https://sinalpublicoetv.vercel.app/?id=telecinecult
 
 
 #EXTINF:-1 group-title="Filmes" type="embed",TNT
-https://rdcanais.top/tnt/
+https://rdcanais.com/tnt/
 https://sinalpublicoetv.vercel.app/?id=tnt
 
 #EXTINF:-1 group-title="Filmes" type="embed",Space
-https://rdcanais.top/space/
+https://rdcanais.com/space/
 https://sinalpublicoetv.vercel.app/?id=space
 
 
 #EXTINF:-1 group-title="Filmes" type="embed",HBO
-https://rdcanais.top/hbo/
+https://rdcanais.com/hbo/
 https://sinalpublicoetv.vercel.app/?id=hbo
 
 #EXTINF:-1 group-title="Filmes" type="embed",HBO 2
-https://rdcanais.top/hbo2/
+https://rdcanais.com/hbo2/
 https://sinalpublicoetv.vercel.app/?id=hbo2
 
 #EXTINF:-1 group-title="Filmes" type="embed",HBO Plus
-https://rdcanais.top/hboplus/
+https://rdcanais.com/hboplus/
 https://sinalpublicoetv.vercel.app/?id=hboplus
 
 #EXTINF:-1 group-title="Filmes" type="embed",HBO Family
-https://rdcanais.top/hbofamily/
+https://rdcanais.com/hbofamily/
 https://sinalpublicoetv.vercel.app/?id=hbofamily
 
 #EXTINF:-1 group-title="Filmes" type="embed",HBO Signature
-https://rdcanais.top/hbosignature/
+https://rdcanais.com/hbosignature/
 https://sinalpublicoetv.vercel.app/?id=hbosignature
 
 #EXTINF:-1 group-title="Filmes" type="embed",HBO Xtreme
-https://rdcanais.top/hboxtreme/
+https://rdcanais.com/hboxtreme/
 https://sinalpublicoetv.vercel.app/?id=hboxtreme
 
 
 #EXTINF:-1 group-title="Desenhos" type="embed",Cartoon Network
-https://rdcanais.top/cartoonnetwork/
+https://rdcanais.com/cartoonnetwork/
 https://sinalpublicoetv.vercel.app/?id=cartoonnetwork
 
 #EXTINF:-1 group-title="Desenhos" type="embed",Disney Channel
-https://rdcanais.top/disneychannel/
+https://rdcanais.com/disneychannel/
 https://sinalpublicoetv.vercel.app/?id=disneychannel
 
 #EXTINF:-1 group-title="Desenhos" type="embed",Disney XD
-https://rdcanais.top/disneyxd/
+https://rdcanais.com/disneyxd/
 https://sinalpublicoetv.vercel.app/?id=disneyxd
 
 #EXTINF:-1 group-title="Desenhos" type="embed",Nickelodeon
-https://rdcanais.top/nickelodeon/
+https://rdcanais.com/nickelodeon/
 https://sinalpublicoetv.vercel.app/?id=nickelodeon
 
 #EXTINF:-1 group-title="Desenhos" type="embed",Nick Jr
-https://rdcanais.top/nickjr/
+https://rdcanais.com/nickjr/
 https://sinalpublicoetv.vercel.app/?id=nickjr
 
 #EXTINF:-1 group-title="Desenhos" type="embed",Boomerang
-https://rdcanais.top/boomerang/
+https://rdcanais.com/boomerang/
 https://sinalpublicoetv.vercel.app/?id=boomerang
 
 #EXTINF:-1 group-title="Desenhos" type="embed",Tooncast
-https://rdcanais.top/tooncast/
+https://rdcanais.com/tooncast/
 https://sinalpublicoetv.vercel.app/?id=tooncast
 
 
 #EXTINF:-1 group-title="Documentario" type="embed",Discovery Channel
-https://rdcanais.top/discovery/
+https://rdcanais.com/discovery/
 https://sinalpublicoetv.vercel.app/?id=discovery
 
 #EXTINF:-1 group-title="Documentario" type="embed",Discovery Science
-https://rdcanais.top/discoveryscience/
+https://rdcanais.com/discoveryscience/
 https://sinalpublicoetv.vercel.app/?id=discoveryscience
 
 #EXTINF:-1 group-title="Documentario" type="embed",Animal Planet
-https://rdcanais.top/animalplanet/
+https://rdcanais.com/animalplanet/
 https://sinalpublicoetv.vercel.app/?id=animalplanet
 
 #EXTINF:-1 group-title="Documentario" type="embed",National Geographic
-https://rdcanais.top/natgeo/
+https://rdcanais.com/natgeo/
 https://sinalpublicoetv.vercel.app/?id=natgeo
 
 #EXTINF:-1 group-title="Documentario" type="embed",History Channel
-https://rdcanais.top/history/
+https://rdcanais.com/history/
 https://sinalpublicoetv.vercel.app/?id=history
 
 #EXTM3U
 
 #EXTINF:-1 group-title="Variedades" type="embed",TLC
-https://rdcanais.top/tlc/
+https://rdcanais.com/tlc/
 https://sinalpublicoetv.vercel.app/?id=tlc
 
 #EXTINF:-1 group-title="Filmes" type="embed",Paramount
-https://rdcanais.top/paramount/
+https://rdcanais.com/paramount/
 https://sinalpublicoetv.vercel.app/?id=paramount
 
 
 #EXTINF:-1 group-title="Filmes" type="embed",AXN
-https://rdcanais.top/axn/
+https://rdcanais.com/axn/
 https://sinalpublicoetv.vercel.app/?id=axn
 
 #EXTINF:-1 group-title="Filmes" type="embed",Sony Channel
-https://rdcanais.top/sony/
+https://rdcanais.com/sony/
 https://sinalpublicoetv.vercel.app/?id=sony
 
 #EXTINF:-1 group-title="Filmes" type="embed",Warner Channel
-https://rdcanais.top/warner/
+https://rdcanais.com/warner/
 https://sinalpublicoetv.vercel.app/?id=warner
 
 #EXTINF:-1 group-title="Variedades" type="embed",Universal TV
-https://rdcanais.top/universal/
+https://rdcanais.com/universal/
 https://sinalpublicoetv.vercel.app/?id=universal
 
 #EXTINF:-1 group-title="Filmes" type="embed",Studio Universal
-https://rdcanais.top/studiouniversal/
+https://rdcanais.com/studiouniversal/
 https://sinalpublicoetv.vercel.app/?id=studiouniversal
 
 #EXTINF:-1 group-title="Filmes" type="embed",Megapix
-https://rdcanais.top/megapix/
+https://rdcanais.com/megapix/
 https://sinalpublicoetv.vercel.app/?id=megapix
 
 
 #EXTINF:-1 group-title="Variedades" type="embed",Multishow
-https://rdcanais.top/multishow
+https://rdcanais.com/multishow
 https://sinalpublicoetv.vercel.app/?id=multishow
 #EXTINF:-1 group-title="Abertos",Gospel Movie TV
 #EXTIMG https://example.com/icon.png
