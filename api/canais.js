@@ -794,7 +794,8 @@ https://cis-no-samsung.otteravision.com/cis/no/no_h265.m3u8
 #EXTINF:-1 group-title="Abertos",Sony Novelas | LG
 #EXTIMG:https://i.imgur.com/mqEHDE1.png
 https://spt-novelas-1 group-title="Abertos"-us.lg.wurl.tv/playlist.m3u8
+`;
 
-#EXTINF:-1 group-title="Abertos",SPACE SD
-#EXTIMG:https://imgur.com/RxETCgZ.png
-https://cdn-1 group-t
+  res.setHeader('Content-Type', 'text/plain');
+  res.status(200).send(lista);
+};
