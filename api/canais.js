@@ -29,7 +29,7 @@ https://sinalpublicoetv.vercel.app/?id=redetv
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN
 https://rdcanais.top/espn/
-https://sinalpublicoetv.vercel.app/?id=espn
+https://sinalpublicoetv.vercel.app/?id=espn1
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN 2
 https://rdcanais.top/espn2/
@@ -45,7 +45,7 @@ https://sinalpublicoetv.vercel.app/?id=espn4
 
 #EXTINF:-1 group-title="Esportes" type="embed",Sportv
 https://rdcanais.com/sportvalternativo
-https://sinalpublicoetv.vercel.app/?id=sportv
+https://sinalpublicoetv.vercel.app/?id=sportv1
 
 #EXTINF:-1 group-title="Esportes" type="embed",Sportv 2
 https://rdcanais.top/sportv2
@@ -63,7 +63,7 @@ https://sinalpublicoetv.vercel.app/?id=combate
 
 #EXTINF:-1 group-title="Esportes" type="embed",Premiere
 https://rdcanais.top/premiereclubes/
-https://sinalpublicoetv.vercel.app/?id=premiere
+https://sinalpublicoetv.vercel.app/?id=premiereclubes
 
 #EXTINF:-1 group-title="Esportes" type="embed",Premiere 2
 https://rdcanais.top/premiere2/
