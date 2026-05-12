@@ -4,8 +4,8 @@ module.exports = async (req, res) => {
 #EXTM3U
 
 #EXTINF:-1 group-title="Abertos" type="embed",Globo SP
-https://5embeddecanais.xyz/amazonprimevideo/
-https://sinalpublicoetv.vercel.app/?id=globosp
+https://rdcanais.com/globosp
+https://rdcanais.com/globosp
 
 #EXTINF:-1 group-title="Abertos" type="embed",Globo RJ
 https://rdcanais.com/globorj/
