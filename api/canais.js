@@ -28,8 +28,8 @@ https://rdcanais.com/redetv/
 https://sinalpublicoetv.vercel.app/?id=redetv
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN
-https://rdcanais.com/espn/
-https://sinalpublicoetv.vercel.app/?id=espn
+https://w2.embedtv.live/espn
+https://w2.embedtv.live/espn
 
 #EXTINF:-1 group-title="Esportes" type="embed",ESPN 2
 https://rdcanais.com/espn2/
