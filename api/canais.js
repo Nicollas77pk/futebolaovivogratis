@@ -4,8 +4,8 @@ module.exports = async (req, res) => {
 #EXTM3U
 
 #EXTINF:-1 group-title="Abertos" type="embed",Globo SP
-https://rdcanais.com/globosp
-https://rdcanais.com/globosp
+https://rdcanais.net/globorj
+https://rdcanais.net/globorj
 
 #EXTINF:-1 group-title="Abertos" type="embed",Globo RJ
 https://rdcanais.com/globorj/
