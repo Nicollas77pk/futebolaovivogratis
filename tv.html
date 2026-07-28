@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<script async src="https://ss.mrmnd.com/native.js"></script>
+	<div data-mndazid="e372bbf1-b669-4a01-a334-be24eddb3d2b"></div>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard IPTV</title>
@@ -40,16 +43,6 @@
     overflow-y: auto;
     position: relative;
     box-shadow: 0 0 20px rgba(165, 237, 245, 0.08);
-  }
-
-  .channel-list::after {
-    content: "";
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    background: linear-gradient(to bottom, transparent, #0f1c24);
-    pointer-events: none;
   }
 
   h2 {
@@ -106,15 +99,9 @@
     overflow: hidden;
     margin-bottom: 15px;
     position: relative;
-    animation: fadeIn 0.4s ease;
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0.3; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  video {
+  video, iframe {
     width: 100%;
     height: 100%;
   }
@@ -166,27 +153,33 @@
     outline: none;
   }
 
-  .open-menu {
+  .hamburger {
     display: none;
-    width: 100%;
-    margin-bottom: 10px;
     background: linear-gradient(135deg, #a5edf5, #6ed0db);
     border: none;
-    padding: 12px;
+    padding: 12px 15px;
     border-radius: 8px;
+    font-size: 20px;
     font-weight: bold;
     color: #000;
+    margin-bottom: 10px;
   }
 
-  /* Scroll */
-  ::-webkit-scrollbar { width: 10px; }
-  ::-webkit-scrollbar-track { background: #0f1c24; }
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #a5edf5, #6ed0db);
-    border-radius: 10px;
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 998;
   }
 
-  /* MOBILE */
+  .overlay.show {
+    display: block;
+  }
+
   @media (max-width: 768px) {
     .dashboard {
       grid-template-columns: 1fr;
@@ -194,29 +187,35 @@
       height: auto;
     }
 
-    .open-menu { display: block; }
+    .hamburger {
+      display: block;
+    }
 
     .channel-list {
-      display: none;
       position: fixed;
       top: 0;
-      left: 0;
+      left: -100%;
       width: 80%;
       height: 100%;
       z-index: 999;
       border-radius: 0;
+      transition: 0.3s;
     }
 
-    .channel-list.show { display: block; }
+    .channel-list.show {
+      left: 0;
+    }
 
     .video-player { height: 220px; }
-
-    .player-controls { flex-direction: row; }
   }
 </style>
-</head>
+</head>	
+<head>
 
 <body>
+
+		
+<div class="overlay" onclick="toggleMenu()"></div>
 
 <div class="dashboard">
 
@@ -228,73 +227,72 @@
   </div>
 
   <div class="player-section">
-    <button class="open-menu" onclick="toggleMenu()">Listas de Canais</button>
+    <button class="hamburger" onclick="toggleMenu()">☰ Canais</button>
 
     <div class="video-player">
       <div id="loader" class="loader">Carregando canal...</div>
-      <video id="videoPlayer" controls></video>
     </div>
 
     <div class="player-controls">
-      <button class="control-button" onclick="playPrevious()">⏮</button>
-      <button class="control-button" onclick="togglePlay()">⏯</button>
-      <button class="control-button" onclick="playNext()">⏭</button>
+      <button class="control-button" onclick="playFrameIndex(0)">Player 1</button>
+      <button class="control-button" onclick="playFrameIndex(1)">Player 2</button>
+      <button class="control-button" onclick="playFrameIndex(2)">Player 3</button>
     </div>
   </div>
 
 </div>
-
+<!-- Begin BidVertiser code -->
+<SCRIPT data-cfasync="false" SRC="//bdv.bidvertiser.com/BidVertiser.dbm?pid=921830&bid=2106176" TYPE="text/javascript"></SCRIPT>
+<!-- End BidVertiser code -->
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+
+<div data-mndazid="12ad86d9-554b-45b9-ba5d-321e77c29af0"></div>
+
+	
 <script>
 let channels = [];
 let currentChannelIndex = 0;
 
 function toggleMenu() {
   document.querySelector('.channel-list').classList.toggle('show');
+  document.querySelector('.overlay').classList.toggle('show');
 }
 
 function fetchChannels() {
   fetch('/api/canais')
     .then(res => res.text())
     .then(text => parseM3U(text))
-    .catch(err => alert('Erro ao carregar lista M3U.'));
+    .catch(() => alert('Erro ao carregar lista'));
 }
 
+/* 🔥 PARSE CORRIGIDO */
 function parseM3U(m3uText) {
   channels = [];
   const lines = m3uText.split('\n');
 
-  let name = '', logo = '', type = 'm3u8';
+  let currentChannel = null;
 
   lines.forEach((line, i) => {
+    line = line.trim();
 
     if (line.startsWith('#EXTINF')) {
-
       const nameMatch = line.match(/,(.*)$/);
       const logoMatch = line.match(/tvg-logo="([^"]+)"/);
-      const typeMatch = line.match(/type="([^"]+)"/);
 
-      name = nameMatch ? nameMatch[1] : `Canal ${i}`;
-      logo = logoMatch ? logoMatch[1] : '';
-      type = typeMatch ? typeMatch[1] : 'm3u8';
+      currentChannel = {
+        name: nameMatch ? nameMatch[1] : `Canal ${i}`,
+        logo: logoMatch ? logoMatch[1] : '',
+        frames: [],
+        type: 'embed'
+      };
 
-    } else if (line && !line.startsWith('#')) {
-
-      let detectedType = type;
-
-      // auto detect se não tiver type
-      if (line.includes('m3u8')) detectedType = 'm3u8';
-      else if (line.includes('.mp4')) detectedType = 'mp4';
-      else if (line.startsWith('http')) detectedType = 'embed';
-
-      channels.push({
-        name,
-        url: line.trim(),
-        logo,
-        type: detectedType
-      });
+      channels.push(currentChannel);
     }
 
+    else if (line && !line.startsWith('#') && currentChannel) {
+      currentChannel.frames.push(line);
+    }
   });
 
   renderChannelList();
@@ -332,68 +330,46 @@ function renderChannelList(list = channels) {
 
 function playChannel(index) {
   currentChannelIndex = index;
-  const channel = channels[index];
+  playFrameIndex(0);
+  highlightActiveChannel();
+}
+
+function playFrameIndex(i) {
+  const channel = channels[currentChannelIndex];
+  if (!channel.frames[i]) return;
+  playCustomFrame(channel.frames[i]);
+}
+
+function playCustomFrame(url) {
   const player = document.querySelector('.video-player');
 
-  // recria estrutura (evita bug)
-  player.innerHTML = `
-    <div id="loader" class="loader">Carregando canal...</div>
-  `;
-
+  player.innerHTML = `<div id="loader" class="loader">Carregando canal...</div>`;
   const loader = document.getElementById('loader');
   loader.style.display = 'block';
 
-  // 🎬 EMBED (iframe)
-  if (channel.type === 'embed') {
-
-    const iframe = document.createElement('iframe');
-    iframe.src = channel.url;
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
-    iframe.allowFullscreen = true;
-
-    player.appendChild(iframe);
-
-    setTimeout(() => {
-      loader.style.display = 'none';
-    }, 1500);
-
-  }
-
-  // 🎬 MP4 ou M3U8
-  else {
-
+  if (url.includes('m3u8') && Hls.isSupported()) {
     const video = document.createElement('video');
     video.controls = true;
     video.autoplay = true;
-    video.style.width = '100%';
-    video.style.height = '100%';
-
     player.appendChild(video);
 
-    // HLS
-    if (channel.type === 'm3u8' && Hls.isSupported()) {
+    const hls = new Hls();
+    hls.loadSource(url);
+    hls.attachMedia(video);
 
-      const hls = new Hls();
-      hls.loadSource(channel.url);
-      hls.attachMedia(video);
-
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        loader.style.display = 'none';
-        video.play();
-      });
-
-    } else {
-      // MP4 ou fallback
-      video.src = channel.url;
-      video.onloadeddata = () => loader.style.display = 'none';
+    hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      loader.style.display = 'none';
       video.play();
-    }
+    });
 
+  } else {
+    const iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.allowFullscreen = true;
+    player.appendChild(iframe);
+
+    setTimeout(() => loader.style.display = 'none', 1500);
   }
-
-  highlightActiveChannel();
 }
 
 function highlightActiveChannel() {
@@ -403,31 +379,12 @@ function highlightActiveChannel() {
   });
 }
 
-function playPrevious() {
-  currentChannelIndex = (currentChannelIndex - 1 + channels.length) % channels.length;
-  playChannel(currentChannelIndex);
-}
-
-function playNext() {
-  currentChannelIndex = (currentChannelIndex + 1) % channels.length;
-  playChannel(currentChannelIndex);
-}
-
-function togglePlay() {
-  const video = document.querySelector('video');
-  if (!video) return;
-
-  if (video.paused) video.play();
-  else video.pause();
-}
-
 function filterChannels() {
   const search = document.getElementById('searchInput').value.toLowerCase();
   const filtered = channels.filter(c => c.name.toLowerCase().includes(search));
   renderChannelList(filtered);
 }
 
-// auto load
 fetchChannels();
 </script>
 
