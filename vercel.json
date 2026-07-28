@@ -8,7 +8,7 @@
   "rewrites": [
     {
       "source": "/tv",
-      "destination": "/tvmais.html"
+      "destination": "/tv.html"
     }
   ]
 }
