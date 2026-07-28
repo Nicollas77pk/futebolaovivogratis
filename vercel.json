@@ -1,8 +1,22 @@
 {
-  "rewrites": [
-    { 
-      "source": "/site",
-      "destination": "https://sinalpublico.vercel.app/"
+  "version": 2,
+  "functions": {
+    "api/*.js": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/canais",
+      "dest": "/api/canais.js"
+    },
+    {
+      "src": "/tv",
+      "dest": "/tv.html"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
     }
   ]
 }
