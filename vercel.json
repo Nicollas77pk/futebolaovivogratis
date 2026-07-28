@@ -4,19 +4,5 @@
     "api/*.js": {
       "runtime": "@vercel/node"
     }
-  },
-  "routes": [
-    {
-      "src": "/api/canais",
-      "dest": "/api/canais.js"
-    },
-    {
-      "src": "/tv",
-      "dest": "/tv.html"
-    },
-    {
-      "src": "/",
-      "dest": "/index.html"
-    }
-  ]
+  }
 }
