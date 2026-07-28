@@ -4,5 +4,11 @@
     "api/*.js": {
       "runtime": "@vercel/node"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/tv",
+      "destination": "/tv.html"
+    }
+  ]
 }
